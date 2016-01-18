@@ -33,6 +33,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         switch UIDevice.currentDevice().userInterfaceIdiom {
         case .Pad:
             btnClose.enabled = false
