@@ -31,23 +31,16 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func dismissAction() {
         dismissViewControllerAnimated(true) { }
     }
-
-    
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(animated)
-//        
-//        if navigationController != nil {
-//            btnClose.removeFromSuperview()
-//            tableTopEdgeConstraint.constant = 0
-//        }
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if navigationController != nil {
-            btnClose.removeFromSuperview()
+        switch UIDevice.currentDevice().userInterfaceIdiom {
+        case .Pad:
+            btnClose.enabled = false
+            btnClose.hidden = true
             tableTopEdgeConstraint.constant = 0
+        default:
+            break
         }
     }
     
