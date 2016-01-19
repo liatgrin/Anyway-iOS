@@ -24,210 +24,210 @@
 "main_presenting_count_label" =  "Showing %d accidents";
 
 //Localization.swift
-"SUG_DERECH_1" = "Urban junction";
-"SUG_DERECH_2" = "Urban, not a junction";
-"SUG_DERECH_3" = "Intercity junction";
-"SUG_DERECH_4" = "Intercity, not a junction";
+"SUG_DERECH_1" = "Urban Intersection";
+"SUG_DERECH_2" = "Urban, non-intersection";
+"SUG_DERECH_3" = "Non-Urban Intersection";
+"SUG_DERECH_4" = "Non-urban, non-intersection";
 
-"YEHIDA_11" = "Coastal region (Haifa)";
-"YEHIDA_12" = "Galil region";
-"YEHIDA_14" = "מרחב עמקים";
-"YEHIDA_20" = "Tel Aviv-Yafo";
-"YEHIDA_33" = "Eilat";
-"YEHIDA_34" = "Negev region";
-"YEHIDA_36" = "מרחב שמשון (עד 1999)";
-"YEHIDA_37" = "מרחב שמשון (החל ב-2004)";
-"YEHIDA_38" = "מרחב לכיש";
-"YEHIDA_41" = "מרחב שומרון";
-"YEHIDA_43" = "מרחב יהודה";
-"YEHIDA_51" = "מרחב השרון";
-"YEHIDA_52" = "מרחב השפלה";
-"YEHIDA_61" = "מחוז ירושלים";
+"YEHIDA_11" = "Coastal Zone (Haifa)";
+"YEHIDA_12" = "Galilee Zone";
+"YEHIDA_14" = "Valleys Zone";
+"YEHIDA_20" = "TLV Zone";
+"YEHIDA_33" = "Eilat Zone";
+"YEHIDA_34" = "Negev Zone";
+"YEHIDA_36" = "Shimshon Zone (Until 1999)";
+"YEHIDA_37" = "Shimshon Zone (From 2004)";
+"YEHIDA_38" = "Lachish Zone";
+"YEHIDA_41" = "Samaria Zone";
+"YEHIDA_43" = "Judea Zone";
+"YEHIDA_51" = "Hasharon Zone";
+"YEHIDA_52" = "Shfela Zone";
+"YEHIDA_61" = "Jerusalem Zone";
 
 
 // ### Road Conditions ###
 
 "SUG_YOM_1" = "Holiday";
-"SUG_YOM_2" = "holiday Eve";
-"SUG_YOM_3" = "Business Day";
-"SUG_YOM_4" = "Other";
+"SUG_YOM_2" = "Holiday Eve";
+"SUG_YOM_3" = "Chol Hamoed";
+"SUG_YOM_4" = "Other Day";
 
-"HUMRAT_TEUNA_1" = "Lethal";
+"HUMRAT_TEUNA_1" = "Fatal";
 "HUMRAT_TEUNA_2" = "Severe";
 "HUMRAT_TEUNA_3" = "Minor";
 
-"SUG_TEUNA_1" = "פגיעה בהולך רגל";
-"SUG_TEUNA_2" = "התנגשות חזית אל צד";
-"SUG_TEUNA_3" = "התנגשות חזית באחור";
-"SUG_TEUNA_4" = "התנגשות צד בצד";
-"SUG_TEUNA_5" = "התנגשות חזית אל חזית";
-"SUG_TEUNA_6" = "התנגשות עם רכב שנעצר ללא חניה";
-"SUG_TEUNA_7" = "התנגשות עם רכב חונה";
-"SUG_TEUNA_8" = "התנגשות עם עצם דומם";
-"SUG_TEUNA_9" = "ירידה מהכביש או עלייה למדרכה";
-"SUG_TEUNA_10" = "התהפכות";
-"SUG_TEUNA_11" = "החלקה";
-"SUG_TEUNA_12" = "פגיעה בנוסע בתוך כלי רכב";
-"SUG_TEUNA_13" = "נפילה ברכב נע";
-"SUG_TEUNA_14" = "שריפה";
-"SUG_TEUNA_15" = "אחר";
-"SUG_TEUNA_17" = "התנגשות אחור אל חזית";
-"SUG_TEUNA_18" = "התנגשות אחור אל צד";
-"SUG_TEUNA_19" = "התנגשות עם בעל חיים";
-"SUG_TEUNA_20" = "פגיעה ממטען של רכב";
-"SUG_TEUNA_21" = "איחוד הצלה";
+"SUG_TEUNA_1" = "Bystander Hit";
+"SUG_TEUNA_2" = "Head-On to Side Collision";
+"SUG_TEUNA_3" = "Head-On to Rear Collision";
+"SUG_TEUNA_4" = "Side to Side Collision";
+"SUG_TEUNA_5" = "Head-On Collision";
+"SUG_TEUNA_6" = "Collision with non-parked, stopped vehicle";
+"SUG_TEUNA_7" = "Collision with parked vehicle";
+"SUG_TEUNA_8" = "Collision with inanimate object";
+"SUG_TEUNA_9" = "Driving off the road or on to the sidewalk";
+"SUG_TEUNA_10" = "Rollover";
+"SUG_TEUNA_11" = "Skidding";
+"SUG_TEUNA_12" = "Hitting Passenger within the vehicle";
+"SUG_TEUNA_13" = "Fall within a moving vehicle";
+"SUG_TEUNA_14" = "Fire";
+"SUG_TEUNA_15" = "Other";
+"SUG_TEUNA_17" = "Rear to head-on collision";
+"SUG_TEUNA_18" = "Rear to side collision";
+"SUG_TEUNA_19" = "Collision with animal";
+"SUG_TEUNA_20" = "Hit by Car Trunk";
+"SUG_TEUNA_21" = "United Hatzalah";
 
-"ZURAT_DEREH_1" = "כניסה למחלף";
-"ZURAT_DEREH_2" = "ביציאה ממחלף";
-"ZURAT_DEREH_3" = "מ.חניה/ת. דלק";
-"ZURAT_DEREH_4" = "שיפוע תלול";
-"ZURAT_DEREH_5" = "עקום חד";
-"ZURAT_DEREH_6" = "על גשר מנהרה";
-"ZURAT_DEREH_7" = "מפגש מסילת ברזל";
-"ZURAT_DEREH_8" = "כביש ישר/צומת";
-"ZURAT_DEREH_9" = "אחר";
+"ZURAT_DEREH_1" = "Entering a Junction";
+"ZURAT_DEREH_2" = "Exiting a Junction";
+"ZURAT_DEREH_3" = "Parking Lot/Gas Station";
+"ZURAT_DEREH_4" = "Steep Slope";
+"ZURAT_DEREH_5" = "Sharp Curve";
+"ZURAT_DEREH_6" = "On Bridge/Tunnel";
+"ZURAT_DEREH_7" = "Railroad Crossing";
+"ZURAT_DEREH_8" = "Straight Road/Intersection";
+"ZURAT_DEREH_9" = "Other";
 
-"HAD_MASLUL_1" = "חד סיטרי";
-"HAD_MASLUL_2" = "דו סיטרי+קו הפרדה רצוף";
-"HAD_MASLUL_3" = "דו סיטרי אין קו הפרדה רצוף";
-"HAD_MASLUL_4" = "אחר";
+"HAD_MASLUL_1" = "One-Way";
+"HAD_MASLUL_2" = "Two-Way, No Passing";
+"HAD_MASLUL_3" = "Two-Way, Passing Allowed";
+"HAD_MASLUL_4" = "Other";
 
-"RAV_MASLUL_1" = "מיפרדה מסומנת בצבע";
-"RAV_MASLUL_2" = "מיפרדה עם גדר בטיחות";
-"RAV_MASLUL_3" = "מיפרדה בנויה ללא גדר בטיחות";
-"RAV_MASLUL_4" = "מיפרדה לא בנויה";
-"RAV_MASLUL_5" = "אחר";
+"RAV_MASLUL_1" = "Color-marked Barrier";
+"RAV_MASLUL_2" = "Barrier with a Safety Fence";
+"RAV_MASLUL_3" = "Rigid Barrier without Safety Fence";
+"RAV_MASLUL_4" = "Non-Rigid Barrier";
+"RAV_MASLUL_5" = "Other";
 
-"MEHIRUT_MUTERET_1" = "under 50 km/h";
+"MEHIRUT_MUTERET_1" = "Up to 50 km/h";
 "MEHIRUT_MUTERET_2" = "60 km/h";
 "MEHIRUT_MUTERET_3" = "70 km/h";
 "MEHIRUT_MUTERET_4" = "80 km/h";
 "MEHIRUT_MUTERET_5" = "90 km/h";
 "MEHIRUT_MUTERET_6" = "100 km/h";
 
-"TKINUT_1" = "אין ליקוי";
-"TKINUT_2" = "שוליים גרועים";
-"TKINUT_3" = "כביש משובש";
-"TKINUT_4" = "שוליים גרועים וכביש משובש";
+"TKINUT_1" = "No Defect";
+"TKINUT_2" = "Poor Shoulder";
+"TKINUT_3" = "Potholed Road";
+"TKINUT_4" = "Potholed Road and Poor Shoulders";
 
-"ROHAV_1" = "under 5 meter";
-"ROHAV_2" = "5-7 metes";
-"ROHAV_3" = "7-10.5 meters";
-"ROHAV_4" = "10.5-14 meters";
-"ROHAV_5" = "14 meters or more";
+"ROHAV_1" = "Up to 5 Meters";
+"ROHAV_2" = "5 to 7";
+"ROHAV_3" = "7 to 10.5";
+"ROHAV_4" = "10.5 to 14";
+"ROHAV_5" = "More than 14 Meters";
 
-"SIMUN_TIMRUR_1" = "סימון לקוי/חסר";
-"SIMUN_TIMRUR_2" = "תימרור לקוי/חסר";
-"SIMUN_TIMRUR_3" = "אין ליקוי";
-"SIMUN_TIMRUR_4" = "לא נדרש תמרור";
+"SIMUN_TIMRUR_1" = "Missing/Inadequate Marking ";
+"SIMUN_TIMRUR_2" = "Missing/Inadequate Traffic Signals";
+"SIMUN_TIMRUR_3" = "No Defect";
+"SIMUN_TIMRUR_4" = "No Traffic Signalling Necessary";
 
-"TEURA_1" = "אור יום רגיל";
-"TEURA_2" = "ראות מוגבלת עקב מזג אויר (עשן;ערפל)";
-"TEURA_3" = "לילה פעלה תאורה";
-"TEURA_4" = "קיימת תאורה בלתי תקינה/לא פועלת";
-"TEURA_5" = "לילה לא קיימת תאורה";
+"TEURA_1" = "Regular Daylight";
+"TEURA_2" = "Limited Visibility due to Weather Conditions (Smoke, Fog)";
+"TEURA_3" = "Night with working lighting";
+"TEURA_4" = "Inadequate/non-functioning lighting";
+"TEURA_5" = "Night no lighting";
 
-"BAKARA_1" = "אין בקרה";
-"BAKARA_2" = "רמזור תקין";
-"BAKARA_3" = "רמזור מהבהב צהוב";
-"BAKARA_4" = "רמזור לא תקין";
-"BAKARA_5" = "תמרור עצור";
-"BAKARA_6" = "תמרור זכות קדימה";
-"BAKARA_7" = "אחר";
+"BAKARA_1" = "No Control";
+"BAKARA_2" = "Working traffic light";
+"BAKARA_3" = "Flashing yellow traffic light";
+"BAKARA_4" = "Broken traffic light";
+"BAKARA_5" = "Stop Sign";
+"BAKARA_6" = "Right-of-Way sign";
+"BAKARA_7" = "Other";
 
-"MEZEG_AVIR_1" = "בהיר";
-"MEZEG_AVIR_2" = "גשום";
-"MEZEG_AVIR_3" = "שרבי";
-"MEZEG_AVIR_4" = "ערפילי";
-"MEZEG_AVIR_5" = "אחר";
+"MEZEG_AVIR_1" = "Clear";
+"MEZEG_AVIR_2" = "Rainy";
+"MEZEG_AVIR_3" = "Torrid";
+"MEZEG_AVIR_4" = "Foggy";
+"MEZEG_AVIR_5" = "Other";
 
-"PNE_KVISH_1" = "יבש";
-"PNE_KVISH_2" = "רטוב ממים";
-"PNE_KVISH_3" = "מרוח בחומר דלק";
-"PNE_KVISH_4" = "מכוסה בבוץ";
-"PNE_KVISH_5" = "חול או חצץ על הכביש";
-"PNE_KVISH_6" = "אחר";
+"PNE_KVISH_1" = "Dry";
+"PNE_KVISH_2" = "Wet with water";
+"PNE_KVISH_3" = "Oil spilled";
+"PNE_KVISH_4" = "Covered in mud";
+"PNE_KVISH_5" = "Sand or gravel on the road";
+"PNE_KVISH_6" = "Other";
 
-"SUG_EZEM_1" = "עץ";
-"SUG_EZEM_2" = "עמוד חשמל/תאורה/טלפון";
-"SUG_EZEM_3" = "תמרור ושלט";
-"SUG_EZEM_4" = "גשר סימניו ומגיניו";
-"SUG_EZEM_5" = "מבנה";
-"SUG_EZEM_6" = "גדר בטיחות לרכב";
-"SUG_EZEM_7" = "חבית";
-"SUG_EZEM_8" = "אחר";
+"SUG_EZEM_1" = "Tree";
+"SUG_EZEM_2" = "Electric/Light/Telephone Pole";
+"SUG_EZEM_3" = "Traffic Light and Sign";
+"SUG_EZEM_4" = "Bridge and it's barriers and signs";
+"SUG_EZEM_5" = "Building";
+"SUG_EZEM_6" = "Traffic Barrier/Guard Rail";
+"SUG_EZEM_7" = "Barrel";
+"SUG_EZEM_8" = "Other";
 
-"MERHAK_EZEM_1" = "עד מטר";
-"MERHAK_EZEM_2" = "1-3 מטר";
-"MERHAK_EZEM_3" = "על הכביש";
-"MERHAK_EZEM_4" = "על שטח הפרדה";
+"MERHAK_EZEM_1" = "Up to 1 Meter";
+"MERHAK_EZEM_2" = "1-3 Meters";
+"MERHAK_EZEM_3" = "On the Road";
+"MERHAK_EZEM_4" = "On the median strip";
 
-"LO_HAZA_1" = "הלך בכיוון התנועה";
-"LO_HAZA_2" = "הלך נגד";
-"LO_HAZA_3" = "שיחק על הכביש";
-"LO_HAZA_4" = "עמד על הכביש";
-"LO_HAZA_5" = "היה על אי הפרדה";
-"LO_HAZA_6" = "היה על שוליים/מדרכה";
-"LO_HAZA_7" = "אחר";
+"LO_HAZA_1" = "Walking with traffic direction";
+"LO_HAZA_2" = "Walking against";
+"LO_HAZA_3" = "Played on the road";
+"LO_HAZA_4" = "Stood on the road";
+"LO_HAZA_5" = "Was on the median strip";
+"LO_HAZA_6" = "Was on the shoulder/sidewalk";
+"LO_HAZA_7" = "Other";
 
-"OFEN_HAZIYA_1" = "התפרץ אל הכביש";
-"OFEN_HAZIYA_2" = "חצה שהוא מוסתר";
-"OFEN_HAZIYA_3" = "חצה רגיל";
-"OFEN_HAZIYA_4" = "אחר";
+"OFEN_HAZIYA_1" = "Burst on to the road";
+"OFEN_HAZIYA_2" = "Crossed when he was not visible";
+"OFEN_HAZIYA_3" = "Crossed normally";
+"OFEN_HAZIYA_4" = "Other";
 
-"MEKOM_HAZIYA_1" = "לא במעבר חציה ליד צומת";
-"MEKOM_HAZIYA_2" = "לא במעבר חציה לא ליד צומת";
-"MEKOM_HAZIYA_3" = "במעבר חציה בלי רמזור";
-"MEKOM_HAZIYA_4" = "במעבר חציה עם רמזור";
+"MEKOM_HAZIYA_1" = "Not on the Pedestrian Crossing by Intersection";
+"MEKOM_HAZIYA_2" = "Not on the Pedestrian Crossing not by Intersection";
+"MEKOM_HAZIYA_3" = "Pedestrian Crossing without traffic light";
+"MEKOM_HAZIYA_4" = "Pedestrian Crossing with traffic light";
 
-"KIVUN_HAZIYA_1" = "מימין לשמאל";
-"KIVUN_HAZIYA_2" = "משמאל לימין";
+"KIVUN_HAZIYA_1" = "From Right to Left";
+"KIVUN_HAZIYA_2" = "From Left to Right";
 
-"STATUS_IGUN_1" = "עיגון מדויק";
-"STATUS_IGUN_2" = "מרכז ישוב";
-"STATUS_IGUN_3" = "מרכז דרך";
-"STATUS_IGUN_4" = "מרכז קילומטר";
-"STATUS_IGUN_9" = "לא עוגן";
+"STATUS_IGUN_1" = "Pinpoint Location";
+"STATUS_IGUN_2" = "Accurate to Community";
+"STATUS_IGUN_3" = "Accurate to Street";
+"STATUS_IGUN_4" = "Accurate to kilometer";
+"STATUS_IGUN_9" = "No Pinpoint Location";
 
 
 // ### Vehicle description titles ###
 
 // State (stolen, rent etc.)
 "MATZAV_REHEV_1" = "Stolen";
-"MATZAV_REHEV_2" = "Rent";
-"MATZAV_REHEV_3" = "Driving Lesson";
-"MATZAV_REHEV_4" = "Kids Transit";
+"MATZAV_REHEV_2" = "Rental";
+"MATZAV_REHEV_3" = "Learner's";
+"MATZAV_REHEV_4" = "Childrens Transportation";
 
 // Association (police, citizen, diplomatic etc.)
-"SHIYUH_REHEV_LMS_0" = "לא מנועי";
+"SHIYUH_REHEV_LMS_0" = "Non-motorized";
 "SHIYUH_REHEV_LMS_1" = "Israeli";
 "SHIYUH_REHEV_LMS_2" = "Military";
 "SHIYUH_REHEV_LMS_3" = "Police";
 "SHIYUH_REHEV_LMS_4" = "Foreign";
 "SHIYUH_REHEV_LMS_5" = "Diplomatic";
-"SHIYUH_REHEV_LMS_6" = "Salvation";
+"SHIYUH_REHEV_LMS_6" = "Judea and Samaria";
 "SHIYUH_REHEV_LMS_9" = "Anonymous";
 
 // Type (private, truck etc.)
-"SUG_REHEV_LMS_1" = "רכב נוסעים פרטי";
-"SUG_REHEV_LMS_2" = "משא עד 4 טון אחוד";
-"SUG_REHEV_LMS_3" = "משא עד 4 טון לא אחוד";
-"SUG_REHEV_LMS_4" = "משא 1.4 עד 9.9 טון משקל כולל";
-"SUG_REHEV_LMS_5" = "משא 10 עד 15.9 טון משקל כולל";
-"SUG_REHEV_LMS_6" = "משא 16 עד 33.9 טון משקל כולל";
-"SUG_REHEV_LMS_7" = "משא 34.0+טון משקל כולל";
-"SUG_REHEV_LMS_8" = "אופנוע עד 50 סמ״ק";
-"SUG_REHEV_LMS_9" = "אופנוע 51 עד 250 סמ״ק";
-"SUG_REHEV_LMS_10" = "אופנוע 251 עד 500 סמ״ק";
-"SUG_REHEV_LMS_11" = "אוטובוס";
-"SUG_REHEV_LMS_12" = "מונית";
-"SUG_REHEV_LMS_13" = "רכב עבודה";
-"SUG_REHEV_LMS_14" = "טרקטור";
-"SUG_REHEV_LMS_15" = "אופניים";
-"SUG_REHEV_LMS_16" = "רכבת";
-"SUG_REHEV_LMS_17" = "אחר";
-"SUG_REHEV_LMS_18" = "אוטובוס זעיר";
-"SUG_REHEV_LMS_19" = "אופנוע מעל 500 סמ״ק";
+"SUG_REHEV_LMS_1" = "Private Passenger Vehicle";
+"SUG_REHEV_LMS_2" = "Single Body Truck carrying 4 tons";
+"SUG_REHEV_LMS_3" = "Dual Body Truck carrying 4 tons";
+"SUG_REHEV_LMS_4" = "Truck carrying 1.4 to 9.9 tons";
+"SUG_REHEV_LMS_5" = "Truck carrying 10 to 15.9 tons";
+"SUG_REHEV_LMS_6" = "Truck carrying 16 to 33.9 tons";
+"SUG_REHEV_LMS_7" = "Truck carrying 34+ tons";
+"SUG_REHEV_LMS_8" = "Motorcycle up to 50 cc";
+"SUG_REHEV_LMS_9" = "Motorcycle from 51 to 251 cc";
+"SUG_REHEV_LMS_10" = "Motorcycle from 251 to 500 cc";
+"SUG_REHEV_LMS_11" = "Bus";
+"SUG_REHEV_LMS_12" = "Taxi";
+"SUG_REHEV_LMS_13" = "Work Vehicle";
+"SUG_REHEV_LMS_14" = "Tractor";
+"SUG_REHEV_LMS_15" = "Bike";
+"SUG_REHEV_LMS_16" = "Train";
+"SUG_REHEV_LMS_17" = "Other";
+"SUG_REHEV_LMS_18" = "Minibus";
+"SUG_REHEV_LMS_19" = "Motorcycle over 500cc";
 
 
 // ### Person Involved Description Titles ###
