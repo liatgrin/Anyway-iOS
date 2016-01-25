@@ -8,7 +8,12 @@
 
 import Foundation
 
+/// When launching and the user location is unknown - show this fallback coordinate
 let fallbackStartLocationCoordinate = CLLocationCoordinate2D(latitude: 32.158091269627874, longitude: 34.88087036877948)
+
+/// When launching and zooming to inital location - show this radius
+let appLaunchZoomRadius = 0.005
+
 
 struct Color {
     static var red = UIColor(red:0.856, green:0.123, blue:0.168, alpha:1)

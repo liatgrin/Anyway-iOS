@@ -204,7 +204,7 @@ extension ViewController: MKMapViewDelegate {
 */
 private extension MKMapView {
     func moveAndZoom(to coord: CLLocationCoordinate2D) {
-        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let span = MKCoordinateSpan(latitudeDelta: appLaunchZoomRadius, longitudeDelta: appLaunchZoomRadius)
         let mapRegion = MKCoordinateRegion(center: coord, span: span)
         setRegion(mapRegion, animated: true)
     }
