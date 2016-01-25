@@ -56,80 +56,62 @@ enum Localization {
 }
 
 
+/**
+ The supported app locals
+ 'rawValue' is the code used to
+ set the local key in user defaults.
+ */
+enum AppLocal: String {
+    case English = "en_US", Hebrew = "he_IL"
+}
 
-var staticFieldNames = [
-    "INNER_PERSON_TITLE": "פרטי אדם מעורב",
-    "INNER_VEHICLE_TITLE": "פרטי רכב מעורב",
-    "pk_teuna_fikt": "מזהה",
-    "SUG_DERECH": "סוג דרך",
-    "SHEM_ZOMET": "שם צומת",
-    "SEMEL_YISHUV": "ישוב",
-    "REHOV1": "רחוב 1",
-    "REHOV2": "רחוב 2",
-    "BAYIT": "מספר בית",
-    "ZOMET_IRONI": "צומת עירוני",
-    "KVISH1": "כביש 1",
-    "KVISH2": "כביש 2",
-    "ZOMET_LO_IRONI": "צומת לא עירוני",
-    "YEHIDA": "יחידה",
-    "SUG_YOM": "סוג יום",
-    "RAMZOR": "רמזור",
-    "HUMRAT_TEUNA": "חומרת תאונה",
-    "SUG_TEUNA": "סוג תאונה",
-    "ZURAT_DEREH": "צורת דרך",
-    "HAD_MASLUL": "חד מסלול",
-    "RAV_MASLUL": "רב מסלול",
-    "MEHIRUT_MUTERET": "מהירות מותרת",
-    "TKINUT": "תקינות",
-    "ROHAV": "רוחב",
-    "SIMUN_TIMRUR": "סימון תמרור",
-    "TEURA": "תאורה",
-    "BAKARA": "בקרה",
-    "MEZEG_AVIR": "מזג אוויר",
-    "PNE_KVISH": "פני כביש",
-    "SUG_EZEM": "סוג עצם",
-    "MERHAK_EZEM": "מרחק עצם",
-    "LO_HAZA": "לא חצה",
-    "OFEN_HAZIYA": "אופן חציה",
-    "MEKOM_HAZIYA": "מקום חציה",
-    "KIVUN_HAZIYA": "כיוון חציה",
-    "STATUS_IGUN": "עיגון",
-    "MAHOZ": "מחוז",
-    "NAFA": "נפה",
-    "EZOR_TIVI": "אזור טבעי",
-    "MAAMAD_MINIZIPALI": "מעמד מוניציפלי",
-    "ZURAT_ISHUV": "צורת יישוב",
+/**
+ *  The app's language (i.e., local) is determined on
+ *  launch (specifically in when initializing UIKit for
+ *  the app) from the string in Apple's set user defaults
+ *  key ("AppleLanguages").
+ *  The workaround is to set that key before the app launces
+ *  (i.e., in the 'main.swift' of the app). There is a bug
+ *  where sometimes the local is determined after launch, so
+ *  we override it in AppDelegate as well, just in case.
+ */
+struct ManualLocalizationWorker {
     
-    "SUG_MEORAV": "סוג מעורב",
-    "SHNAT_HOZAA": "שנת הוצאת רשיון נהיגה",
-    "KVUZA_GIL": "קבוצת גיל",
-    "MIN": "מין",
-    "SUG_REHEV_NASA_LMS": "סוג רכב בו נסע",
-    "EMZAE_BETIHUT": "אמצעי בטיחות",
-    "HUMRAT_PGIA": "חומרת פגיעה",
-    "SUG_NIFGA_LMS": "סוג נפגע",
-    "PEULAT_NIFGA_LMS": "מיקום פצוע",
-    "KVUTZAT_OHLUSIYA_LMS": "קבוצת אוכלוסיה",
-    "MAHOZ_MEGURIM": "מחוז מגורים",
-    "NAFA_MEGURIM": "נפת מגורים",
-    "EZOR_TIVI_MEGURIM": "אזור טבעי מגורים",
-    "MAAMAD_MINIZIPALI_MEGURIM": "מעמד מוניצפלי מגורים",
-    "ZURAT_ISHUV_MEGURIM": "צורת ישוב מגורים",
     
-    "PAZUA_USHPAZ": "משך אשפוז",
-    "MADAD_RAFUI": "מדד רפואי לחומרת הפציעה - ISS",
-    "YAAD_SHIHRUR": "יעד שחרור",
-    "SHIMUSH_BE_AVIZAREY_BETIHOT": "שימוש באביזרי בטיחות",
-    "PTIRA_MEUHERET": "מועד הפטירה",
+    /// Default for fresh install, or when there isn't any value
+    private static var defaultLocal: AppLocal {
+        let phoneVar = (defaults.objectForKey("AppleLanguages") as? [String])?
+                        .flatMap{ AppLocal(rawValue: $0) }.first
+        return phoneVar ?? AppLocal.English
+    }
     
-    "NEFAH": "נפח מנוע",
-    "SHNAT_YITZUR": "שנת ייצור",
-    "KIVUNE_NESIA": "כיוון נסיעה",
-    "MATZAV_REHEV": "מצב רכב",
-    "SHIYUH_REHEV_LMS": "שיוך רכב",
-    "SUG_REHEV_LMS": "סוג רכב",
-    "MEKOMOT_YESHIVA_LMS": "מקומות ישיבה",
-    "MISHKAL_KOLEL_LMS": "משקל כולל",
-    "ACC_ID": "מספר סידורי",
-    "PROVIDER_CODE": "סוג תיק"
-]
+    /// The user preferenced local (saved in NSUserDefaults)
+    private static let defaultsKey = "com.hasadna.anyway.AppLocal"
+    static var defaults: NSUserDefaults { return NSUserDefaults.standardUserDefaults() }
+    static var currentLocal: AppLocal {
+        get{
+            guard let
+                rawVal = defaults.stringForKey(defaultsKey),
+                local = AppLocal(rawValue: rawVal)
+            else { return defaultLocal }
+            return local
+        }
+        set{
+            defaults.setObject(newValue.rawValue, forKey: defaultsKey)
+            defaults.synchronize()
+        }
+    }
+    
+    /**
+     Overrides the key for retreiving app local
+     */
+    static func overrideCurrentLocal() {
+        let local = [currentLocal.rawValue]
+        defaults.setObject(local, forKey: "AppleLanguages")
+        defaults.synchronize()
+    }
+    
+}
+
+
+

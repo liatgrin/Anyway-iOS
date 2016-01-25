@@ -15,12 +15,23 @@ protocol PairsData {}
 extension PairsData {
     
     static func pair(forType type: Localization, value: Int) -> (Title, Detail)? {
+        
+        let rawType = "\(type)"
+        let title = local(rawType)
+        
+        // if there is no localized value we get
+        // the key - so we check we got a value
+        // that is different from the key...
+        guard title != rawType else { return nil }
+        
+        // trying to get the specific value for
+        // the number of 'value'.
         guard let
-            field = staticFieldNames["\(type)"],
             result = type[value]
             where result.isEmpty == false
             else { return nil }
         
-        return (field, result)
+        // tuple of the field title and it's value
+        return (title, result)
     }
 }

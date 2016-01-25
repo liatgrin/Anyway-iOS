@@ -26,7 +26,7 @@ extension Vehicle: PairsData {
             case "MATZAV_REHEV": return pair(forType: .MATZAV_REHEV, value: Int(rawValue) ?? -1)
             case "SHIYUH_REHEV_LMS": return pair(forType: .SHIYUH_REHEV_LMS, value: Int(rawValue) ?? -1)
             case "SUG_REHEV_LMS": return pair(forType: .SUG_REHEV_LMS, value: Int(rawValue) ?? -1)
-            default: return (staticFieldNames[rawTitle]!, rawValue)
+            default: return (local(rawTitle), rawValue)
             }
         }.flatMap{ $0 }
     }

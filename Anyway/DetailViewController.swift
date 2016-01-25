@@ -59,7 +59,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //MARK: - WebPresentationDelegate
     func shouldPresent(address: String) {
-        let webView = SVWebViewController(address: address)
+        print(address)
+        let webView = SVModalWebViewController(address: address)
         presentViewController(webView, animated: true, completion: nil)
     }
     

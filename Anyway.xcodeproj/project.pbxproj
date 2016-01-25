@@ -25,6 +25,7 @@
 		30673C741C1F608600CEB5FB /* ViewController+DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30673C731C1F608600CEB5FB /* ViewController+DatePicker.swift */; };
 		30673C771C1F623500CEB5FB /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30673C761C1F623500CEB5FB /* Filter.swift */; };
 		3097F9B41B959CDA0037FFF6 /* MarkerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097F9B31B959CDA0037FFF6 /* MarkerViews.swift */; };
+		309CCBDF1C569FAA00C829E5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309CCBDE1C569FAA00C829E5 /* main.swift */; };
 		309DD0461BFA464100AF80D1 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309DD0451BFA464100AF80D1 /* Utilities.swift */; };
 		30AF036D1A9BC663008B7889 /* AnnotationCoordinateUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 30AF036C1A9BC663008B7889 /* AnnotationCoordinateUtility.m */; };
 		30B98D491C038EBA00FBCA37 /* DetailCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B98D481C038EBA00FBCA37 /* DetailCells.swift */; };
@@ -42,6 +43,7 @@
 		30BEB46A1A9D1A7A005F3205 /* JGProgressHUDPieIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BEB45D1A9D1A7A005F3205 /* JGProgressHUDPieIndicatorView.m */; };
 		30BEB46B1A9D1A7A005F3205 /* JGProgressHUDRingIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BEB45F1A9D1A7A005F3205 /* JGProgressHUDRingIndicatorView.m */; };
 		30BEB46C1A9D1A7A005F3205 /* JGProgressHUDSuccessIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BEB4611A9D1A7A005F3205 /* JGProgressHUDSuccessIndicatorView.m */; };
+		30C9AB2A1C56A7A100E35928 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C9AB291C56A7A100E35928 /* LanguageViewController.swift */; };
 		30CC256F1B4B11A800BE8FE9 /* AccidentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CC256E1B4B11A800BE8FE9 /* AccidentsViewController.swift */; };
 		30CCFDF31AC9E4F90000FCA2 /* FilterCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CCFDF21AC9E4F90000FCA2 /* FilterCellTableViewCell.swift */; };
 		30CDE5111BFA525800BBC183 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30CDE5101BFA525800BBC183 /* Alamofire.framework */; };
@@ -94,6 +96,7 @@
 		30673C731C1F608600CEB5FB /* ViewController+DatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+DatePicker.swift"; sourceTree = "<group>"; };
 		30673C761C1F623500CEB5FB /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		3097F9B31B959CDA0037FFF6 /* MarkerViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerViews.swift; sourceTree = "<group>"; };
+		309CCBDE1C569FAA00C829E5 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		309DD0451BFA464100AF80D1 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		30AF03671A9BC62C008B7889 /* Anyway-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Anyway-Bridging-Header.h"; sourceTree = "<group>"; };
 		30AF036B1A9BC663008B7889 /* AnnotationCoordinateUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationCoordinateUtility.h; sourceTree = "<group>"; };
@@ -125,6 +128,7 @@
 		30BEB45F1A9D1A7A005F3205 /* JGProgressHUDRingIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGProgressHUDRingIndicatorView.m; sourceTree = "<group>"; };
 		30BEB4601A9D1A7A005F3205 /* JGProgressHUDSuccessIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGProgressHUDSuccessIndicatorView.h; sourceTree = "<group>"; };
 		30BEB4611A9D1A7A005F3205 /* JGProgressHUDSuccessIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGProgressHUDSuccessIndicatorView.m; sourceTree = "<group>"; };
+		30C9AB291C56A7A100E35928 /* LanguageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		30CC256E1B4B11A800BE8FE9 /* AccidentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccidentsViewController.swift; sourceTree = "<group>"; };
 		30CCFDF21AC9E4F90000FCA2 /* FilterCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCellTableViewCell.swift; sourceTree = "<group>"; };
 		30CDE5101BFA525800BBC183 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 				30BB76811AEE938600CB1EBD /* InfoViewController.swift */,
 				30B98D471C038EA700FBCA37 /* Detail */,
 				30CC256E1B4B11A800BE8FE9 /* AccidentsViewController.swift */,
+				30C9AB291C56A7A100E35928 /* LanguageViewController.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 		30367EA01A9D0AAE00B16DA1 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				309CCBDE1C569FAA00C829E5 /* main.swift */,
 				30D6E5B11A92639500337FDB /* AppDelegate.swift */,
 				30D6E5D11A92642000337FDB /* MapProvider.swift */,
 				30568A961C0CDAFD00471D83 /* Model */,
@@ -581,9 +587,11 @@
 				30BEB4691A9D1A7A005F3205 /* JGProgressHUDIndicatorView.m in Sources */,
 				30BEB46A1A9D1A7A005F3205 /* JGProgressHUDPieIndicatorView.m in Sources */,
 				30673C771C1F623500CEB5FB /* Filter.swift in Sources */,
+				30C9AB2A1C56A7A100E35928 /* LanguageViewController.swift in Sources */,
 				30667BAA1A92698900853125 /* Marker.swift in Sources */,
 				30568A8F1C0CDA5C00471D83 /* MarkerGroup.swift in Sources */,
 				30BE3E321B7918C90092CEAB /* Constants.swift in Sources */,
+				309CCBDF1C569FAA00C829E5 /* main.swift in Sources */,
 				30568A951C0CDAF200471D83 /* Person.swift in Sources */,
 				30CCFDF31AC9E4F90000FCA2 /* FilterCellTableViewCell.swift in Sources */,
 				30ECD1821ADC19D800A62052 /* SwiftyUserDefaults.swift in Sources */,

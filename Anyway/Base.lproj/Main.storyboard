@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ikd-KI-Q4f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ikd-KI-Q4f">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -14,6 +15,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="masterViewController" id="pDT-yp-FJR"/>
                         <segue destination="LJ3-bX-IeS" kind="relationship" relationship="detailViewController" id="azG-br-wkz"/>
+                        <segue destination="TSo-9K-Am6" kind="modal" identifier="choose language segue" id="rDf-Am-TDZ"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H72-Ve-bh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -45,7 +47,98 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ih3-ao-NIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12" y="1118"/>
+            <point key="canvasLocation" x="12" y="1250"/>
+        </scene>
+        <!--Language View Controller-->
+        <scene sceneID="pwg-jz-8QM">
+            <objects>
+                <viewController id="TSo-9K-Am6" customClass="LanguageViewController" customModule="Anyway" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="62L-YI-VIt"/>
+                        <viewControllerLayoutGuide type="bottom" id="v41-Oy-lgi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Mpb-0j-ah0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="anyway big logo" translatesAutoresizingMaskIntoConstraints="NO" id="1XK-fo-oAQ">
+                                <rect key="frame" x="55" y="44" width="211" height="57"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qgS-ti-nxI" userLabel="Seperator">
+                                <rect key="frame" x="51" y="109" width="218" height="1"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="KLm-uK-15o"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="משפיעים בכל דרך" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVM-yJ-aoa">
+                                <rect key="frame" x="64" y="114" width="192.5" height="35"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="29"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="בחר/י שפה Choose Language" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJN-6J-MDt">
+                                <rect key="frame" x="83" y="238.5" width="154.5" height="45.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmF-VU-Yd4">
+                                <rect key="frame" x="135" y="349.5" width="50" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="עברית"/>
+                                <connections>
+                                    <action selector="actionLanguage:" destination="TSo-9K-Am6" eventType="touchUpInside" id="4Im-eh-31k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1q-re-rYN">
+                                <rect key="frame" x="128" y="409.5" width="65" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="English"/>
+                                <connections>
+                                    <action selector="actionLanguage:" destination="TSo-9K-Am6" eventType="touchUpInside" id="2dI-Md-1wQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ניתן לשנות את הבחירה בהמשך You can change that later" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wB9-x5-zJY">
+                                <rect key="frame" x="75" y="510.5" width="171.5" height="33.5"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="שינויים יבואו לידי ביטוי בהפעלה הבאה Changes will be visible on next launch" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wly-fg-4Hd">
+                                <rect key="frame" x="37.5" y="292" width="244.5" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="T1q-re-rYN" firstAttribute="top" secondItem="kmF-VU-Yd4" secondAttribute="bottom" constant="24" id="0y7-tt-f60"/>
+                            <constraint firstItem="1XK-fo-oAQ" firstAttribute="top" secondItem="62L-YI-VIt" secondAttribute="bottom" constant="24" id="1VQ-Ge-Qil"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PJN-6J-MDt" secondAttribute="trailing" constant="20" symbolic="YES" id="2nQ-Sg-Xlz"/>
+                            <constraint firstItem="Wly-fg-4Hd" firstAttribute="centerX" secondItem="PJN-6J-MDt" secondAttribute="centerX" id="6W8-CH-lFT"/>
+                            <constraint firstItem="PJN-6J-MDt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mpb-0j-ah0" secondAttribute="leading" constant="20" symbolic="YES" id="BZH-Sc-4LW"/>
+                            <constraint firstItem="qgS-ti-nxI" firstAttribute="leading" secondItem="Mpb-0j-ah0" secondAttribute="leading" constant="51" id="Dcs-2g-EE8"/>
+                            <constraint firstItem="1XK-fo-oAQ" firstAttribute="centerX" secondItem="Mpb-0j-ah0" secondAttribute="centerX" id="EEl-PN-1OF"/>
+                            <constraint firstItem="qgS-ti-nxI" firstAttribute="centerX" secondItem="kVM-yJ-aoa" secondAttribute="centerX" id="Jnd-Hd-dsh"/>
+                            <constraint firstItem="PJN-6J-MDt" firstAttribute="centerX" secondItem="Mpb-0j-ah0" secondAttribute="centerX" id="Jsq-WS-tWO"/>
+                            <constraint firstItem="kVM-yJ-aoa" firstAttribute="top" secondItem="qgS-ti-nxI" secondAttribute="bottom" constant="4" id="Jt9-NC-ugf"/>
+                            <constraint firstItem="v41-Oy-lgi" firstAttribute="top" secondItem="wB9-x5-zJY" secondAttribute="bottom" constant="24" id="ORV-b1-pIa"/>
+                            <constraint firstItem="T1q-re-rYN" firstAttribute="centerX" secondItem="kmF-VU-Yd4" secondAttribute="centerX" id="P5T-vc-Uni"/>
+                            <constraint firstItem="kmF-VU-Yd4" firstAttribute="top" secondItem="Wly-fg-4Hd" secondAttribute="bottom" constant="24" id="SWU-5D-PHF"/>
+                            <constraint firstItem="wB9-x5-zJY" firstAttribute="centerX" secondItem="Mpb-0j-ah0" secondAttribute="centerX" id="WuG-zg-vkY"/>
+                            <constraint firstItem="qgS-ti-nxI" firstAttribute="top" secondItem="1XK-fo-oAQ" secondAttribute="bottom" constant="8" id="mOh-1A-UXV"/>
+                            <constraint firstAttribute="trailing" secondItem="qgS-ti-nxI" secondAttribute="trailing" constant="51" id="u1x-aP-J1O"/>
+                            <constraint firstItem="Wly-fg-4Hd" firstAttribute="top" secondItem="PJN-6J-MDt" secondAttribute="bottom" constant="8" id="vzU-Ze-33c"/>
+                            <constraint firstItem="PJN-6J-MDt" firstAttribute="bottom" secondItem="Mpb-0j-ah0" secondAttribute="centerY" id="wnI-ag-SoT"/>
+                            <constraint firstItem="kmF-VU-Yd4" firstAttribute="centerX" secondItem="PJN-6J-MDt" secondAttribute="centerX" id="yDz-1X-ZSx"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UgG-cQ-JNN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="524" y="1210"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -549,6 +642,13 @@ ANYWAY הוא חשמביר (פרויקט) הפועל בחסות הסדנא לי�
                                         <color key="textColor" red="0.070588235289999995" green="0.55294117649999996" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZc-95-OkH">
+                                        <rect key="frame" x="232" y="16" width="68" height="30"/>
+                                        <state key="normal" title="Language"/>
+                                        <connections>
+                                            <segue destination="TSo-9K-Am6" kind="modal" id="yZX-wZ-FZA"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="n5a-xP-CVv" firstAttribute="top" secondItem="nxh-xy-J7Q" secondAttribute="bottom" constant="20" id="40y-Le-4sO"/>
@@ -559,11 +659,13 @@ ANYWAY הוא חשמביר (פרויקט) הפועל בחסות הסדנא לי�
                                     <constraint firstItem="nxh-xy-J7Q" firstAttribute="leading" secondItem="i2U-g3-eNt" secondAttribute="leading" constant="20" id="GBB-iN-QJu"/>
                                     <constraint firstAttribute="bottom" secondItem="g6g-zS-DDt" secondAttribute="bottom" constant="43" id="GaP-BU-9gb"/>
                                     <constraint firstItem="g6g-zS-DDt" firstAttribute="leading" secondItem="i2U-g3-eNt" secondAttribute="leading" constant="20" id="LkK-ks-auI"/>
+                                    <constraint firstAttribute="trailing" secondItem="zZc-95-OkH" secondAttribute="trailing" constant="20" symbolic="YES" id="Tki-a6-UC0"/>
                                     <constraint firstItem="Jdk-sO-5fr" firstAttribute="top" secondItem="g6g-zS-DDt" secondAttribute="top" constant="14" id="VGt-Sj-Ztp"/>
                                     <constraint firstItem="g6g-zS-DDt" firstAttribute="top" secondItem="wcD-nt-HIs" secondAttribute="bottom" constant="20" id="XUv-lq-Hqb"/>
                                     <constraint firstAttribute="trailing" secondItem="W6a-lU-jj5" secondAttribute="trailing" constant="8" id="Yek-XL-2lS"/>
                                     <constraint firstAttribute="centerX" secondItem="wcD-nt-HIs" secondAttribute="centerX" id="YtM-8f-QUt"/>
                                     <constraint firstItem="wcD-nt-HIs" firstAttribute="top" secondItem="SQC-Jd-2iJ" secondAttribute="bottom" constant="8" id="aLv-Fi-c3H"/>
+                                    <constraint firstItem="zZc-95-OkH" firstAttribute="baseline" secondItem="nxh-xy-J7Q" secondAttribute="baseline" id="b9x-pK-6Mg"/>
                                     <constraint firstAttribute="trailing" secondItem="Em2-NV-DRo" secondAttribute="trailing" constant="51" id="bT1-vq-G33"/>
                                     <constraint firstAttribute="trailing" secondItem="SQC-Jd-2iJ" secondAttribute="trailing" constant="16" id="hXa-6l-Uas"/>
                                     <constraint firstAttribute="width" secondItem="SQC-Jd-2iJ" secondAttribute="width" constant="36" id="lKY-bn-aXc"/>
@@ -696,4 +798,7 @@ ANYWAY הוא חשמביר (פרויקט) הפועל בחסות הסדנא לי�
         <image name="logo_square" width="100" height="100"/>
         <image name="sadna_logo" width="66" height="66"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="rDf-Am-TDZ"/>
+    </inferredMetricsTieBreakers>
 </document>

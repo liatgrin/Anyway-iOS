@@ -162,7 +162,7 @@ private struct StaticData {
             else { return ("UNKNOWN FIELD", .Info) }
         
         
-        if info.0 == staticFieldNames[titleKey] {
+        if info.0 == local(titleKey) {
             return (info.0, .IntermediateTitle)
         }
         return (info.0, .Info)

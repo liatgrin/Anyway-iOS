@@ -27,7 +27,7 @@ extension Person: PairsData {
             case "SHIMUSH_BE_AVIZAREY_BETIHOT": return pair(forType: .SUG_REHEV_NASA_LMS, value: Int(rawValue) ?? -1)
             case "PTIRA_MEUHERET": return pair(forType: .MIN, value: Int(rawValue) ?? -1)
                 
-            default: return (staticFieldNames[rawTitle]!, rawValue)
+            default: return (local(rawTitle), rawValue)
             }
         }.flatMap{ $0 }
     }
