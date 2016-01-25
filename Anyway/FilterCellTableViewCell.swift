@@ -16,7 +16,7 @@ class FilterCellTableViewCell: UITableViewCell {
 
     enum FilterType: Int {
         case StartDate = 0, EndDate // Date pickers
-        case ShowFatal, ShowSevere, ShowLight, ShowInaccurate // Switches
+        case ShowFatal, ShowSevere, ShowLight, ShowInaccurate, ShowAccurate // Switches
     }
     
     var filterType: FilterType?
@@ -34,7 +34,8 @@ class FilterCellTableViewCell: UITableViewCell {
             case .ShowFatal: return "הצג תאונות קטלניות"
             case .ShowSevere: return "הצג פגיעות בינוניות"
             case .ShowLight: return "הצג פגיעות קלות"
-            case .ShowInaccurate: return "הצג תאונות לא מדויקות"
+            case .ShowInaccurate: return "הצג עיגון מרחבי"
+            case .ShowAccurate: return "הצג עיגון מדויק"
             }
         }
         return nil
@@ -47,6 +48,7 @@ class FilterCellTableViewCell: UITableViewCell {
             case .ShowSevere: filter?.showSevere = btnSwitch.on
             case .ShowLight: filter?.showLight = btnSwitch.on
             case .ShowInaccurate: filter?.showInaccurate = btnSwitch.on
+            case .ShowAccurate: filter?.showAccurate = btnSwitch.on
             default: break
             }
         }
@@ -66,6 +68,7 @@ class FilterCellTableViewCell: UITableViewCell {
             case .ShowSevere: btnSwitch?.on = fil.showSevere
             case .ShowLight: btnSwitch?.on = fil.showLight
             case .ShowInaccurate: btnSwitch?.on = fil.showInaccurate
+            case .ShowAccurate: btnSwitch?.on = fil.showAccurate
             }
         }
     }

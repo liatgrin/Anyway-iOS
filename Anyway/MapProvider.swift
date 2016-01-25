@@ -98,6 +98,7 @@ class Network {
         let showSevere = filter.showSevere ? 1 : 0
         let showLight = filter.showLight ? 1 : 0
         let showInaccurate = filter.showInaccurate ? 1 : 0
+        let showAccurate = filter.showAccurate ? 1 : 0
         
         print("Fetching with filter:\n\(filter.description)")
         
@@ -114,13 +115,19 @@ class Network {
             "show_severe"  : showSevere,
             "show_light"   : showLight,
             "show_inaccurate" : showInaccurate,
+            
             "show_markers" : 1, // should always be on...
+            
+            
+            // New implemented filter options
+            // TODO: Check (QA) that the values are right
+            "accurate" : showAccurate, //currently not working - server ignores this
+            
             
             // New filter options, currently hardcoded
             // TODO: Add these as options in filter with UI
             "show_discussions" : 1,
             "approx" : 1,
-            "accurate" : 1,
             "show_urban" : 3,
             "show_intersection" : 3,
             "show_lane" : 3,

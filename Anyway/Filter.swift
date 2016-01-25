@@ -15,8 +15,17 @@ public class Filter {
     var showSevere = true { didSet{ valueChanged() } }
     var showLight = true { didSet{ valueChanged() } }
     var showInaccurate = false { didSet{ valueChanged() } }
+    var showAccurate = true { didSet{ valueChanged() } }
     
-    var description: String { return "FILTER: Fatal: \(showFatal) | Severe: \(showSevere) | Light: \(showLight) | Inaccurate: \(showInaccurate)" }
+    var description: String {
+        let valsAndNames = [
+            "Fatal": showFatal,
+            "Severe": showSevere,
+            "Light": showLight,
+            "Inaccurate": showInaccurate,
+            "Accurate": showAccurate ]
+        return valsAndNames.reduce("") { return "\($0) | \($1.0): \($1.1)" }
+    }
     
     var onChange: ()->() = {}
     func valueChanged() { print("filter changed"); onChange() }

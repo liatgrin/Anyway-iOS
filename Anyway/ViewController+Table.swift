@@ -39,11 +39,20 @@ extension ViewController {
     }
     
     func numberOfRowsForFilterTable(section s: Int) -> Int {
-        return s == 0 ? 2 : 4
+        switch s {
+        case 0: return 2
+        case 1: return 3
+        case 2: return 2
+        default: return 0
+        }
     }
     
     func totalRowsForFilterTable() -> Int {
-        return 6
+        return Array.init(count: numberOfSectionsInTableView(tableView), repeatedValue: 0)
+            .enumerate()
+            .map{ i, _ in i }
+            .map{ i in numberOfRowsForFilterTable(section: i)}
+            .reduce(0, combine: +)
     }
     
 }
@@ -66,7 +75,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     */
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2;
+        return 3
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -94,7 +103,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         case (0, 1): cell.filterType = .ShowFatal
         case (1, 1): cell.filterType = .ShowSevere
         case (2, 1): cell.filterType = .ShowLight
-        case (3, 1): cell.filterType = .ShowInaccurate
+        case (0, 2): cell.filterType = .ShowAccurate
+        case (1, 2): cell.filterType = .ShowInaccurate
         default: break
         }
         
