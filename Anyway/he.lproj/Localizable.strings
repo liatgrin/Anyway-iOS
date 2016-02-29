@@ -9,6 +9,18 @@
 //App UI (view controllers etc.)
 "main_presenting_count_label" =  "מציג %d תאונות";
 
+
+// ### Filter ###
+"FILTER_weekday_all" = "הכל";
+"FILTER_weekday_sun" = "א׳";
+"FILTER_weekday_mon" = "ב׳";
+"FILTER_weekday_tue" = "ג׳";
+"FILTER_weekday_wed" = "ד׳";
+"FILTER_weekday_thu" = "ה׳";
+"FILTER_weekday_fri" = "ו׳";
+"FILTER_weekday_sat" = "ש׳";
+
+
 //Localization.swift
 "SUG_DERECH_1" = "עירוני בצומת";
 "SUG_DERECH_2" = "עירוני לא בצומת";

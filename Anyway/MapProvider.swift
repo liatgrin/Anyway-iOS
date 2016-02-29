@@ -90,48 +90,40 @@ class Network {
         let ne_lng = edges.ne.longitude // 34.88087036877948
         let sw_lat = edges.sw.latitude // 32.146882347101766
         let sw_lng = edges.sw.longitude // 34.858318355382266
-        let zoom = 16
-        let thinMarkers = true
         let startDate = Int(filter.startDate.timeIntervalSince1970)
         let endDate = Int(filter.endDate.timeIntervalSince1970)
-        let showFatal = filter.showFatal ? 1 : 0
-        let showSevere = filter.showSevere ? 1 : 0
-        let showLight = filter.showLight ? 1 : 0
-        let showInaccurate = filter.showInaccurate ? 1 : 0
-        let showAccurate = filter.showAccurate ? 1 : 0
         
         print("Fetching with filter:\n\(filter.description)")
         
         let params: [String : AnyObject] = [
+            "show_markers" : 1, // should always be on to get markers...
+            "show_discussions" : 0, // currently app doesn't support discussions...
+            
             "ne_lat" : ne_lat,
             "ne_lng" : ne_lng,
             "sw_lat" : sw_lat,
             "sw_lng" : sw_lng,
-            "zoom"   : zoom,
-            "thin_markers" : thinMarkers,
+            
+            "zoom"   : 16, // minimum = 16
+            "thin_markers" : 1, //not used (server logic determenines this)
+            
             "start_date"   : startDate,
             "end_date"     : endDate,
-            "show_fatal"   : showFatal,
-            "show_severe"  : showSevere,
-            "show_light"   : showLight,
-            "show_inaccurate" : showInaccurate,
             
-            "show_markers" : 1, // should always be on...
-            
-            
-            // New implemented filter options
-            // TODO: Check (QA) that the values are right
-            "accurate" : showAccurate, //currently not working - server ignores this
+            "show_fatal"   : filter.showFatal ? 1 : "",
+            "show_severe"  : filter.showSevere ? 1 : "",
+            "show_light"   : filter.showLight ? 1 : "",
+            "accurate" : filter.showAccurate ? 1 : "",
+            "approx" : filter.showInaccurate ? 1 : "",
+            "show_intersection" : filter.showIntersection.value,
+            "show_lane" : filter.showLane.value,
+            "show_urban" : filter.showUrban.value,
             
             
             // New filter options, currently hardcoded
             // TODO: Add these as options in filter with UI
-            "show_discussions" : 1,
-            "approx" : 1,
-            "show_urban" : 3,
-            "show_intersection" : 3,
-            "show_lane" : 3,
-            "show_day" : 7,
+            
+            "show_day" : filter.weekday.rawValue,
             "show_holiday" : 0,
             "show_time" : 24,
             "start_time" : 25,
@@ -174,7 +166,8 @@ class Network {
         }
         
         
-        currentRequest = Alamofire.request(.GET, "http://www.anyway.co.il/markers", parameters: params, encoding: .URL, headers: nil)
+        currentRequest = Alamofire.request(.GET, "http://www.anyway.co.il/markers",
+                            parameters: params, encoding: .URL, headers: nil)
             
             /* Raw response, for debug */
 //            .responseString(completionHandler: { (response) -> Void in

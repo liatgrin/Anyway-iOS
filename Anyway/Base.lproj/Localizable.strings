@@ -23,6 +23,18 @@
  */
 "main_presenting_count_label" =  "Showing %d accidents";
 
+
+// ### Filter ###
+"FILTER_weekday_all" = "All";
+"FILTER_weekday_sun" = "Sun";
+"FILTER_weekday_mon" = "Mon";
+"FILTER_weekday_tue" = "Tue";
+"FILTER_weekday_wed" = "Wed";
+"FILTER_weekday_thu" = "Thu";
+"FILTER_weekday_fri" = "Fri";
+"FILTER_weekday_sat" = "Sat";
+
+
 //Localization.swift
 "SUG_DERECH_1" = "Urban Intersection";
 "SUG_DERECH_2" = "Urban, non-intersection";

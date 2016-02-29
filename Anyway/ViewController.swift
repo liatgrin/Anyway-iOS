@@ -87,8 +87,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         map.clusterSize = 0.1
         map.minimumAnnotationCountPerCluster = 4
         
-        filter.onChange = { self.updateInfoIfPossible(self.map, filterChanged:true) }
-        
         // Always present master and detail side-by-side
         splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
         
@@ -121,6 +119,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             constraintTableViewHeight.constant = rowHeight * rows + headerHeight * sections
             constraintTableViewBottom.constant = -constraintTableViewHeight.constant
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let dest = segue.destinationController(FilterViewController.self) {
+            dest.filter = filter
+            dest.delegate = self
         }
     }
     

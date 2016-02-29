@@ -1,10 +1,10 @@
-# Uncomment this line to define a global platform for your project
+source 'https://github.com/CocoaPods/Specs.git' # 'Eureka' asks to add this line
 platform :ios, '8.0'
-# Uncomment this line if you're using Swift
 use_frameworks!
 
 target 'Anyway' do
 	pod 'Alamofire', '~> 3.0'
 	pod 'SwiftyJSON'
     pod 'SVWebViewController', :head
+    pod 'Eureka', '~> 1.3'
 end

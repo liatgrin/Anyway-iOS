@@ -47,7 +47,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ih3-ao-NIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12" y="1250"/>
+            <point key="canvasLocation" x="-504" y="1278"/>
         </scene>
         <!--Language View Controller-->
         <scene sceneID="pwg-jz-8QM">
@@ -80,7 +80,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="בחר/י שפה Choose Language" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJN-6J-MDt">
                                 <rect key="frame" x="83" y="238.5" width="154.5" height="45.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmF-VU-Yd4">
@@ -102,7 +102,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ניתן לשנות את הבחירה בהמשך You can change that later" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wB9-x5-zJY">
                                 <rect key="frame" x="75" y="510.5" width="171.5" height="33.5"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="שינויים יבואו לידי ביטוי בהפעלה הבאה Changes will be visible on next launch" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wly-fg-4Hd">
@@ -138,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UgG-cQ-JNN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="524" y="1210"/>
+            <point key="canvasLocation" x="40" y="1298"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -193,7 +193,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="EaQ-su-wgK"/>
                                     <barButtonItem title="פילטר" id="Tu4-cE-oea">
                                         <connections>
-                                            <action selector="actionFilter:" destination="BYZ-38-t0r" id="SCW-0p-3nZ"/>
+                                            <segue destination="0L4-Eq-khC" kind="modal" identifier="open filter segue" id="ylW-lW-Pf9"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -359,7 +359,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="506" y="427"/>
+            <point key="canvasLocation" x="482" y="427"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="PTd-jO-N1F">
@@ -547,7 +547,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RDv-tl-ZQ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1649" y="-12"/>
+            <point key="canvasLocation" x="1673" y="-321"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="79c-oD-IBZ">
@@ -696,7 +696,7 @@ ANYWAY הוא חשמביר (פרויקט) הפועל בחסות הסדנא לי�
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRw-dw-qd2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1116" y="744.5"/>
+            <point key="canvasLocation" x="506" y="1277.5"/>
         </scene>
         <!--Accidents View Controller-->
         <scene sceneID="k91-ah-qNy">
@@ -791,6 +791,70 @@ ANYWAY הוא חשמביר (פרויקט) הפועל בחסות הסדנא לי�
             </objects>
             <point key="canvasLocation" x="654" y="-321"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Daj-PE-kur">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0L4-Eq-khC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="PIY-by-NiY"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6iX-4O-vgN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jsb-JT-nBk" kind="relationship" relationship="rootViewController" id="cM5-D0-G8t"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wdK-iE-Wdw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="996" y="634"/>
+        </scene>
+        <!--Filter View Controller-->
+        <scene sceneID="kB6-Ks-eWP">
+            <objects>
+                <viewController id="jsb-JT-nBk" customClass="FilterViewController" customModule="Anyway" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4dn-yr-G5L"/>
+                        <viewControllerLayoutGuide type="bottom" id="lFL-Y6-kny"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y3r-ji-Zcf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="n8a-p2-35b">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="n8a-p2-35b" firstAttribute="leading" secondItem="y3r-ji-Zcf" secondAttribute="leading" id="1K3-gM-s2G"/>
+                            <constraint firstItem="n8a-p2-35b" firstAttribute="top" secondItem="4dn-yr-G5L" secondAttribute="bottom" constant="-64" id="BH3-0y-yWW"/>
+                            <constraint firstItem="lFL-Y6-kny" firstAttribute="top" secondItem="n8a-p2-35b" secondAttribute="bottom" id="JjX-BQ-0Ta"/>
+                            <constraint firstAttribute="trailing" secondItem="n8a-p2-35b" secondAttribute="trailing" id="Nuv-Og-Plo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="M70-61-865">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ejf-OT-kGK">
+                            <connections>
+                                <action selector="actionCancel:" destination="jsb-JT-nBk" id="AaY-A3-7BM"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="09p-MU-sde">
+                            <connections>
+                                <action selector="actionSave:" destination="jsb-JT-nBk" id="KYQ-K7-3eF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="n8a-p2-35b" id="ml6-W7-8QS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uWJ-v3-eAX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1471" y="629"/>
+        </scene>
     </scenes>
     <resources>
         <image name="anyway big logo" width="211" height="57"/>
@@ -799,6 +863,6 @@ ANYWAY הוא חשמביר (פרויקט) הפועל בחסות הסדנא לי�
         <image name="sadna_logo" width="66" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rDf-Am-TDZ"/>
+        <segue reference="yZX-wZ-FZA"/>
     </inferredMetricsTieBreakers>
 </document>
