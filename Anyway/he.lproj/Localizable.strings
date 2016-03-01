@@ -11,6 +11,8 @@
 
 
 // ### Filter ###
+"FILTER_SECTION_day" = "יום";
+
 "FILTER_weekday_all" = "הכל";
 "FILTER_weekday_sun" = "א׳";
 "FILTER_weekday_mon" = "ב׳";
@@ -45,10 +47,11 @@
 
 // ### Road Conditions ###
 
+"SUG_YOM_0" = "הכל";
 "SUG_YOM_1" = "חג";
 "SUG_YOM_2" = "ערב חג";
 "SUG_YOM_3" = "חול המועד";
-"SUG_YOM_4" = "יום אחר";
+"SUG_YOM_4" = "יום חול";
 
 "HUMRAT_TEUNA_1" = "קטלנית";
 "HUMRAT_TEUNA_2" = "קשה";

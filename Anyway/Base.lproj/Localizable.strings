@@ -25,6 +25,8 @@
 
 
 // ### Filter ###
+"FILTER_SECTION_day" = "Day";
+
 "FILTER_weekday_all" = "All";
 "FILTER_weekday_sun" = "Sun";
 "FILTER_weekday_mon" = "Mon";
@@ -59,10 +61,11 @@
 
 // ### Road Conditions ###
 
+"SUG_YOM_0" = "All Days";
 "SUG_YOM_1" = "Holiday";
 "SUG_YOM_2" = "Holiday Eve";
 "SUG_YOM_3" = "Chol Hamoed";
-"SUG_YOM_4" = "Other Day";
+"SUG_YOM_4" = "Weekday";
 
 "HUMRAT_TEUNA_1" = "Fatal";
 "HUMRAT_TEUNA_2" = "Severe";
@@ -351,7 +354,7 @@
 "KVISH2" = "כביש 2";
 "ZOMET_LO_IRONI" = "צומת לא עירוני";
 "YEHIDA" = "יחידה";
-"SUG_YOM" = "סוג יום";
+"SUG_YOM" = "Day Type";
 "RAMZOR" = "רמזור";
 "HUMRAT_TEUNA" = "חומרת תאונה";
 "SUG_TEUNA" = "סוג תאונה";

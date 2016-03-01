@@ -37,6 +37,18 @@ struct UrbanType {
 
 enum WeekdayType: Int {
     case Sun, Mon, Tue, Wed, Thu, Fri, Sat, All
+    var localized: String {
+        return ["sun", "mon", "tue", "wed", "thu", "fri", "sat"]
+            .map{ local("FILTER_weekday_\($0)") }[rawValue]
+    }
+}
+
+enum HolidayType: Int {
+    case All, Holiday, HoliEve, HoliWeekday, Weekday
+    var localized: String {
+        return ["0", "1", "2", "3", "4"]
+            .map{ local("SUG_YOM_\($0)") }[rawValue]
+    }
 }
 
 public class Filter {
@@ -53,6 +65,7 @@ public class Filter {
     var showIntersection = IntersectionType(showIn: true, showNot: true) { didSet { valueChanged() } }
     var showLane = LaneType(oneWay: true, bothWays: true) { didSet { valueChanged() } }
     var weekday = WeekdayType.All { didSet{ valueChanged() } }
+    var holiday = HolidayType.All { didSet{ valueChanged() } }
     
     var description: String {
         let valsAndNames = [
@@ -64,7 +77,8 @@ public class Filter {
             "Urban" : showUrban.value,
             "Intersection" : showIntersection.value,
             "Lane" : showLane.value,
-            "Weekday" : weekday.rawValue
+            "Weekday" : weekday.rawValue,
+            "Holiday" : holiday.rawValue
         ]
         let pref = "_______[ Filter Details ]_______\n"
         let suff = "\n________________________________\n"

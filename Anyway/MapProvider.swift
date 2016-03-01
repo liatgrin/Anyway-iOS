@@ -124,7 +124,7 @@ class Network {
             // TODO: Add these as options in filter with UI
             
             "show_day" : filter.weekday.rawValue,
-            "show_holiday" : 0,
+            "show_holiday" : filter.holiday.rawValue,
             "show_time" : 24,
             "start_time" : 25,
             "end_time" : 25,

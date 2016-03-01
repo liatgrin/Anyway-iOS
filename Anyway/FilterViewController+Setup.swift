@@ -140,7 +140,8 @@ extension FilterViewController {
             }
         */
         
-        form += [datesSection(), severitySection(), accuracySection(), roadTypeSection(), weekdaySection()]
+        form += [datesSection(), weekdaySection(),
+            severitySection(), accuracySection(), roadTypeSection()]
     }
     
     private func datesSection() -> Section {
@@ -271,32 +272,39 @@ extension FilterViewController {
     
     private func weekdaySection() -> Section {
         
-        return Section("יום")
+        return Section(local("FILTER_SECTION_day"))
         
         <<< SwitchRow("weekday_all") {
-            $0.title = "הכל"
+            $0.title = local("FILTER_weekday_all")
             $0.value = filter.weekday == .All
         }.onChange{ [weak self] row in
             guard let v = row.value else {return}
             self?.filter.weekday = v == true ? .All : WeekdayType.Sun
         }
             
-        <<< SegmentedRow<Int>() {
-            $0.options = [0, 1, 2, 3, 4, 5, 6]
-            $0.value = filter.weekday == .All ? 0 : filter.weekday.rawValue
+        <<< SegmentedRow<WeekdayType>() {
+            $0.options = [.Sun, .Mon, .Tue, .Wed, .Thu, .Fri, .Sat]
+            $0.value = filter.weekday == .All ? .Sun : filter.weekday
             $0.hidden = "$weekday_all == true"
-            $0.displayValueFor = { v in
-                return ["sun", "mon", "tue", "wed", "thu", "fri", "sat"]
-                        .map{ local("FILTER_weekday_\($0)") }[v ?? 0]
-                //return ["א׳", "ב׳", "ג׳", "ד׳", "ה׳", "ו׳", "ש׳"][v ?? 0]
-            }
+            $0.displayValueFor = { v in return (v ?? WeekdayType.Sun).localized }
         }.onChange{ [weak self] row in
-            guard let v = row.value, day = WeekdayType(rawValue: v)
-                else {return}
-            self?.filter.weekday = day
+            guard let v = row.value else {return}
+            self?.filter.weekday = v
+        }
+        
+        
+        <<< ActionSheetRow<HolidayType>() {
+            $0.title = local("SUG_YOM")
+            $0.options = [.All, .Holiday, .HoliEve, .HoliWeekday, .Weekday]
+            $0.value = filter.holiday
+            $0.displayValueFor = { v in return (v ?? HolidayType.All).localized }
+        }.onChange{ [weak self] row in
+            guard let v = row.value else {return}
+            self?.filter.holiday = v
         }
         
     }
+    
     
     
 }
