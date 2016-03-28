@@ -26,7 +26,27 @@
 
 // ### Filter ###
 "FILTER_SECTION_day" = "Day";
+"FILTER_SECTION_date_range" = "Dates Range";
+"FILTER_SECTION_severity" = "Severity";
+"FILTER_SECTION_anchoring" = "Anchoring";
+"FILTER_SECTION_road_type" = "Route";
+
+"FILTER_ROW_date_start" = "From";
+"FILTER_ROW_date_end" = "To";
 "FILTER_ROW_day_time" = "Time";
+"FILTER_ROW_fatal" = "Fatal";
+"FILTER_ROW_severe" = "Severe";
+"FILTER_ROW_light" = "Light";
+"FILTER_ROW_accurate" = "Accurate";
+"FILTER_ROW_inaccurate" = "Inaccurate";
+
+"FILTER_ROW_road_junction" = "Junciton";
+"FILTER_ROW_road_not_junction" = "Not Junction";
+"FILTER_ROW_road_one_way" = "One-Way";
+"FILTER_ROW_road_both_ways" = "Two-Ways";
+"FILTER_ROW_road_urban" = "Urban";
+"FILTER_ROW_road_not_urban" = "Non-Urban";
+
 
 "FILTER_weekday_all" = "All";
 "FILTER_weekday_sun" = "Sun";
@@ -351,6 +371,10 @@
 
 "INNER_PERSON_TITLE" = "פרטי אדם מעורב";
 "INNER_VEHICLE_TITLE" = "פרטי רכב מעורב";
+
+"PROVIDER_ihud" = "United Hatzalah";
+"PROVIDER_cbs" = "Central Bureau of Statistics";
+
 "pk_teuna_fikt" = "מזהה";
 "SUG_DERECH" = "סוג דרך";
 "SHEM_ZOMET" = "שם צומת";

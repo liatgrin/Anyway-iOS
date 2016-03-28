@@ -12,7 +12,27 @@
 
 // ### Filter ###
 "FILTER_SECTION_day" = "יום";
+"FILTER_SECTION_date_range" = "טווח תאריכים";
+"FILTER_SECTION_severity" = "חומרה";
+"FILTER_SECTION_anchoring" = "עיגון";
+"FILTER_SECTION_road_type" = "סוג דרך";
+
+"FILTER_ROW_date_start" = "תאריך התחלה";
+"FILTER_ROW_date_end" = "תאריך סיום";
 "FILTER_ROW_day_time" = "זמן";
+"FILTER_ROW_fatal" = "קטלניות";
+"FILTER_ROW_severe" = "קשות";
+"FILTER_ROW_light" = "קלות";
+"FILTER_ROW_accurate" = "מדויק";
+"FILTER_ROW_inaccurate" = "מרחבי";
+
+"FILTER_ROW_road_junction" = "בצומת";
+"FILTER_ROW_road_not_junction" = "לא בצומת";
+"FILTER_ROW_road_one_way" = "חד-סטרי";
+"FILTER_ROW_road_both_ways" = "דו-סטרי";
+"FILTER_ROW_road_urban" = "עירוני";
+"FILTER_ROW_road_not_urban" = "לא עירוני";
+
 
 "FILTER_weekday_all" = "הכל";
 "FILTER_weekday_sun" = "א׳";

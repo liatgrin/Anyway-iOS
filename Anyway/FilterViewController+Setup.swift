@@ -34,10 +34,10 @@ extension FilterViewController {
     
     private func datesSection() -> Section {
             
-        return Section("טווח תאריכים")
+        return Section(local("FILTER_SECTION_date_range"))
         
         <<< DateInlineRow() {
-            $0.title = "תאריך התחלה"
+            $0.title = local("FILTER_ROW_date_start")
             $0.value = filter.startDate
         }.onChange{ [weak self] row in
             guard let d = row.value else {return}
@@ -45,7 +45,7 @@ extension FilterViewController {
         }
         
         <<< DateInlineRow() {
-            $0.title = "תאריך סיום"
+            $0.title = local("FILTER_ROW_date_end")
             $0.value = filter.endDate
         }.onChange{ [weak self] row in
             guard let d = row.value else {return}
@@ -55,10 +55,10 @@ extension FilterViewController {
     
     private func severitySection() -> Section {
         
-        return Section("חומרה")
+        return Section(local("FILTER_SECTION_severity"))
             
         <<< CheckRow() {
-            $0.title = "קטלניות"
+            $0.title = local("FILTER_ROW_fatal")
             $0.value = filter.showFatal
         }.cellUpdate { cell, row in
                 cell.textLabel?.textColor = Color.red
@@ -68,7 +68,7 @@ extension FilterViewController {
         }
         
         <<< CheckRow() {
-            $0.title = "קשות"
+            $0.title = local("FILTER_ROW_severe")
             $0.value = filter.showSevere
         }.cellUpdate { cell, row in
                 cell.textLabel?.textColor = Color.orange
@@ -76,9 +76,9 @@ extension FilterViewController {
                 guard let v = row.value else {return}
                 self?.filter.showSevere = v
         }
-        
+            
         <<< CheckRow() {
-            $0.title = "קלות"
+            $0.title = local("FILTER_ROW_light")
             $0.value = filter.showLight
         }.cellUpdate { cell, row in
                 cell.textLabel?.textColor = Color.yellow
@@ -90,10 +90,10 @@ extension FilterViewController {
     
     private func accuracySection() -> Section {
         
-        return Section("עיגון")
+        return Section(local("FILTER_SECTION_anchoring"))
             
         <<< CheckRow() {
-            $0.title = "מדויק"
+            $0.title = local("FILTER_ROW_accurate")
             $0.value = filter.showAccurate
         }.onChange{ [weak self] row in
             guard let v = row.value else {return}
@@ -101,7 +101,7 @@ extension FilterViewController {
         }
         
         <<< CheckRow() {
-            $0.title = "מרחבי"
+            $0.title = local("FILTER_ROW_inaccurate")
             $0.value = filter.showInaccurate
         }.onChange{ [weak self] row in
             guard let v = row.value else {return}
@@ -112,10 +112,10 @@ extension FilterViewController {
     
     private func roadTypeSection() -> Section {
         
-        return Section("סוג דרך")
+        return Section(local("FILTER_SECTION_road_type"))
             
         <<< CheckRow() {
-            $0.title = "בצומת"
+            $0.title = local("FILTER_ROW_road_junction")
             $0.value = filter.showIntersection.showIn
         }.onChange{ [weak self] row in
             guard let v = row.value else {return}
@@ -123,7 +123,7 @@ extension FilterViewController {
         }
         
         <<< CheckRow() {
-            $0.title = "לא בצומת"
+            $0.title = local("FILTER_ROW_road_not_junction")
             $0.value = filter.showIntersection.showNot
         }.onChange{ [weak self] row in
             guard let v = row.value else {return}
@@ -131,7 +131,7 @@ extension FilterViewController {
         }
         
         <<< CheckRow() {
-            $0.title = "חד-סטרי"
+            $0.title = local("FILTER_ROW_road_one_way")
             $0.value = filter.showLane.oneWay
         }.onChange{ [weak self] row in
             guard let v = row.value else {return}
@@ -139,7 +139,7 @@ extension FilterViewController {
         }
         
         <<< CheckRow() {
-            $0.title = "דו-סטרי"
+            $0.title = local("FILTER_ROW_road_both_ways")
             $0.value = filter.showLane.bothWays
         }.onChange{ [weak self] row in
             guard let v = row.value else {return}
@@ -147,7 +147,7 @@ extension FilterViewController {
         }
         
         <<< CheckRow() {
-            $0.title = "עירוני"
+            $0.title = local("FILTER_ROW_road_urban")
             $0.value = filter.showUrban.urban
         }.onChange{ [weak self] row in
             guard let v = row.value else {return}
@@ -155,7 +155,7 @@ extension FilterViewController {
         }
         
         <<< CheckRow() {
-            $0.title = "לא עירוני"
+            $0.title = local("FILTER_ROW_road_not_urban")
             $0.value = filter.showUrban.nonUrban
         }.onChange{ [weak self] row in
             guard let v = row.value else {return}

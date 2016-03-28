@@ -105,8 +105,8 @@ enum Provider {
     
     var name: String {
         switch self {
-        case .CBS: return "הלשכה המרכזית לסטטיסטיקה"
-        case .Ihud: return "איחוד הצלה"
+        case .CBS: return local("PROVIDER_cbs")
+        case .Ihud: return local("PROVIDER_ihud")
         }
     }
     
