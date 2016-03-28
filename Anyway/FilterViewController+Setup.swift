@@ -26,123 +26,11 @@ extension FilterViewController {
      */
     internal func setupForm(filter: Filter) {
 
-        /*
-        form =
-            
-        Section("טווח תאריכים")
-            
-            <<< DateInlineRow() {
-                $0.title = "תאריך התחלה"
-                $0.value = filter.startDate
-            }
-            
-            <<< DateInlineRow() {
-                $0.title = "תאריך סיום"
-                $0.value = filter.endDate
-            }
-            
-            
-        +++ Section("חומרה")
-            
-            <<< CheckRow() {
-                $0.title = "קטלניות"
-                $0.value = filter.showFatal
-            }.cellUpdate { cell, row in
-                cell.textLabel?.textColor = Color.red
-            }.onChange{ [weak self] row in
-                    guard let v = row.value else {return}
-                    self?.filter.showFatal = v
-            }
-            
-            <<< CheckRow() {
-                $0.title = "קשות"
-                $0.value = filter.showSevere
-            }.cellUpdate { cell, row in
-                cell.textLabel?.textColor = Color.orange
-            }.onChange{ [weak self] row in
-                    guard let v = row.value else {return}
-                    self?.filter.showSevere = v
-            }
-            
-            <<< CheckRow() {
-                $0.title = "קלות"
-                $0.value = filter.showLight
-            }.cellUpdate { cell, row in
-                cell.textLabel?.textColor = Color.yellow
-            }.onChange{ [weak self] row in
-                guard let v = row.value else {return}
-                self?.filter.showLight = v
-            }
-            
-        
-        +++ Section("עיגון")
-            
-            <<< CheckRow() {
-                $0.title = "מדויק"
-                $0.value = filter.showAccurate
-            }
-        
-            <<< CheckRow() {
-                $0.title = "מרחבי"
-                $0.value = filter.showInaccurate
-            }
-        
-            
-            
-        +++ Section("סוג דרך")
-            
-            <<< CheckRow() {
-                $0.title = "בצומת"
-                $0.value = filter.showIntersection.showIn
-            }.onChange{ [weak self] row in
-                guard let v = row.value else {return}
-                self?.filter.showIntersection.showIn = v
-            }
-            
-            <<< CheckRow() {
-                $0.title = "לא בצומת"
-                $0.value = filter.showIntersection.showNot
-            }.onChange{ [weak self] row in
-                guard let v = row.value else {return}
-                self?.filter.showIntersection.showNot = v
-            }
-        
-            <<< CheckRow() {
-                $0.title = "חד-סטרי"
-                $0.value = filter.showLane.oneWay
-            }.onChange{ [weak self] row in
-                    guard let v = row.value else {return}
-                    self?.filter.showLane.oneWay = v
-            }
-            
-            <<< CheckRow() {
-                $0.title = "דו-סטרי"
-                $0.value = filter.showLane.bothWays
-            }.onChange{ [weak self] row in
-                    guard let v = row.value else {return}
-                    self?.filter.showLane.bothWays = v
-            }
-        
-            <<< CheckRow() {
-                $0.title = "עירוני"
-                $0.value = filter.showUrban.urban
-            }.onChange{ [weak self] row in
-                    guard let v = row.value else {return}
-                    self?.filter.showUrban.urban = v
-            }
-            
-            <<< CheckRow() {
-                $0.title = "לא עירוני"
-                $0.value = filter.showUrban.nonUrban
-            }.onChange{ [weak self] row in
-                    guard let v = row.value else {return}
-                    self?.filter.showUrban.nonUrban = v
-            }
-        */
-        
         form += [datesSection(), weekdaySection(),
             severitySection(), accuracySection(), roadTypeSection()]
     }
+    
+    
     
     private func datesSection() -> Section {
             
@@ -151,11 +39,17 @@ extension FilterViewController {
         <<< DateInlineRow() {
             $0.title = "תאריך התחלה"
             $0.value = filter.startDate
+        }.onChange{ [weak self] row in
+            guard let d = row.value else {return}
+            self?.filter.startDate = d
         }
         
         <<< DateInlineRow() {
             $0.title = "תאריך סיום"
             $0.value = filter.endDate
+        }.onChange{ [weak self] row in
+            guard let d = row.value else {return}
+            self?.filter.endDate = d
         }
     }
     
@@ -303,8 +197,19 @@ extension FilterViewController {
             self?.filter.holiday = v
         }
         
+        
+        <<< ActionSheetRow<DayTimeType>() {
+            $0.title = local("FILTER_ROW_day_time")
+            $0.options = [.All, .Light, .Dark, .Morning, .Noon, .Evening, .Night]
+            $0.value = filter.dayTime
+            $0.displayValueFor = { v in return (v ?? DayTimeType.All).localized }
+        }.onChange{ [weak self] row in
+            guard let v = row.value else {return}
+            self?.filter.dayTime = v
+        }
+        
     }
     
     
-    
 }
+

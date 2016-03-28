@@ -40,7 +40,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     @IBOutlet weak var map: OCMapView!
     
-    @IBOutlet weak var backBlackView: UIView!
     @IBOutlet weak var tableViewContainer: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var constraintTableViewBottom: NSLayoutConstraint!
@@ -97,7 +96,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        backBlackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "closeTableView"))
     }
     
     override func viewDidAppear(animated: Bool) {

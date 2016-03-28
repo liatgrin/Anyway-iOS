@@ -176,13 +176,13 @@ private struct StaticData {
         return info.1
     }
     
-    static func infoData<T: RawInfo>(var row: Int, rawInfos: [T]) -> (String, String)? {
+    static func infoData<T: RawInfo>(row: Int, rawInfos: [T]) -> (String, String)? {
         
-        row-- // row 0 is the "header" cell, so we begin from 1 instead 0...
-        assert(row >= 0, "row must never be less than zero here")
+        // row 0 is the "header" cell, so we begin from 1 instead 0...
+        assert(row-1 >= 0, "row must never be less than zero here")
         
         let infos = rawInfos.flatMap{ $0.info }
-        return infos.safeRetrieveElement(row)
+        return infos.safeRetrieveElement(row-1)
         
     }
     

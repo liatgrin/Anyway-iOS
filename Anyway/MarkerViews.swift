@@ -35,6 +35,8 @@ func *(l: CGRect, r: Int) -> CGRect {
 */
 class IconPinView: UIView {
 
+    private var iconImageView: UIImageView?
+    
     /**
      Should always be called after 'init'!
      
@@ -53,33 +55,50 @@ class IconPinView: UIView {
         let mainPinVisibleDiameter = CGFloat(35)
         let size = CGSize(squareSide: mainPinVisibleDiameter)
         let v = UIView(frame: CGRect(origin: CGPointZero, size: size))
-        v.backgroundColor = UIColor(white: 1, alpha: alpha * 1.5)
+        setBackColor(with: alpha, forView: v)
         v.layer.cornerRadius = v.frame.width / 2 //make it circle
         v.layer.masksToBounds = true
         v.center.x = center.x //position it
         v.center.y = frame.width / 2
+        v.tag = "backview_tag".hash
         
         // add the views to self (the container view)
         addSubview(v)
         addSubview(back)
     }
     
+    func updateAlpha(alpha: CGFloat = 1.0) {
+        guard let v = viewWithTag("backview_tag".hash)
+            else {return}
+        setBackColor(with: alpha, forView: v)
+    }
+    
+    private func setBackColor(with alpha: CGFloat = 1.0, forView v: UIView) {
+        v.backgroundColor = UIColor(white: 1, alpha: alpha * 1.5)
+    }
+    
     /**
      Add an icon to the pin. Does not
-     override any existing icon (will
-     add it on top).
+     override any existing icon. Will
+     change any existing icon.
      
      - parameter icon: the icon to add
      */
     func insertIcon(icon: UIImage) {
         
-        // icon
-        let iv = UIImageView(image: icon)
-        iv.center.x = center.x
-        iv.center.y = frame.width / 2
+        if let iv = iconImageView {
+            iv.image = icon
+        } else {
+            iconImageView = UIImageView(image: icon)
+            _ = iconImageView.map(addSubview)
+        }
         
-        addSubview(iv)
+        // icon
+        iconImageView?.center.x = center.x
+        iconImageView?.center.y = frame.width / 2
+        
     }
+
     
     /// Will be the icon and the pin tint color
     var color: UIColor = UIApplication.sharedApplication().delegate?.window??.tintColor ?? UIColor.blackColor() {
@@ -96,16 +115,30 @@ class IconPinView: UIView {
 
 extension MKAnnotationView {
     /// Setup Icon
-    func setupIcon(marker: VisualMarker, color: UIColor) {
+    func setupIcon(marker: VisualMarker) {
         
-        // make the pin
-        let iconPin = IconPinView(frame: frame)
-        
-        // setup with the marker color
+        // get the color
+        let color = marker.color
+       
+        // suck color vals
         var alpha: CGFloat = 0
         var white: CGFloat = 0
-        color.getWhite(&white, alpha: &alpha)
-        iconPin.setup(alpha)
+        color.getWhite(&white, alpha: &alpha) //get alpha
+        
+        
+        // make the pin or get an existing one
+        // (when dequeing reausable marker from map)
+        let iconPin: IconPinView
+        let newPin: Bool // if it's new, we add it as subview later
+        if let pin = subviews.flatMap({$0 as? IconPinView}).first {
+            iconPin = pin
+            iconPin.updateAlpha(alpha) // update for marker color
+            newPin = false
+        } else {
+            iconPin = IconPinView(frame: frame)
+            iconPin.setup(alpha) // setup with the marker color
+            newPin = true
+        }
         
         // add the icon
         if let
@@ -113,9 +146,11 @@ extension MKAnnotationView {
             img = UIImage(named: name) {
                 iconPin.insertIcon(img)
         }
+        
         iconPin.color = color
         frame = iconPin.frame
-        addSubview(iconPin)
+        
+        if newPin { addSubview(iconPin) }
     }
 }
 
@@ -133,15 +168,7 @@ class MarkerView: MKAnnotationView {
         
         rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
         
-        let c: UIColor
-        switch marker.severity {
-        case 1: c = Color.red
-        case 2: c = Color.orange
-        case 3: c = Color.yellow
-        default: c = Color.blue //should never happen
-        }
-        
-        setupIcon(marker, color: c)
+        setupIcon(marker)
     }
     
 }
@@ -158,9 +185,7 @@ class MarkerGroupView: MKAnnotationView {
         enabled = true
         canShowCallout = true
         
-        // groups are half-transperent per website design
-        let color = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
-        setupIcon(markerGroup, color: color)
+        setupIcon(markerGroup)
     }
     
 }

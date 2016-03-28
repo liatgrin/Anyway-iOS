@@ -43,6 +43,10 @@ extension MarkerGroup {
 
 extension MarkerGroup : VisualMarker {
     
+    var color: UIColor {
+        // groups are half-transperent per website design
+        return UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+    }
     var iconName: String? {
         return "ic_flare"
         

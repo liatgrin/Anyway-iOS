@@ -17,12 +17,10 @@ extension ViewController {
         
     func openTableView(type: TableViewState) {
         tableViewState = type
-        backBlackView.hidden = false
         constraintTableViewBottom.constant = 0
         view.bringSubviewToFront(tableViewContainer)
         UIView.animateWithDuration(0.25) {
             self.tableViewContainer.layoutIfNeeded()
-            self.backBlackView.alpha = 1
         }
     }
     
@@ -32,10 +30,7 @@ extension ViewController {
         constraintTableViewBottom.constant = -constraintTableViewHeight.constant
         UIView.animateWithDuration(0.25, animations:{
             self.tableViewContainer.layoutIfNeeded()
-            self.backBlackView.alpha = 0
-        }) { _ in
-            self.backBlackView.hidden = true
-        }
+        }) { _ in }
     }
     
     func numberOfRowsForFilterTable(section s: Int) -> Int {

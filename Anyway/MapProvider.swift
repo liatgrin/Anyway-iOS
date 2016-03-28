@@ -113,19 +113,22 @@ class Network {
             "show_fatal"   : filter.showFatal ? 1 : "",
             "show_severe"  : filter.showSevere ? 1 : "",
             "show_light"   : filter.showLight ? 1 : "",
+            
             "accurate" : filter.showAccurate ? 1 : "",
             "approx" : filter.showInaccurate ? 1 : "",
+            
             "show_intersection" : filter.showIntersection.value,
             "show_lane" : filter.showLane.value,
             "show_urban" : filter.showUrban.value,
             
+            "show_day" : filter.weekday.rawValue,
+            "show_holiday" : filter.holiday.rawValue,
             
             // New filter options, currently hardcoded
             // TODO: Add these as options in filter with UI
+            "show_time" : filter.dayTime.rawValue,
             
-            "show_day" : filter.weekday.rawValue,
-            "show_holiday" : filter.holiday.rawValue,
-            "show_time" : 24,
+            
             "start_time" : 25,
             "end_time" : 25,
             "weather" : 0,

@@ -116,6 +116,14 @@ extension Marker: VisualMarker {
         return Localization.STATUS_IGUN[locationAccuracy] ?? ""
     }
     
+    var color: UIColor {
+        switch severity {
+        case 1: return Color.red
+        case 2: return Color.orange
+        case 3: return Color.yellow
+        default: return Color.blue //should never happen
+        }
+    }
     
     var iconName: String? {
         return "ic_directions_car"

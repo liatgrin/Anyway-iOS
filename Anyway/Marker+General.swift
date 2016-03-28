@@ -18,4 +18,5 @@ typealias Coordinate = CLLocationCoordinate2D
 
 protocol VisualMarker: MarkerAnnotation {
     var iconName: String? { get }
+    var color: UIColor { get }
 }

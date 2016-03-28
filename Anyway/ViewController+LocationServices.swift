@@ -26,7 +26,8 @@ extension ViewController {
         switch CLLocationManager.authorizationStatus() {
             
         case .NotDetermined: //NEVER ASKED
-            if locationManager.respondsToSelector("requestWhenInUseAuthorization") {
+            let sel = #selector(CLLocationManager.requestWhenInUseAuthorization)
+            if locationManager.respondsToSelector(sel) {
                 locationManager.requestWhenInUseAuthorization() //iOS 8+
             } else {
                 locationManager.startUpdatingLocation() //iOS 7

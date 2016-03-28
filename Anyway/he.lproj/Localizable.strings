@@ -12,6 +12,7 @@
 
 // ### Filter ###
 "FILTER_SECTION_day" = "יום";
+"FILTER_ROW_day_time" = "זמן";
 
 "FILTER_weekday_all" = "הכל";
 "FILTER_weekday_sun" = "א׳";
@@ -21,6 +22,14 @@
 "FILTER_weekday_thu" = "ה׳";
 "FILTER_weekday_fri" = "ו׳";
 "FILTER_weekday_sat" = "ש׳";
+
+"FILTER_time_all" = "הכל";
+"FILTER_time_light" = "☼";
+"FILTER_time_dark" = "☽";
+"FILTER_time_morning" = "בוקר";
+"FILTER_time_noon" = "צהריים";
+"FILTER_time_evening" = "ערב";
+"FILTER_time_night" = "לילה";
 
 
 //Localization.swift

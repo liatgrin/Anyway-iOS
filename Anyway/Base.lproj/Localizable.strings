@@ -26,6 +26,7 @@
 
 // ### Filter ###
 "FILTER_SECTION_day" = "Day";
+"FILTER_ROW_day_time" = "Time";
 
 "FILTER_weekday_all" = "All";
 "FILTER_weekday_sun" = "Sun";
@@ -35,6 +36,14 @@
 "FILTER_weekday_thu" = "Thu";
 "FILTER_weekday_fri" = "Fri";
 "FILTER_weekday_sat" = "Sat";
+
+"FILTER_time_all" = "All";
+"FILTER_time_light" = "☼";
+"FILTER_time_dark" = "☽";
+"FILTER_time_morning" = "Morning";
+"FILTER_time_noon" = "Afternoon";
+"FILTER_time_evening" = "Evening";
+"FILTER_time_night" = "Night";
 
 
 //Localization.swift

@@ -80,6 +80,7 @@ extension ViewController: MKMapViewDelegate {
             
             if let mView = mapView.dequeueReusableAnnotationViewWithIdentifier(markerReuseIdentifierDefault) as? MarkerView {
                 mView.annotation = marker
+                mView.setupIcon(marker)
                 return mView
             }
             return MarkerView(marker: marker)
@@ -89,6 +90,7 @@ extension ViewController: MKMapViewDelegate {
             
             if let mView = mapView.dequeueReusableAnnotationViewWithIdentifier(markerGroupReuseIdentifierDefault) as? MarkerGroupView {
                 mView.annotation = markerGroup
+                mView.setupIcon(markerGroup)
                 return mView
             }
             return MarkerGroupView(markerGroup: markerGroup)

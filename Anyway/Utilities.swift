@@ -39,7 +39,7 @@ private var tickD = NSDate()
 func TICK() {
     tickD = NSDate()
 }
-func TOCK(sender: Any = __FUNCTION__) {
+func TOCK(sender: Any = #function) {
     print("⏰ TICK/TOCK for: \(sender) :: \(-tickD.timeIntervalSinceNow) ⏰")
 }
 
@@ -53,21 +53,21 @@ var brString: String { return "_________________________________________________
 func printbr() {
     print(brString)
 }
-func printFunc(val: Any = __FUNCTION__) {
+func printFunc(val: Any = #function) {
     print("🚩 \(val)")
 }
 
-func prettyPrint<T>(val: T, filename: NSString = __FILE__, line: Int = __LINE__, funcname: String = __FUNCTION__)
+func prettyPrint<T>(val: T, filename: NSString = #file, line: Int = #line, funcname: String = #function)
 {
     print("\(NSDate()) [\(filename.lastPathComponent):\(line)] - \(funcname):\r\(val)\n")
 }
 
-public func resizeImage(var image : UIImage, size : CGSize) -> UIImage {
+public func resizeImage(image : UIImage, size : CGSize) -> UIImage {
     UIGraphicsBeginImageContextWithOptions(size, false, 0);
     image.drawInRect(CGRectMake(0, 0, size.width, size.height))
-    image = UIGraphicsGetImageFromCurrentImageContext();
+    let out = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    return image;
+    return out;
 }
 
 func delay(delay:Double, closure:()->()) {
@@ -526,7 +526,7 @@ extension String {
     }
     
     subscript (r: Range<Int>) -> String {
-        return substringWithRange(Range(start: startIndex.advancedBy(r.startIndex), end: startIndex.advancedBy(r.endIndex)))
+        return substringWithRange(startIndex.advancedBy(r.startIndex)..<startIndex.advancedBy(r.endIndex))
     }
 
 }
