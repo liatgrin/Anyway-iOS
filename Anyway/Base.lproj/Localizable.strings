@@ -284,9 +284,9 @@
 // ### Person Involved Description Titles ###
 
 // Type (driver, didn't hurt, passengar)
-"SUG_MEORAV_1" = "Unhurt Driver";
-"SUG_MEORAV_2" = "Injured Driver";
-"SUG_MEORAV_3" = "Non-Driver Injured";
+"SUG_MEORAV_1" = "Driver uninjured";
+"SUG_MEORAV_2" = "Driver injured";
+"SUG_MEORAV_3" = "Non-Driver injured";
 
 // Sex
 "MIN_1" = "Male";
@@ -296,64 +296,64 @@
 // Same as: SUG_REHEV_LMS
 
 // Safety Measure (belt, helmet, none etc.)
-"EMZAE_BETIHUT_1" = "Buckled";
-"EMZAE_BETIHUT_2" = "Wore Helmet (Motorcycle Only)";
-"EMZAE_BETIHUT_3" = "Children's Seat (Children Only)";
-"EMZAE_BETIHUT_4" = "No Safety Messure";
-"EMZAE_BETIHUT_5" = "Unknown";
+"EMZAE_BETIHUT_1" = "Seatbelt worn";
+"EMZAE_BETIHUT_2" = "Wore safety helmet (motorcycle only)";
+"EMZAE_BETIHUT_3" = "Sat in seat/car seat (only for child injured)";
+"EMZAE_BETIHUT_4" = "Didn't use safety measure";
+"EMZAE_BETIHUT_5" = "Uknown";
 
 // Severity (killed, injured, easy injure)
-"HUMRAT_PGIA_1" = "Death";
-"HUMRAT_PGIA_2" = "Severely Injured";
-"HUMRAT_PGIA_3" = "Slightly Injured";
+"HUMRAT_PGIA_1" = "Fatality";
+"HUMRAT_PGIA_2" = "Serious injury";
+"HUMRAT_PGIA_3" = "Light injury";
 
 // Preson type (pedestrian, drived, motor/bycicle driver etc)
 "SUG_NIFGA_LMS_1" = "Pedestrian";
-"SUG_NIFGA_LMS_2" = "4+ Wheel Car Driver";
-"SUG_NIFGA_LMS_3" = "4+ Wheel Car Passenger";
-"SUG_NIFGA_LMS_4" = "Motorcycle Driver";
-"SUG_NIFGA_LMS_5" = "Motorcycle Passenger";
-"SUG_NIFGA_LMS_6" = "Bicycle Rider";
-"SUG_NIFGA_LMS_7" = "Bicycle Passenger";
-"SUG_NIFGA_LMS_8" = "Unknown Vehicle Driver";
-"SUG_NIFGA_LMS_9" = "Unknown Vehicle Passenger";
+"SUG_NIFGA_LMS_2" = "Driver of 4-wheel vehicle";
+"SUG_NIFGA_LMS_3" = "Passenger in 4-wheel vehicle";
+"SUG_NIFGA_LMS_4" = "Motorcyclist - Driver";
+"SUG_NIFGA_LMS_5" = "Motorcyclist (passenger)";
+"SUG_NIFGA_LMS_6" = "Bicyclist";
+"SUG_NIFGA_LMS_7" = "Bicyclist (Passenger)";
+"SUG_NIFGA_LMS_8" = "Driver - unknown vehicle type";
+"SUG_NIFGA_LMS_9" = "Passenger - unknown vehicle type";
 
 // Action (sitting front seat, got off car, walking etc.)
-"PEULAT_NIFGA_LMS_1" = "Car Front Seat";
-"PEULAT_NIFGA_LMS_2" = "Car Back Seat";
-"PEULAT_NIFGA_LMS_3" = "Car Trunk";
-"PEULAT_NIFGA_LMS_4" = "Car Standing";
-"PEULAT_NIFGA_LMS_5" = "Going On Car";
-"PEULAT_NIFGA_LMS_6" = "Getting Off Car";
-"PEULAT_NIFGA_LMS_7" = "Other Activity";
+"PEULAT_NIFGA_LMS_1" = "Sat in the vehicle's front seat";
+"PEULAT_NIFGA_LMS_2" = "Sat in the vehicle's back seat";
+"PEULAT_NIFGA_LMS_3" = "Sat in the vehicle's cargo cabin";
+"PEULAT_NIFGA_LMS_4" = "Stood in the car";
+"PEULAT_NIFGA_LMS_5" = "Got in the car";
+"PEULAT_NIFGA_LMS_6" = "Got out of the car";
+"PEULAT_NIFGA_LMS_7" = "Other action";
 "PEULAT_NIFGA_LMS_8" = "Unknown";
 "PEULAT_NIFGA_LMS_9" = "Pedestrian";
 
 // Hospitalization (upto 24hr, more than 24hr)
-"PAZUA_USHPAZ_1" = "Up to 24hr Hospitalization";
-"PAZUA_USHPAZ_2" = "More than 24hr Hospitalization";
+"PAZUA_USHPAZ_1" = "Hospitalized less than 24 hrs";
+"PAZUA_USHPAZ_2" = "Hospitalized over 24 hrs";
 
 // Medical State (easy, medium, harsh etc.)
 "MADAD_RAFUI_1" = "Light (1-8)";
 "MADAD_RAFUI_2" = "Medium (9-15)";
 "MADAD_RAFUI_3" = "Severe (16-24)";
-"MADAD_RAFUI_4" = "Very Severe (25-75)";
+"MADAD_RAFUI_4" = "Critical (25-75)";
 
 // Released to... (home, other hospital, death etc.)
 "YAAD_SHIHRUR_1" = "Home";
-"YAAD_SHIHRUR_2" = "Another Hospital";
-"YAAD_SHIHRUR_3" = "Rehabilitation Facility/Department";
-"YAAD_SHIHRUR_4" = "Demise";
+"YAAD_SHIHRUR_2" = "Other Hospital";
+"YAAD_SHIHRUR_3" = "Rehabilitation Center/Rehabilitation Wing";
+"YAAD_SHIHRUR_4" = "Death";
 "YAAD_SHIHRUR_5" = "Other";
 
-// DId use safety measure (yes, no, unknown)
+// Did use safety measure (yes, no, unknown)
 "SHIMUSH_BE_AVIZAREY_BETIHOT_1" = "Yes";
 "SHIMUSH_BE_AVIZAREY_BETIHOT_2" = "No";
 "SHIMUSH_BE_AVIZAREY_BETIHOT_3" = "Unknown";
 
 // Late passing (upto 30 days later, more than 30 days later)
-"PTIRA_MEUHERET_1" = "Normal Passing Up To 30 Days";
-"PTIRA_MEUHERET_2" = "Late Passing More Than 30 Days";
+"PTIRA_MEUHERET_1" = "Normal death up to 30 days later";
+"PTIRA_MEUHERET_2" = "Late death more than 30 days later";
 
 
 // ### Static Fields (titles etc.) ###
@@ -366,83 +366,83 @@
 "DETAILS_HEADER_cars" = "Cars Invovled";
 "DETAILS_HEADER_more_info" = "More Info";
 
-"INNER_PERSON_TITLE" = "Involved Person Details";
-"INNER_VEHICLE_TITLE" = "Involved Vehicle Details";
+"INNER_PERSON_TITLE" = "Details of person involved";
+"INNER_VEHICLE_TITLE" = "Details of vehicle involved";
 
 "PROVIDER_ihud" = "United Hatzalah";
 "PROVIDER_cbs" = "Central Bureau of Statistics";
 
-"pk_teuna_fikt" = "ID";
-"SUG_DERECH" = "Road Type";
-"SHEM_ZOMET" = "Junction";
-"SEMEL_YISHUV" = "Settlement";
+"pk_teuna_fikt" = "Identifier";
+"SUG_DERECH" = "Type of path";
+"SHEM_ZOMET" = "Junction name";
+"SEMEL_YISHUV" = "Town";
 "REHOV1" = "Street 1";
 "REHOV2" = "Street 2";
-"BAYIT" = "House NUmber";
-"ZOMET_IRONI" = "Urban Junction";
+"BAYIT" = "House number";
+"ZOMET_IRONI" = "Urban intersection";
 "KVISH1" = "Road 1";
-"KVISH2" = "Road 2";
-"ZOMET_LO_IRONI" = "Non Urban Junction";
+"KVISH2" = "Road2";
+"ZOMET_LO_IRONI" = "Non-urban intersection";
 "YEHIDA" = "Unit";
-"SUG_YOM" = "Day Type";
+"SUG_YOM" = "Type of Day";
 "TAARICH" = "Date";
-"RAMZOR" = "Traffic Light";
-"HUMRAT_TEUNA" = "Severity";
-"SUG_TEUNA" = "Type";
-"ZURAT_DEREH" = "Road Type";
-"HAD_MASLUL" = "Single Lane";
-"RAV_MASLUL" = "Multiple Lanes";
-"MEHIRUT_MUTERET" = "Permitted Speed";
-"TKINUT" = "Orderly";
+"RAMZOR" = "Traffic light";
+"HUMRAT_TEUNA" = "Accident Severity";
+"SUG_TEUNA" = "Accident type";
+"ZURAT_DEREH" = "Form of path";
+"HAD_MASLUL" = "Single-Lane";
+"RAV_MASLUL" = "Multi-lane";
+"MEHIRUT_MUTERET" = "Speed Limit";
+"TKINUT" = "Road Quality";
 "ROHAV" = "Width";
-"SIMUN_TIMRUR" = "Road Sign";
+"SIMUN_TIMRUR" = "Traffic signals";
 "TEURA" = "Lighting";
-"BAKARA" = "Monitoring";
-"MEZEG_AVIR" = "Weather";
-"PNE_KVISH" = "Road Surface";
-"SUG_EZEM" = "Obstacle Type";
-"MERHAK_EZEM" = "Obstacle Distance";
-"LO_HAZA" = "Did Not Cross";
-"OFEN_HAZIYA" = "Crossing Type";
-"MEKOM_HAZIYA" = "Cossing Location";
-"KIVUN_HAZIYA" = "Crossing Direction";
+"BAKARA" = "Regulation";
+"MEZEG_AVIR" = "Weather conditions";
+"PNE_KVISH" = "Road surface";
+"SUG_EZEM" = "Object type";
+"MERHAK_EZEM" = "Object Distance";
+"LO_HAZA" = "Didn't cross";
+"OFEN_HAZIYA" = "Crossing method";
+"MEKOM_HAZIYA" = "Crossing location";
+"KIVUN_HAZIYA" = "Crossing direction";
 "STATUS_IGUN" = "Anchoring";
 "MAHOZ" = "District";
-"NAFA" = "Subdistrict";
+"NAFA" = "Region";
 "EZOR_TIVI" = "Natural Area";
-"MAAMAD_MINIZIPALI" = "Municiple Status";
-"ZURAT_ISHUV" = "Settlement Type";
+"MAAMAD_MINIZIPALI" = "Municipal Status";
+"ZURAT_ISHUV" = "Community Type";
 
-"SUG_MEORAV" = "Involvment Type";
-"SHNAT_HOZAA" = "Year Issued License";
-"KVUZA_GIL" = "Age Group";
-"MIN" = "Sex";
-"SUG_REHEV_NASA_LMS" = "Car Type";
-"EMZAE_BETIHUT" = "Safety Messures";
-"HUMRAT_PGIA" = "Severity of injury";
-"SUG_NIFGA_LMS" = "Injured Type";
-"PEULAT_NIFGA_LMS" = "Injured Location";
-"KVUTZAT_OHLUSIYA_LMS" = "Population Group";
+"SUG_MEORAV" = "Involvement Type";
+"SHNAT_HOZAA" = "Year driver's license issued";
+"KVUZA_GIL" = "Age group";
+"MIN" = "Gender";
+"SUG_REHEV_NASA_LMS" = "Vehicle type driven";
+"EMZAE_BETIHUT" = "Safety Measures";
+"HUMRAT_PGIA" = "Injury severity";
+"SUG_NIFGA_LMS" = "Type of injury";
+"PEULAT_NIFGA_LMS" = "Location of injured";
+"KVUTZAT_OHLUSIYA_LMS" = "Demographic group";
 "MAHOZ_MEGURIM" = "Residential District";
-"NAFA_MEGURIM" = "Governorate";
-"EZOR_TIVI_MEGURIM" = "Natural Residential Area";
-"MAAMAD_MINIZIPALI_MEGURIM" = "Municiple Residential Status";
-"ZURAT_ISHUV_MEGURIM" = "Settlement Type";
+"NAFA_MEGURIM" = "Residential Region";
+"EZOR_TIVI_MEGURIM" = "Natural Area - Residential";
+"MAAMAD_MINIZIPALI_MEGURIM" = "Municipal Status Residential";
+"ZURAT_ISHUV_MEGURIM" = "Community Type Residential";
 
-"PAZUA_USHPAZ" = "Duration of Hospitalization";
-"MADAD_RAFUI" = "Injury Severity Score - ISS";
-"YAAD_SHIHRUR" = "Release Destination";
-"SHIMUSH_BE_AVIZAREY_BETIHOT" = "Safety Messures";
-"PTIRA_MEUHERET" = "Time of Passing";
+"PAZUA_USHPAZ" = "Hospitalization Period";
+"MADAD_RAFUI" = "ISS - Medical Index of injury severity";
+"YAAD_SHIHRUR" = "Release target";
+"SHIMUSH_BE_AVIZAREY_BETIHOT" = "Use of safety devices";
+"PTIRA_MEUHERET" = "Death date";
 
-"NEFAH" = "Engine Capacity";
-"SHNAT_YITZUR" = "Year of Manufacture";
-"KIVUNE_NESIA" = "Driving Direction";
-"MATZAV_REHEV" = "Vechicle Condition";
-"SHIYUH_REHEV_LMS" = "Association";
+"NEFAH" = "Motor Capacity";
+"SHNAT_YITZUR" = "Production year";
+"KIVUNE_NESIA" = "Driving direction";
+"MATZAV_REHEV" = "Vehicle status";
+"SHIYUH_REHEV_LMS" = "Vehicle Ownership";
 "SUG_REHEV_LMS" = "Vehicle Type";
-"MEKOMOT_YESHIVA_LMS" = "Number of Seats";
+"MEKOMOT_YESHIVA_LMS" = "Number of seats";
 "MISHKAL_KOLEL_LMS" = "Total Weight";
-"ACC_ID" = "ID";
-"PROVIDER_CODE" = "Case Provider";
+"ACC_ID" = "Serial Number";
+"PROVIDER_CODE" = "Provider Type";
 
