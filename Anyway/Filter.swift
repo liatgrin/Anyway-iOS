@@ -55,8 +55,16 @@ enum DayTimeType: Int {
     case All = 24, Light = 25, Dark = 26, Morning = 6, Noon = 12, Evening = 18, Night = 0
     var localized: String {
         return local("FILTER_time_\("\(self)".lowercaseString)")
-//        return ["all", "light", "dark", "morning", "noon", "evening", "night"]
-//            .map{ local("FILTER_time_\($0)") }[rawValue]
+    }
+}
+
+enum WeatherType: Int {
+    case All, Clear, Rainy, Torrid, Cloudy, Other
+    var localized: String {
+        return local("FILTER_weather_\(rawValue)")
+    }
+    var symbol: String {
+        return [All.localized, "☀️", "☔️", "🔥🌡", "☁️", Other.localized][rawValue]
     }
 }
 
@@ -76,6 +84,7 @@ public class Filter {
     var weekday = WeekdayType.All { didSet{ valueChanged() } }
     var holiday = HolidayType.All { didSet{ valueChanged() } }
     var dayTime = DayTimeType.All { didSet{ valueChanged() } }
+    var weather = WeatherType.All { didSet{ valueChanged() } }
     
     var description: String {
         let valsAndNames = [
@@ -89,7 +98,8 @@ public class Filter {
             "Lane" : showLane.value,
             "Weekday" : weekday.rawValue,
             "Holiday" : holiday.rawValue,
-            "Day Time" : dayTime.rawValue
+            "Day Time" : dayTime.rawValue,
+            "Weather" : weather.rawValue
         ]
         let pref = "_______[ Filter Details ]_______\n"
         let suff = "\n________________________________\n"

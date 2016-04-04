@@ -16,6 +16,7 @@
 "FILTER_SECTION_severity" = "חומרה";
 "FILTER_SECTION_anchoring" = "עיגון";
 "FILTER_SECTION_road_type" = "סוג דרך";
+"FILTER_SECTION_conditions" = "תנאים";
 
 "FILTER_ROW_date_start" = "תאריך התחלה";
 "FILTER_ROW_date_end" = "תאריך סיום";
@@ -51,6 +52,12 @@
 "FILTER_time_evening" = "ערב";
 "FILTER_time_night" = "לילה";
 
+"FILTER_weather_0" = "הכל";
+"FILTER_weather_1" = "בהיר";
+"FILTER_weather_2" = "גשום";
+"FILTER_weather_3" = "שרבי";
+"FILTER_weather_4" = "מעונן";
+"FILTER_weather_5" = "אחר";
 
 //Localization.swift
 "SUG_DERECH_1" = "עירוני בצומת";
@@ -272,25 +279,7 @@
 "MIN_2" = "נקבה";
 
 // Car type drove
-"SUG_REHEV_NASA_LMS_1" = "רכב נוסעים פרטי";
-"SUG_REHEV_NASA_LMS_2" = "משא עד 3.5 טון אחוד";
-"SUG_REHEV_NASA_LMS_3" = "משא עד 3.5 טון לא אחוד";
-"SUG_REHEV_NASA_LMS_4" = "משא 1.4 עד 9.9 טון משקל כולל";
-"SUG_REHEV_NASA_LMS_5" = "משא 10 עד 15.9 טון משקל כולל";
-"SUG_REHEV_NASA_LMS_6" = "משא 16 עד 33.9 טון משקל כולל";
-"SUG_REHEV_NASA_LMS_7" = "משא 34.0+טון משקל כולל";
-"SUG_REHEV_NASA_LMS_8" = "אופנוע עד 50 סמ״ק";
-"SUG_REHEV_NASA_LMS_9" = "אופנוע 51 עד 250 סמ״ק";
-"SUG_REHEV_NASA_LMS_10" = "אופנוע 251 עד 500 סמ״ק";
-"SUG_REHEV_NASA_LMS_11" = "אוטובוס";
-"SUG_REHEV_NASA_LMS_12" = "מונית";
-"SUG_REHEV_NASA_LMS_13" = "רכב עבודה";
-"SUG_REHEV_NASA_LMS_14" = "טרקטור";
-"SUG_REHEV_NASA_LMS_15" = "אופניים";
-"SUG_REHEV_NASA_LMS_16" = "רכבת";
-"SUG_REHEV_NASA_LMS_17" = "אחר";
-"SUG_REHEV_NASA_LMS_18" = "אוטובוס זעיר";
-"SUG_REHEV_NASA_LMS_19" = "אופנוע 501+ סמ״ק";
+// Same as: SUG_REHEV_LMS
 
 // Safety Measure (belt, helmet, none etc.)
 "EMZAE_BETIHUT_1" = "חגר חגורה";
@@ -355,6 +344,14 @@
 
 // ### Static Fields (titles etc.) ###
 
+// ### Accident Details Titles ###
+"DETAILS_HEADER_details" = "פרטי התאונה";
+"DETAILS_HEADER_road" = "תנאי הדרך";
+"DETAILS_HEADER_time_location" = "מיקום וזמן";
+"DETAILS_HEADER_people" = "נפגעים";
+"DETAILS_HEADER_cars" = "רכבים מעורבים";
+"DETAILS_HEADER_more_info" = "מידע נוסף";
+
 "INNER_PERSON_TITLE" = "פרטי אדם מעורב";
 "INNER_VEHICLE_TITLE" = "פרטי רכב מעורב";
 "pk_teuna_fikt" = "מזהה";
@@ -370,6 +367,7 @@
 "ZOMET_LO_IRONI" = "צומת לא עירוני";
 "YEHIDA" = "יחידה";
 "SUG_YOM" = "סוג יום";
+"TAARICH" = "תאריך";
 "RAMZOR" = "רמזור";
 "HUMRAT_TEUNA" = "חומרת תאונה";
 "SUG_TEUNA" = "סוג תאונה";

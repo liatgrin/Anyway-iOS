@@ -116,16 +116,19 @@ private struct StaticData {
         let name: String
         let image: UIImage
     }
+    
     static func header(forSection section: Int) -> Header? {
+        let name: String, imageName: String
         switch section {
-        case 1: return Header(name: "פרטי התאונה", image: UIImage(named: "detail_warning")!)
-        case 2: return Header(name: "תנאי הדרך", image: UIImage(named: "detail_road")!)
-        case 3: return Header(name: "מיקום וזמן", image: UIImage(named: "detail_marker")!)
-        case 4: return Header(name: "נפגעים", image: UIImage(named: "detail_pessanger")!)
-        case 5: return Header(name: "רכבים מעורבים", image: UIImage(named: "detail_car")!)
-        case 6: return Header(name: "מידע נוסף", image: UIImage(named: "detail_plus")!)
+        case 1: name = local("DETAILS_HEADER_details");         imageName = "detail_warning"
+        case 2: name = local("DETAILS_HEADER_road");            imageName = "detail_road"
+        case 3: name = local("DETAILS_HEADER_time_location");   imageName = "detail_marker"
+        case 4: name = local("DETAILS_HEADER_people");          imageName = "detail_pessanger"
+        case 5: name = local("DETAILS_HEADER_cars");            imageName = "detail_car"
+        case 6: name = local("DETAILS_HEADER_more_info");       imageName = "detail_plus"
         default: return nil
         }
+        return Header(name: name, image: UIImage(named: imageName)!)
     }
     
     enum InfoRowType {
@@ -134,22 +137,22 @@ private struct StaticData {
     
     static func title(marker: Marker?, atIndex indexPath: NSIndexPath, persons: [Person], vehicles: [Vehicle]) -> (String, InfoRowType) {
         switch (indexPath.section, indexPath.row) {
-            case (1, 1): return ("מספר סידורי", .Info)
-            case (1, 2): return ("סוג תיק", .Info)
-            case (1, 3): return ("חומרת תאונה", .Info)
-            case (1, 4): return ("סוג תאונה", .Info)
+            case (1, 1): return (local("ACC_ID"), .Info)
+            case (1, 2): return (local("PROVIDER_CODE"), .Info)
+            case (1, 3): return (local("HUMRAT_TEUNA"), .Info)
+            case (1, 4): return (local("SUG_TEUNA"), .Info)
             
             case (2, let i): return (marker?.roadConditionData.safeRetrieveElement(i)?.0 ?? "", .Info)
             
-            case (3, 1): return ("תאריך", .Info)
-            case (3, 2): return ("סוג יום", .Info)
+            case (3, 1): return (local("TAARICH"), .Info)
+            case (3, 2): return (local("SUG_YOM"), .Info)
             case (3, 3): return ("", .Info) // address (no title on website design)
             
             case (4, let i): return fieldName(i, rawInfos: persons)
             case (5, let i): return fieldName(i, rawInfos: vehicles)
             
-            case (6, 1): return ("עיגון", .Info)
-            case (6, 2): return ("יחידה", .Info)
+            case (6, 1): return (local("STATUS_IGUN"), .Info)
+            case (6, 2): return (local("YEHIDA"), .Info)
 
             default: return ("", .Info)
         }
@@ -192,7 +195,7 @@ private struct StaticData {
         switch (indexPath.section, indexPath.row) {
             
         case (1, 1): return "\(data.id)"
-        case (1, 2): return "סוג תיק"
+        case (1, 2): return "\(data.provider_code)"
         case (1, 3): return data.localizedSeverity
         case (1, 4): return data.localizedSubtype
             

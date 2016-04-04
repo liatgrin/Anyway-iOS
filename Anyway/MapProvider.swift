@@ -123,15 +123,16 @@ class Network {
             
             "show_day" : filter.weekday.rawValue,
             "show_holiday" : filter.holiday.rawValue,
+            "show_time" : filter.dayTime.rawValue,
+            
+            "weather" : filter.weather.rawValue,
             
             // New filter options, currently hardcoded
             // TODO: Add these as options in filter with UI
-            "show_time" : filter.dayTime.rawValue,
             
             
             "start_time" : 25,
             "end_time" : 25,
-            "weather" : 0,
             "road" : 0,
             "separation" : 0,
             "surface" : 0,

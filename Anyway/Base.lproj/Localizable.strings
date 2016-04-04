@@ -30,6 +30,7 @@
 "FILTER_SECTION_severity" = "Severity";
 "FILTER_SECTION_anchoring" = "Anchoring";
 "FILTER_SECTION_road_type" = "Route";
+"FILTER_SECTION_conditions" = "Conditions";
 
 "FILTER_ROW_date_start" = "From";
 "FILTER_ROW_date_end" = "To";
@@ -65,6 +66,12 @@
 "FILTER_time_evening" = "Evening";
 "FILTER_time_night" = "Night";
 
+"FILTER_weather_0" = "All";
+"FILTER_weather_1" = "Clear";
+"FILTER_weather_2" = "Rainy";
+"FILTER_weather_3" = "Torrid";
+"FILTER_weather_4" = "Cloudy";
+"FILTER_weather_5" = "Other";
 
 //Localization.swift
 "SUG_DERECH_1" = "Urban Intersection";
@@ -277,174 +284,165 @@
 // ### Person Involved Description Titles ###
 
 // Type (driver, didn't hurt, passengar)
-"SUG_MEORAV_1" = "נהג שלא נפגע";
-"SUG_MEORAV_2" = "נהג נפגע";
-"SUG_MEORAV_3" = "נפגע שאינו נהג";
+"SUG_MEORAV_1" = "Unhurt Driver";
+"SUG_MEORAV_2" = "Injured Driver";
+"SUG_MEORAV_3" = "Non-Driver Injured";
 
 // Sex
-"MIN_1" = "זכר";
-"MIN_2" = "נקבה";
+"MIN_1" = "Male";
+"MIN_2" = "Female";
 
 // Car type drove
-"SUG_REHEV_NASA_LMS_1" = "רכב נוסעים פרטי";
-"SUG_REHEV_NASA_LMS_2" = "משא עד 3.5 טון אחוד";
-"SUG_REHEV_NASA_LMS_3" = "משא עד 3.5 טון לא אחוד";
-"SUG_REHEV_NASA_LMS_4" = "משא 1.4 עד 9.9 טון משקל כולל";
-"SUG_REHEV_NASA_LMS_5" = "משא 10 עד 15.9 טון משקל כולל";
-"SUG_REHEV_NASA_LMS_6" = "משא 16 עד 33.9 טון משקל כולל";
-"SUG_REHEV_NASA_LMS_7" = "משא 34.0+טון משקל כולל";
-"SUG_REHEV_NASA_LMS_8" = "אופנוע עד 50 סמ״ק";
-"SUG_REHEV_NASA_LMS_9" = "אופנוע 51 עד 250 סמ״ק";
-"SUG_REHEV_NASA_LMS_10" = "אופנוע 251 עד 500 סמ״ק";
-"SUG_REHEV_NASA_LMS_11" = "אוטובוס";
-"SUG_REHEV_NASA_LMS_12" = "מונית";
-"SUG_REHEV_NASA_LMS_13" = "רכב עבודה";
-"SUG_REHEV_NASA_LMS_14" = "טרקטור";
-"SUG_REHEV_NASA_LMS_15" = "אופניים";
-"SUG_REHEV_NASA_LMS_16" = "רכבת";
-"SUG_REHEV_NASA_LMS_17" = "אחר";
-"SUG_REHEV_NASA_LMS_18" = "אוטובוס זעיר";
-"SUG_REHEV_NASA_LMS_19" = "אופנוע 501+ סמ״ק";
+// Same as: SUG_REHEV_LMS
 
 // Safety Measure (belt, helmet, none etc.)
-"EMZAE_BETIHUT_1" = "חגר חגורה";
-"EMZAE_BETIHUT_2" = "חבש קסדת מגן (רק לאופנוע)";
-"EMZAE_BETIHUT_3" = "ישב במושב/ריתמה לילדים (רק לנפגע ילד)";
-"EMZAE_BETIHUT_4" = "לא השתמש באמצעי";
-"EMZAE_BETIHUT_5" = "לא ידוע";
+"EMZAE_BETIHUT_1" = "Buckled";
+"EMZAE_BETIHUT_2" = "Wore Helmet (Motorcycle Only)";
+"EMZAE_BETIHUT_3" = "Children's Seat (Children Only)";
+"EMZAE_BETIHUT_4" = "No Safety Messure";
+"EMZAE_BETIHUT_5" = "Unknown";
 
 // Severity (killed, injured, easy injure)
-"HUMRAT_PGIA_1" = "הרוג";
-"HUMRAT_PGIA_2" = "פצוע קשה";
-"HUMRAT_PGIA_3" = "פצוע קל";
+"HUMRAT_PGIA_1" = "Death";
+"HUMRAT_PGIA_2" = "Severely Injured";
+"HUMRAT_PGIA_3" = "Slightly Injured";
 
 // Preson type (pedestrian, drived, motor/bycicle driver etc)
-"SUG_NIFGA_LMS_1" = "הולך רגל";
-"SUG_NIFGA_LMS_2" = "נהג-רכב בעל 4+ גלגלים";
-"SUG_NIFGA_LMS_3" = "נוסע- רכב בעל 4+ גלגלים";
-"SUG_NIFGA_LMS_4" = "נהג-אופנוע";
-"SUG_NIFGA_LMS_5" = "נוסע-אופנוע (לא נהג)";
-"SUG_NIFGA_LMS_6" = "נהג-אופניים";
-"SUG_NIFGA_LMS_7" = "נוסע-אופניים (לא נהג)";
-"SUG_NIFGA_LMS_8" = "נהג-רכב לא ידוע";
-"SUG_NIFGA_LMS_9" = "נוסע-רכב לא ידוע";
+"SUG_NIFGA_LMS_1" = "Pedestrian";
+"SUG_NIFGA_LMS_2" = "4+ Wheel Car Driver";
+"SUG_NIFGA_LMS_3" = "4+ Wheel Car Passenger";
+"SUG_NIFGA_LMS_4" = "Motorcycle Driver";
+"SUG_NIFGA_LMS_5" = "Motorcycle Passenger";
+"SUG_NIFGA_LMS_6" = "Bicycle Rider";
+"SUG_NIFGA_LMS_7" = "Bicycle Passenger";
+"SUG_NIFGA_LMS_8" = "Unknown Vehicle Driver";
+"SUG_NIFGA_LMS_9" = "Unknown Vehicle Passenger";
 
 // Action (sitting front seat, got off car, walking etc.)
-"PEULAT_NIFGA_LMS_1" = "ישב ברכב במושב קדמי";
-"PEULAT_NIFGA_LMS_2" = "ישב ברכב במושב אחורי";
-"PEULAT_NIFGA_LMS_3" = "ישב ברכב בארגז מאחור";
-"PEULAT_NIFGA_LMS_4" = "עמד ברכב";
-"PEULAT_NIFGA_LMS_5" = "עלה לרכב";
-"PEULAT_NIFGA_LMS_6" = "ירד מהרכב";
-"PEULAT_NIFGA_LMS_7" = "פעולה אחרת";
-"PEULAT_NIFGA_LMS_8" = "לא ידוע";
-"PEULAT_NIFGA_LMS_9" = "הולך רגל";
+"PEULAT_NIFGA_LMS_1" = "Car Front Seat";
+"PEULAT_NIFGA_LMS_2" = "Car Back Seat";
+"PEULAT_NIFGA_LMS_3" = "Car Trunk";
+"PEULAT_NIFGA_LMS_4" = "Car Standing";
+"PEULAT_NIFGA_LMS_5" = "Going On Car";
+"PEULAT_NIFGA_LMS_6" = "Getting Off Car";
+"PEULAT_NIFGA_LMS_7" = "Other Activity";
+"PEULAT_NIFGA_LMS_8" = "Unknown";
+"PEULAT_NIFGA_LMS_9" = "Pedestrian";
 
 // Hospitalization (upto 24hr, more than 24hr)
-"PAZUA_USHPAZ_1" = "אשפוז עד 24 שעות";
-"PAZUA_USHPAZ_2" = "אשפוז מעל 24 שעות";
+"PAZUA_USHPAZ_1" = "Up to 24hr Hospitalization";
+"PAZUA_USHPAZ_2" = "More than 24hr Hospitalization";
 
 // Medical State (easy, medium, harsh etc.)
-"MADAD_RAFUI_1" = "קל (1-8)";
-"MADAD_RAFUI_2" = "בינוני (9-15)";
-"MADAD_RAFUI_3" = "קשה (16-24)";
-"MADAD_RAFUI_4" = "קשה מאוד (25-75)";
+"MADAD_RAFUI_1" = "Light (1-8)";
+"MADAD_RAFUI_2" = "Medium (9-15)";
+"MADAD_RAFUI_3" = "Severe (16-24)";
+"MADAD_RAFUI_4" = "Very Severe (25-75)";
 
 // Released to... (home, other hospital, death etc.)
-"YAAD_SHIHRUR_1" = "בית";
-"YAAD_SHIHRUR_2" = "בית חולים אחר";
-"YAAD_SHIHRUR_3" = "מוסד שיקומי/ מחלקה שיקומית";
-"YAAD_SHIHRUR_4" = "מוות";
-"YAAD_SHIHRUR_5" = "אחר";
+"YAAD_SHIHRUR_1" = "Home";
+"YAAD_SHIHRUR_2" = "Another Hospital";
+"YAAD_SHIHRUR_3" = "Rehabilitation Facility/Department";
+"YAAD_SHIHRUR_4" = "Demise";
+"YAAD_SHIHRUR_5" = "Other";
 
 // DId use safety measure (yes, no, unknown)
-"SHIMUSH_BE_AVIZAREY_BETIHOT_1" = "כן";
-"SHIMUSH_BE_AVIZAREY_BETIHOT_2" = "לא";
-"SHIMUSH_BE_AVIZAREY_BETIHOT_3" = "לא ידוע";
+"SHIMUSH_BE_AVIZAREY_BETIHOT_1" = "Yes";
+"SHIMUSH_BE_AVIZAREY_BETIHOT_2" = "No";
+"SHIMUSH_BE_AVIZAREY_BETIHOT_3" = "Unknown";
 
 // Late passing (upto 30 days later, more than 30 days later)
-"PTIRA_MEUHERET_1" = "פטירה רגילה עד 30 יום";
-"PTIRA_MEUHERET_2" = "פטירה מאוחרת מעל 30 יום";
+"PTIRA_MEUHERET_1" = "Normal Passing Up To 30 Days";
+"PTIRA_MEUHERET_2" = "Late Passing More Than 30 Days";
 
 
 // ### Static Fields (titles etc.) ###
 
-"INNER_PERSON_TITLE" = "פרטי אדם מעורב";
-"INNER_VEHICLE_TITLE" = "פרטי רכב מעורב";
+// ### Accident Details Titles ###
+"DETAILS_HEADER_details" = "Accident Details";
+"DETAILS_HEADER_road" = "Road Conditions";
+"DETAILS_HEADER_time_location" = "Time & Location";
+"DETAILS_HEADER_people" = "People Involved";
+"DETAILS_HEADER_cars" = "Cars Invovled";
+"DETAILS_HEADER_more_info" = "More Info";
+
+"INNER_PERSON_TITLE" = "Involved Person Details";
+"INNER_VEHICLE_TITLE" = "Involved Vehicle Details";
 
 "PROVIDER_ihud" = "United Hatzalah";
 "PROVIDER_cbs" = "Central Bureau of Statistics";
 
-"pk_teuna_fikt" = "מזהה";
-"SUG_DERECH" = "סוג דרך";
-"SHEM_ZOMET" = "שם צומת";
-"SEMEL_YISHUV" = "ישוב";
-"REHOV1" = "רחוב 1";
-"REHOV2" = "רחוב 2";
-"BAYIT" = "מספר בית";
-"ZOMET_IRONI" = "צומת עירוני";
-"KVISH1" = "כביש 1";
-"KVISH2" = "כביש 2";
-"ZOMET_LO_IRONI" = "צומת לא עירוני";
-"YEHIDA" = "יחידה";
+"pk_teuna_fikt" = "ID";
+"SUG_DERECH" = "Road Type";
+"SHEM_ZOMET" = "Junction";
+"SEMEL_YISHUV" = "Settlement";
+"REHOV1" = "Street 1";
+"REHOV2" = "Street 2";
+"BAYIT" = "House NUmber";
+"ZOMET_IRONI" = "Urban Junction";
+"KVISH1" = "Road 1";
+"KVISH2" = "Road 2";
+"ZOMET_LO_IRONI" = "Non Urban Junction";
+"YEHIDA" = "Unit";
 "SUG_YOM" = "Day Type";
-"RAMZOR" = "רמזור";
-"HUMRAT_TEUNA" = "חומרת תאונה";
-"SUG_TEUNA" = "סוג תאונה";
-"ZURAT_DEREH" = "צורת דרך";
-"HAD_MASLUL" = "חד מסלול";
-"RAV_MASLUL" = "רב מסלול";
-"MEHIRUT_MUTERET" = "מהירות מותרת";
-"TKINUT" = "תקינות";
-"ROHAV" = "רוחב";
-"SIMUN_TIMRUR" = "סימון תמרור";
-"TEURA" = "תאורה";
-"BAKARA" = "בקרה";
-"MEZEG_AVIR" = "מזג אוויר";
-"PNE_KVISH" = "פני כביש";
-"SUG_EZEM" = "סוג עצם";
-"MERHAK_EZEM" = "מרחק עצם";
-"LO_HAZA" = "לא חצה";
-"OFEN_HAZIYA" = "אופן חציה";
-"MEKOM_HAZIYA" = "מקום חציה";
-"KIVUN_HAZIYA" = "כיוון חציה";
-"STATUS_IGUN" = "עיגון";
-"MAHOZ" = "מחוז";
-"NAFA" = "נפה";
-"EZOR_TIVI" = "אזור טבעי";
-"MAAMAD_MINIZIPALI" = "מעמד מוניציפלי";
-"ZURAT_ISHUV" = "צורת יישוב";
+"TAARICH" = "Date";
+"RAMZOR" = "Traffic Light";
+"HUMRAT_TEUNA" = "Severity";
+"SUG_TEUNA" = "Type";
+"ZURAT_DEREH" = "Road Type";
+"HAD_MASLUL" = "Single Lane";
+"RAV_MASLUL" = "Multiple Lanes";
+"MEHIRUT_MUTERET" = "Permitted Speed";
+"TKINUT" = "Orderly";
+"ROHAV" = "Width";
+"SIMUN_TIMRUR" = "Road Sign";
+"TEURA" = "Lighting";
+"BAKARA" = "Monitoring";
+"MEZEG_AVIR" = "Weather";
+"PNE_KVISH" = "Road Surface";
+"SUG_EZEM" = "Obstacle Type";
+"MERHAK_EZEM" = "Obstacle Distance";
+"LO_HAZA" = "Did Not Cross";
+"OFEN_HAZIYA" = "Crossing Type";
+"MEKOM_HAZIYA" = "Cossing Location";
+"KIVUN_HAZIYA" = "Crossing Direction";
+"STATUS_IGUN" = "Anchoring";
+"MAHOZ" = "District";
+"NAFA" = "Subdistrict";
+"EZOR_TIVI" = "Natural Area";
+"MAAMAD_MINIZIPALI" = "Municiple Status";
+"ZURAT_ISHUV" = "Settlement Type";
 
-"SUG_MEORAV" = "סוג מעורב";
-"SHNAT_HOZAA" = "שנת הוצאת רשיון נהיגה";
-"KVUZA_GIL" = "קבוצת גיל";
-"MIN" = "מין";
-"SUG_REHEV_NASA_LMS" = "סוג רכב בו נסע";
-"EMZAE_BETIHUT" = "אמצעי בטיחות";
-"HUMRAT_PGIA" = "חומרת פגיעה";
-"SUG_NIFGA_LMS" = "סוג נפגע";
-"PEULAT_NIFGA_LMS" = "מיקום פצוע";
-"KVUTZAT_OHLUSIYA_LMS" = "קבוצת אוכלוסיה";
-"MAHOZ_MEGURIM" = "מחוז מגורים";
-"NAFA_MEGURIM" = "נפת מגורים";
-"EZOR_TIVI_MEGURIM" = "אזור טבעי מגורים";
-"MAAMAD_MINIZIPALI_MEGURIM" = "מעמד מוניצפלי מגורים";
-"ZURAT_ISHUV_MEGURIM" = "צורת ישוב מגורים";
+"SUG_MEORAV" = "Involvment Type";
+"SHNAT_HOZAA" = "Year Issued License";
+"KVUZA_GIL" = "Age Group";
+"MIN" = "Sex";
+"SUG_REHEV_NASA_LMS" = "Car Type";
+"EMZAE_BETIHUT" = "Safety Messures";
+"HUMRAT_PGIA" = "Severity of injury";
+"SUG_NIFGA_LMS" = "Injured Type";
+"PEULAT_NIFGA_LMS" = "Injured Location";
+"KVUTZAT_OHLUSIYA_LMS" = "Population Group";
+"MAHOZ_MEGURIM" = "Residential District";
+"NAFA_MEGURIM" = "Governorate";
+"EZOR_TIVI_MEGURIM" = "Natural Residential Area";
+"MAAMAD_MINIZIPALI_MEGURIM" = "Municiple Residential Status";
+"ZURAT_ISHUV_MEGURIM" = "Settlement Type";
 
-"PAZUA_USHPAZ" = "משך אשפוז";
-"MADAD_RAFUI" = "מדד רפואי לחומרת הפציעה - ISS";
-"YAAD_SHIHRUR" = "יעד שחרור";
-"SHIMUSH_BE_AVIZAREY_BETIHOT" = "שימוש באביזרי בטיחות";
-"PTIRA_MEUHERET" = "מועד הפטירה";
+"PAZUA_USHPAZ" = "Duration of Hospitalization";
+"MADAD_RAFUI" = "Injury Severity Score - ISS";
+"YAAD_SHIHRUR" = "Release Destination";
+"SHIMUSH_BE_AVIZAREY_BETIHOT" = "Safety Messures";
+"PTIRA_MEUHERET" = "Time of Passing";
 
-"NEFAH" = "נפח מנוע";
-"SHNAT_YITZUR" = "שנת ייצור";
-"KIVUNE_NESIA" = "כיוון נסיעה";
-"MATZAV_REHEV" = "מצב רכב";
-"SHIYUH_REHEV_LMS" = "שיוך רכב";
-"SUG_REHEV_LMS" = "סוג רכב";
-"MEKOMOT_YESHIVA_LMS" = "מקומות ישיבה";
-"MISHKAL_KOLEL_LMS" = "משקל כולל";
-"ACC_ID" = "מספר סידורי";
-"PROVIDER_CODE" = "סוג תיק";
+"NEFAH" = "Engine Capacity";
+"SHNAT_YITZUR" = "Year of Manufacture";
+"KIVUNE_NESIA" = "Driving Direction";
+"MATZAV_REHEV" = "Vechicle Condition";
+"SHIYUH_REHEV_LMS" = "Association";
+"SUG_REHEV_LMS" = "Vehicle Type";
+"MEKOMOT_YESHIVA_LMS" = "Number of Seats";
+"MISHKAL_KOLEL_LMS" = "Total Weight";
+"ACC_ID" = "ID";
+"PROVIDER_CODE" = "Case Provider";
 

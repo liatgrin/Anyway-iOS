@@ -26,7 +26,7 @@ extension FilterViewController {
      */
     internal func setupForm(filter: Filter) {
 
-        form += [datesSection(), weekdaySection(),
+        form += [datesSection(), weekdaySection(), conditionsSection(),
             severitySection(), accuracySection(), roadTypeSection()]
     }
     
@@ -208,6 +208,21 @@ extension FilterViewController {
             self?.filter.dayTime = v
         }
         
+    }
+    
+    private func conditionsSection() -> Section {
+        
+        return Section(local("FILTER_SECTION_conditions"))
+        
+        <<< SegmentedRow<WeatherType>() {
+            $0.options = [.All, .Clear, .Rainy, .Torrid, .Cloudy, .Other]
+            $0.value = filter.weather
+            $0.displayValueFor = { v in return (v ?? WeatherType.All).symbol }
+        }.onChange{ [weak self] row in
+            guard let v = row.value else {return}
+            self?.filter.weather = v
+        }
+
     }
     
     
