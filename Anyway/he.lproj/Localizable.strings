@@ -354,6 +354,10 @@
 
 "INNER_PERSON_TITLE" = "פרטי אדם מעורב";
 "INNER_VEHICLE_TITLE" = "פרטי רכב מעורב";
+
+"PROVIDER_ihud" = "איחוד הצלה";
+"PROVIDER_cbs" = "הלשכה המרכזית לסטטיסטיקה";
+
 "pk_teuna_fikt" = "מזהה";
 "SUG_DERECH" = "סוג דרך";
 "SHEM_ZOMET" = "שם צומת";
