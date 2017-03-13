@@ -40,20 +40,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     @IBOutlet weak var map: OCMapView!
     
-    @IBOutlet weak var tableViewContainer: UIView!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var constraintTableViewBottom: NSLayoutConstraint!
-    @IBOutlet weak var constraintTableViewHeight: NSLayoutConstraint!
-    
     
     /// Holds the filter params for the current results
     var filter = Filter()
-    
-    /// Filter table current state
-    var tableViewState = TableViewState.closed
-
-    /// Wether the user is currently selecting start date, end, or none
-    var dateSelectionType = DateSelectionType.none
     
     /// Last area shown on the map
     var lastRegion = MKCoordinateRegionForMapRect(MKMapRectNull)
@@ -105,21 +94,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             sync{ self.beginTrackingLocation() }
         }
     }
-    
-    override func viewWillLayoutSubviews() {
-        if initialLayout {
-            initialLayout = false
-            
-            let rows = CGFloat(totalRowsForFilterTable())
-            let rowHeight = CGFloat(44)// tableView.rowHeight -> is -1 at this point
-            let sections = CGFloat(numberOfSections(in: tableView))
-            let headerHeight = CGFloat( tableView(tableView, heightForHeaderInSection: 0) )
-            
-            constraintTableViewHeight.constant = rowHeight * rows + headerHeight * sections
-            constraintTableViewBottom.constant = -constraintTableViewHeight.constant
-        }
-    }
-    
+  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destinationController(FilterViewController.self) {
             dest.filter = filter
@@ -197,10 +172,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     //MARK: - Actions
     
-    @IBAction func actionFilter(_ sender: UIBarButtonItem) {
-        openTableView(.filter)
-    }
-    
     @IBAction func actionAccidents(_ sender: UIBarButtonItem) {
         
         // Create the accidents VC from the current storyboard
@@ -239,14 +210,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         
         dest.dataSource = markers.sorted{$0.created.compare($1.created as Date) == .orderedDescending}
-    }
-    
-    func openDateSelectionController() {
-        let dateSelectionVC = RMDateSelectionViewController.dateSelection()
-        dateSelectionVC?.datePicker.datePickerMode = UIDatePickerMode.date
-        dateSelectionVC?.disableBouncingWhenShowing = true
-        dateSelectionVC?.delegate = self
-        dateSelectionVC?.show()
     }
     
     

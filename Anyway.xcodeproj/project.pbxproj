@@ -21,8 +21,6 @@
 		30667BAA1A92698900853125 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30667BA91A92698900853125 /* Marker.swift */; };
 		30673C681C1F4B6200CEB5FB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30673C6A1C1F4B6200CEB5FB /* Localizable.strings */; };
 		30673C701C1F5F1600CEB5FB /* ViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30673C6F1C1F5F1600CEB5FB /* ViewController+MapView.swift */; };
-		30673C721C1F5F5600CEB5FB /* ViewController+Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30673C711C1F5F5600CEB5FB /* ViewController+Table.swift */; };
-		30673C741C1F608600CEB5FB /* ViewController+DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30673C731C1F608600CEB5FB /* ViewController+DatePicker.swift */; };
 		30673C771C1F623500CEB5FB /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30673C761C1F623500CEB5FB /* Filter.swift */; };
 		307751DE1C5FD1680071F6FA /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307751DD1C5FD1680071F6FA /* FilterViewController.swift */; };
 		307751E11C5FDEE50071F6FA /* FilterViewController+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307751E01C5FDEE50071F6FA /* FilterViewController+Setup.swift */; };
@@ -61,7 +59,6 @@
 		30D6E5D21A92642000337FDB /* MapProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E5D11A92642000337FDB /* MapProvider.swift */; };
 		30D6E5D61A92647300337FDB /* PrintlnMagic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E5D31A92647300337FDB /* PrintlnMagic.swift */; };
 		30DAA0981AC1F95D001F67D2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DAA0971AC1F95D001F67D2 /* Extensions.swift */; };
-		30DAA09C1AC201D7001F67D2 /* RMDateSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DAA09B1AC201D7001F67D2 /* RMDateSelectionViewController.m */; };
 		30ECD1821ADC19D800A62052 /* SwiftyUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECD1811ADC19D800A62052 /* SwiftyUserDefaults.swift */; };
 		98C5266C20611647AF2A6021 /* Pods_Anyway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1521A2C594A5668CBF565D /* Pods_Anyway.framework */; };
 /* End PBXBuildFile section */
@@ -94,8 +91,6 @@
 		30673C6B1C1F4B6400CEB5FB /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
 		30673C6D1C1F4CF600CEB5FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		30673C6F1C1F5F1600CEB5FB /* ViewController+MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+MapView.swift"; sourceTree = "<group>"; };
-		30673C711C1F5F5600CEB5FB /* ViewController+Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Table.swift"; sourceTree = "<group>"; };
-		30673C731C1F608600CEB5FB /* ViewController+DatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+DatePicker.swift"; sourceTree = "<group>"; };
 		30673C761C1F623500CEB5FB /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		307751DD1C5FD1680071F6FA /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		307751E01C5FDEE50071F6FA /* FilterViewController+Setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FilterViewController+Setup.swift"; sourceTree = "<group>"; };
@@ -152,8 +147,6 @@
 		30D6E5D11A92642000337FDB /* MapProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapProvider.swift; sourceTree = "<group>"; };
 		30D6E5D31A92647300337FDB /* PrintlnMagic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintlnMagic.swift; sourceTree = "<group>"; };
 		30DAA0971AC1F95D001F67D2 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		30DAA09A1AC201D7001F67D2 /* RMDateSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMDateSelectionViewController.h; sourceTree = "<group>"; };
-		30DAA09B1AC201D7001F67D2 /* RMDateSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMDateSelectionViewController.m; sourceTree = "<group>"; };
 		30ECD1811ADC19D800A62052 /* SwiftyUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyUserDefaults.swift; sourceTree = "<group>"; };
 		3A06E2DAB55DAB6F55D67925 /* Pods-Anyway.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Anyway.release.xcconfig"; path = "Pods/Target Support Files/Pods-Anyway/Pods-Anyway.release.xcconfig"; sourceTree = "<group>"; };
 		DD1521A2C594A5668CBF565D /* Pods_Anyway.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Anyway.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,10 +265,8 @@
 			children = (
 				30D6E5B31A92639500337FDB /* ViewController.swift */,
 				307751E21C5FDFC60071F6FA /* ViewController+FilterScreen.swift */,
-				30673C731C1F608600CEB5FB /* ViewController+DatePicker.swift */,
 				30673C6F1C1F5F1600CEB5FB /* ViewController+MapView.swift */,
 				3063AFD91C3B0B77003B995D /* ViewController+LocationServices.swift */,
-				30673C711C1F5F5600CEB5FB /* ViewController+Table.swift */,
 			);
 			name = "Main Screen";
 			sourceTree = "<group>";
@@ -293,7 +284,6 @@
 		30AF03661A9BC620008B7889 /* ObjC */ = {
 			isa = PBXGroup;
 			children = (
-				30DAA0991AC201D7001F67D2 /* RMDateSelectionViewController */,
 				30BEB44C1A9D1A7A005F3205 /* JGProgressHUD */,
 				30367E901A9D006400B16DA1 /* OCMapView */,
 				30AF03671A9BC62C008B7889 /* Anyway-Bridging-Header.h */,
@@ -407,15 +397,6 @@
 				30ECD1811ADC19D800A62052 /* SwiftyUserDefaults.swift */,
 			);
 			name = "Swift Libraries";
-			sourceTree = "<group>";
-		};
-		30DAA0991AC201D7001F67D2 /* RMDateSelectionViewController */ = {
-			isa = PBXGroup;
-			children = (
-				30DAA09A1AC201D7001F67D2 /* RMDateSelectionViewController.h */,
-				30DAA09B1AC201D7001F67D2 /* RMDateSelectionViewController.m */,
-			);
-			path = RMDateSelectionViewController;
 			sourceTree = "<group>";
 		};
 		D070F8F5BD88F17AF3B134CE /* Pods */ = {
@@ -610,13 +591,11 @@
 				305563E91C4D6E2800FAC3A2 /* PairsDataProtocol.swift in Sources */,
 				30BB76821AEE938600CB1EBD /* InfoViewController.swift in Sources */,
 				307751DE1C5FD1680071F6FA /* FilterViewController.swift in Sources */,
-				30DAA09C1AC201D7001F67D2 /* RMDateSelectionViewController.m in Sources */,
 				30BEB4681A9D1A7A005F3205 /* JGProgressHUDIndeterminateIndicatorView.m in Sources */,
 				30367EA31A9D0AEB00B16DA1 /* InsetLabel.swift in Sources */,
 				30D6E5D61A92647300337FDB /* PrintlnMagic.swift in Sources */,
 				30CC256F1B4B11A800BE8FE9 /* AccidentsViewController.swift in Sources */,
 				30CDE5151BFA555500BBC183 /* Alamofire-SwiftyJSON.swift in Sources */,
-				30673C721C1F5F5600CEB5FB /* ViewController+Table.swift in Sources */,
 				30568A981C0CDF4C00471D83 /* Vehicle.swift in Sources */,
 				30367E9E1A9D006400B16DA1 /* OCMapView.m in Sources */,
 				30BEB4631A9D1A7A005F3205 /* JGProgressHUD.m in Sources */,
@@ -626,7 +605,6 @@
 				30CDE5171BFA690A00BBC183 /* Localization.swift in Sources */,
 				309DD0461BFA464100AF80D1 /* Utilities.swift in Sources */,
 				30D6E5B41A92639500337FDB /* ViewController.swift in Sources */,
-				30673C741C1F608600CEB5FB /* ViewController+DatePicker.swift in Sources */,
 				30BEB4651A9D1A7A005F3205 /* JGProgressHUDErrorIndicatorView.m in Sources */,
 				30367E9C1A9D006400B16DA1 /* OCAnnotation.m in Sources */,
 				30568A931C0CDAB500471D83 /* Marker+General.swift in Sources */,
