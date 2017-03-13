@@ -10,12 +10,12 @@ import Foundation
 
 extension ViewController: FilterScreenDelegate {
     
-    func didCancel(vc: FilterViewController, filter: Filter) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func didCancel(_ vc: FilterViewController, filter: Filter) {
+        dismiss(animated: true, completion: nil)
     }
     
-    func didSave(vc: FilterViewController, filter: Filter) {
-        dismissViewControllerAnimated(true) {
+    func didSave(_ vc: FilterViewController, filter: Filter) {
+        dismiss(animated: true) {
             self.filter = filter
             self.updateInfoIfPossible(self.map, filterChanged: true)
         }

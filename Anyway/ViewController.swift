@@ -9,10 +9,10 @@
 import UIKit
 
 private func newHud() -> JGProgressHUD {
-    let hud = JGProgressHUD(style: .Light)
-    hud.animation = JGProgressHUDFadeZoomAnimation() as JGProgressHUDFadeZoomAnimation
-    hud.interactionType = JGProgressHUDInteractionType.BlockNoTouches
-    return hud
+    let hud = JGProgressHUD(style: .light)
+    hud?.animation = JGProgressHUDFadeZoomAnimation() as JGProgressHUDFadeZoomAnimation
+    hud?.interactionType = JGProgressHUDInteractionType.blockNoTouches
+    return hud!
 }
 
 /**
@@ -22,7 +22,7 @@ private func newHud() -> JGProgressHUD {
 */
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
-    enum DateSelectionType { case None, Start, End }
+    enum DateSelectionType { case none, start, end }
 
     @IBOutlet weak var btnFilter: UIBarButtonItem!
     @IBOutlet weak var btnAccidents: UIBarButtonItem!
@@ -31,8 +31,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var detailLabel: UILabel! {
         didSet{
-            detailLabel?.backgroundColor = UIColor.whiteColor()
-            detailLabel?.layer.borderColor = UIColor.grayColor().CGColor
+            detailLabel?.backgroundColor = UIColor.white
+            detailLabel?.layer.borderColor = UIColor.gray.cgColor
             detailLabel?.layer.borderWidth = 0.5
             detailLabel?.layer.cornerRadius = 4
             detailLabel?.layer.masksToBounds = true
@@ -50,10 +50,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var filter = Filter()
     
     /// Filter table current state
-    var tableViewState = TableViewState.Closed
+    var tableViewState = TableViewState.closed
 
     /// Wether the user is currently selecting start date, end, or none
-    var dateSelectionType = DateSelectionType.None
+    var dateSelectionType = DateSelectionType.none
     
     /// Last area shown on the map
     var lastRegion = MKCoordinateRegionForMapRect(MKMapRectNull)
@@ -87,18 +87,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         map.minimumAnnotationCountPerCluster = 4
         
         // Always present master and detail side-by-side
-        splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
+        splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.allVisible
         
         // Set the master (map) relative side
         splitViewController?.minimumPrimaryColumnWidth = view.frame.width * 0.6
         splitViewController?.maximumPrimaryColumnWidth = view.frame.width * 0.6
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if !isLocationMonitoringAuthorized() {
@@ -112,7 +112,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             let rows = CGFloat(totalRowsForFilterTable())
             let rowHeight = CGFloat(44)// tableView.rowHeight -> is -1 at this point
-            let sections = CGFloat(numberOfSectionsInTableView(tableView))
+            let sections = CGFloat(numberOfSections(in: tableView))
             let headerHeight = CGFloat( tableView(tableView, heightForHeaderInSection: 0) )
             
             constraintTableViewHeight.constant = rowHeight * rows + headerHeight * sections
@@ -120,7 +120,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destinationController(FilterViewController.self) {
             dest.filter = filter
             dest.delegate = self
@@ -131,20 +131,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     //MARK: - Logic
     
     var isMapCloseEnoughToFetchData: Bool {
-        return btnFilter.enabled
+        return btnFilter.isEnabled
     }
     
-    func setAreaCanFetchDataUI(canFetch: Bool) {
+    func setAreaCanFetchDataUI(_ canFetch: Bool) {
         if !canFetch {
             self.detailLabel.text = "איזור גדול מדי, נסה להתקרב"
-            self.detailLabel.hidden = false
+            self.detailLabel.isHidden = false
             self.btnAccidents.title = "תאונות"
         }
-        btnFilter.enabled = canFetch
-        btnAccidents.enabled = canFetch
+        btnFilter.isEnabled = canFetch
+        btnAccidents.isEnabled = canFetch
     }
     
-    func updateInfoIfPossible(map: MKMapView, filterChanged: Bool) {
+    func updateInfoIfPossible(_ map: MKMapView, filterChanged: Bool) {
         
         // Too far >> don't get anything
         if Int(map.edgesDistance()) > MAX_DIST_OF_MAP_EDGES {
@@ -163,7 +163,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         
         gettingInfo = true
-        hud.showInView(view)
+        hud.show(in: view)
         print("Getting some...")
         
         
@@ -174,7 +174,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             s.map.annotationsToIgnore = nil
             s.map.removeAnnotations(s.map.annotations) // remove old
             s.map.addAnnotations(marks) // add new
-            s.detailLabel.hidden = true
+            s.detailLabel.isHidden = true
             s.btnAccidents.title = String.localizedStringWithFormat(local("main_presenting_count_label"), count)
             
             s.gettingInfo = false
@@ -182,7 +182,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             // iPad/big iPhone >> update accidents list in split view
             if let
                 nav = s.splitViewController?.viewControllers.safeRetrieveElement(1) as? UINavigationController,
-                detail = nav.viewControllers.first as? AccidentsViewController
+                let detail = nav.viewControllers.first as? AccidentsViewController
             {
                 s.populate(accidentsViewController: detail)
                 detail.refreshUI()
@@ -197,14 +197,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     //MARK: - Actions
     
-    @IBAction func actionFilter(sender: UIBarButtonItem) {
-        openTableView(.Filter)
+    @IBAction func actionFilter(_ sender: UIBarButtonItem) {
+        openTableView(.filter)
     }
     
-    @IBAction func actionAccidents(sender: UIBarButtonItem) {
+    @IBAction func actionAccidents(_ sender: UIBarButtonItem) {
         
         // Create the accidents VC from the current storyboard
-        let destNav = storyboard?.instantiateViewControllerWithIdentifier(AccidentsViewController.storyboardId) as! UINavigationController
+        let destNav = storyboard?.instantiateViewController(withIdentifier: AccidentsViewController.storyboardId) as! UINavigationController
         
         guard let dest = destNav.topViewController as? AccidentsViewController
             else {return}
@@ -238,15 +238,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
         
         
-        dest.dataSource = markers.sort{$0.created.compare($1.created) == .OrderedDescending}
+        dest.dataSource = markers.sorted{$0.created.compare($1.created as Date) == .orderedDescending}
     }
     
     func openDateSelectionController() {
-        let dateSelectionVC = RMDateSelectionViewController.dateSelectionController()
-        dateSelectionVC.datePicker.datePickerMode = UIDatePickerMode.Date
-        dateSelectionVC.disableBouncingWhenShowing = true
-        dateSelectionVC.delegate = self
-        dateSelectionVC.show()
+        let dateSelectionVC = RMDateSelectionViewController.dateSelection()
+        dateSelectionVC?.datePicker.datePickerMode = UIDatePickerMode.date
+        dateSelectionVC?.disableBouncingWhenShowing = true
+        dateSelectionVC?.delegate = self
+        dateSelectionVC?.show()
     }
     
     

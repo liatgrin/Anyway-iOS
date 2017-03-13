@@ -9,14 +9,14 @@
 import UIKit
 
 protocol FilterCellDelegate {
-    func filterSwitchChanged(to: Bool, filterType: FilterCellTableViewCell.FilterType)
+    func filterSwitchChanged(_ to: Bool, filterType: FilterCellTableViewCell.FilterType)
 }
 
 class FilterCellTableViewCell: UITableViewCell {
 
     enum FilterType: Int {
-        case StartDate = 0, EndDate // Date pickers
-        case ShowFatal, ShowSevere, ShowLight, ShowInaccurate, ShowAccurate // Switches
+        case startDate = 0, endDate // Date pickers
+        case showFatal, showSevere, showLight, showInaccurate, showAccurate // Switches
     }
     
     var filterType: FilterType?
@@ -29,26 +29,26 @@ class FilterCellTableViewCell: UITableViewCell {
     var filterCellLabel: String? {
         if let type = filterType {
             switch type {
-            case .StartDate: return "תאריך התחלה"
-            case .EndDate: return "תאריך סיום"
-            case .ShowFatal: return "הצג תאונות קטלניות"
-            case .ShowSevere: return "הצג פגיעות בינוניות"
-            case .ShowLight: return "הצג פגיעות קלות"
-            case .ShowInaccurate: return "הצג עיגון מרחבי"
-            case .ShowAccurate: return "הצג עיגון מדויק"
+            case .startDate: return "תאריך התחלה"
+            case .endDate: return "תאריך סיום"
+            case .showFatal: return "הצג תאונות קטלניות"
+            case .showSevere: return "הצג פגיעות בינוניות"
+            case .showLight: return "הצג פגיעות קלות"
+            case .showInaccurate: return "הצג עיגון מרחבי"
+            case .showAccurate: return "הצג עיגון מדויק"
             }
         }
         return nil
     }
     
-    @IBAction func switchValueChanged(sender: UISwitch) {
+    @IBAction func switchValueChanged(_ sender: UISwitch) {
         if let type = filterType {
             switch type {
-            case .ShowFatal: filter?.showFatal = btnSwitch.on
-            case .ShowSevere: filter?.showSevere = btnSwitch.on
-            case .ShowLight: filter?.showLight = btnSwitch.on
-            case .ShowInaccurate: filter?.showInaccurate = btnSwitch.on
-            case .ShowAccurate: filter?.showAccurate = btnSwitch.on
+            case .showFatal: filter?.showFatal = btnSwitch.isOn
+            case .showSevere: filter?.showSevere = btnSwitch.isOn
+            case .showLight: filter?.showLight = btnSwitch.isOn
+            case .showInaccurate: filter?.showInaccurate = btnSwitch.isOn
+            case .showAccurate: filter?.showAccurate = btnSwitch.isOn
             default: break
             }
         }
@@ -62,24 +62,24 @@ class FilterCellTableViewCell: UITableViewCell {
         //Filter
         if let type = filterType, let fil = filter {
             switch type {
-            case .StartDate: detailLabel?.text = dateLabel(fil.startDate)
-            case .EndDate: detailLabel?.text = dateLabel(fil.endDate)
-            case .ShowFatal: btnSwitch?.on = fil.showFatal
-            case .ShowSevere: btnSwitch?.on = fil.showSevere
-            case .ShowLight: btnSwitch?.on = fil.showLight
-            case .ShowInaccurate: btnSwitch?.on = fil.showInaccurate
-            case .ShowAccurate: btnSwitch?.on = fil.showAccurate
+            case .startDate: detailLabel?.text = dateLabel(fil.startDate as Date)
+            case .endDate: detailLabel?.text = dateLabel(fil.endDate as Date)
+            case .showFatal: btnSwitch?.isOn = fil.showFatal
+            case .showSevere: btnSwitch?.isOn = fil.showSevere
+            case .showLight: btnSwitch?.isOn = fil.showLight
+            case .showInaccurate: btnSwitch?.isOn = fil.showInaccurate
+            case .showAccurate: btnSwitch?.isOn = fil.showAccurate
             }
         }
     }
     
-    func dateLabel(fromDate: NSDate?) -> String {
+    func dateLabel(_ fromDate: Date?) -> String {
         if let date = fromDate {
-            let formatter = NSDateFormatter()
-            formatter.locale = NSLocale.currentLocale()
-            formatter.timeStyle = NSDateFormatterStyle.NoStyle
-            formatter.dateStyle = NSDateFormatterStyle.MediumStyle
-            return formatter.stringFromDate(date)
+            let formatter = DateFormatter()
+            formatter.locale = Locale.current
+            formatter.timeStyle = DateFormatter.Style.none
+            formatter.dateStyle = DateFormatter.Style.medium
+            return formatter.string(from: date)
         }
         return "בחר תאריך"
     }

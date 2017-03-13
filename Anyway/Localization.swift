@@ -26,20 +26,20 @@ import Foundation
 enum Localization {
     
     // Road Conditions
-    case SUG_DERECH, YEHIDA, SUG_YOM, HUMRAT_TEUNA, SUG_TEUNA,
-         ZURAT_DEREH, HAD_MASLUL, RAV_MASLUL, MEHIRUT_MUTERET,
-         TKINUT, ROHAV, SIMUN_TIMRUR, TEURA, BAKARA, MEZEG_AVIR,
-         PNE_KVISH, SUG_EZEM, MERHAK_EZEM, LO_HAZA, OFEN_HAZIYA,
-         MEKOM_HAZIYA, KIVUN_HAZIYA, STATUS_IGUN
+    case sug_DERECH, yehida, sug_YOM, humrat_TEUNA, sug_TEUNA,
+         zurat_DEREH, had_MASLUL, rav_MASLUL, mehirut_MUTERET,
+         tkinut, rohav, simun_TIMRUR, teura, bakara, mezeg_AVIR,
+         pne_KVISH, sug_EZEM, merhak_EZEM, lo_HAZA, ofen_HAZIYA,
+         mekom_HAZIYA, kivun_HAZIYA, status_IGUN
     
     // Vehicle Description
-    case MATZAV_REHEV, SHIYUH_REHEV_LMS, SUG_REHEV_LMS
+    case matzav_REHEV, shiyuh_REHEV_LMS, sug_REHEV_LMS
     
     // Involved Person Description
-    case SUG_MEORAV, MIN, EMZAE_BETIHUT,
-         HUMRAT_PGIA, SUG_NIFGA_LMS, PEULAT_NIFGA_LMS,
-         PAZUA_USHPAZ, MADAD_RAFUI, YAAD_SHIHRUR,
-         SHIMUSH_BE_AVIZAREY_BETIHOT, PTIRA_MEUHERET
+    case sug_MEORAV, min, emzae_BETIHUT,
+         humrat_PGIA, sug_NIFGA_LMS, peulat_NIFGA_LMS,
+         pazua_USHPAZ, madad_RAFUI, yaad_SHIHRUR,
+         shimush_BE_AVIZAREY_BETIHOT, ptira_MEUHERET
     
     
     subscript(val: Int) -> String? {
@@ -79,25 +79,25 @@ struct ManualLocalizationWorker {
     
     
     /// Default for fresh install, or when there isn't any value
-    private static var defaultLocal: AppLocal {
-        let phoneVar = (defaults.objectForKey("AppleLanguages") as? [String])?
+    fileprivate static var defaultLocal: AppLocal {
+        let phoneVar = (defaults.object(forKey: "AppleLanguages") as? [String])?
                         .flatMap{ AppLocal(rawValue: $0) }.first
         return phoneVar ?? AppLocal.English
     }
     
     /// The user preferenced local (saved in NSUserDefaults)
-    private static let defaultsKey = "com.hasadna.anyway.AppLocal"
-    static var defaults: NSUserDefaults { return NSUserDefaults.standardUserDefaults() }
+    fileprivate static let defaultsKey = "com.hasadna.anyway.AppLocal"
+    static var defaults: UserDefaults { return UserDefaults.standard }
     static var currentLocal: AppLocal {
         get{
             guard let
-                rawVal = defaults.stringForKey(defaultsKey),
-                local = AppLocal(rawValue: rawVal)
+                rawVal = defaults.string(forKey: defaultsKey),
+                let local = AppLocal(rawValue: rawVal)
             else { return defaultLocal }
             return local
         }
         set{
-            defaults.setObject(newValue.rawValue, forKey: defaultsKey)
+            defaults.set(newValue.rawValue, forKey: defaultsKey)
             defaults.synchronize()
         }
     }
@@ -107,7 +107,7 @@ struct ManualLocalizationWorker {
      */
     static func overrideCurrentLocal() {
         let local = [currentLocal.rawValue]
-        defaults.setObject(local, forKey: "AppleLanguages")
+        defaults.set(local, forKey: "AppleLanguages")
         defaults.synchronize()
     }
     

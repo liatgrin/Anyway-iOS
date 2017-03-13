@@ -20,8 +20,8 @@ extension MKMapView {
     func edgePoints() -> Edges {
         let nePoint = CGPoint(x: self.bounds.maxX, y: self.bounds.origin.y)
         let swPoint = CGPoint(x: self.bounds.minX, y: self.bounds.maxY)
-        let neCoord = self.convertPoint(nePoint, toCoordinateFromView: self)
-        let swCoord = self.convertPoint(swPoint, toCoordinateFromView: self)
+        let neCoord = self.convert(nePoint, toCoordinateFrom: self)
+        let swCoord = self.convert(swPoint, toCoordinateFrom: self)
         return (ne: neCoord, sw: swCoord)
     }
     
@@ -33,10 +33,10 @@ extension MKMapView {
 
 extension CLLocation {
     // In meteres
-    class func distance(from from: CLLocationCoordinate2D, to:CLLocationCoordinate2D) -> CLLocationDistance {
+    class func distance(from: CLLocationCoordinate2D, to:CLLocationCoordinate2D) -> CLLocationDistance {
         let from = CLLocation(latitude: from.latitude, longitude: from.longitude)
         let to = CLLocation(latitude: to.latitude, longitude: to.longitude)
-        return from.distanceFromLocation(to)
+        return from.distance(from: to)
     }
 }
 
@@ -48,43 +48,71 @@ class Network {
         if let current = currentRequest { current.cancel() }
     }
     
-    func getMarkerDetails(markerId id: Int, result:([Person], [Vehicle])->Void) {
+    func getMarkerDetails(markerId id: Int, result:@escaping ([Person], [Vehicle])->Void) {
         
         let domain = "http://www.anyway.co.il/markers/"
         let url = "\(domain)\(id)"
         
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
-        let response = { (req: NSURLRequest, response: NSHTTPURLResponse?, json: JSON, err: NSError?) -> Void in
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        // handle response
+        let response = { (json: JSON) in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             print("getMarkerDetails response from server ended")
             
-            if err == nil {
-                var persons = [Person]()
-                var vehicles = [Vehicle]()
-                
-                for obj in json.array ?? [] {
-                    if obj["sex"].number != nil {
-                        persons.append(Person(json: obj, index: persons.count + 1))
-                    } else {
-                        vehicles.append(Vehicle(json: obj, index: vehicles.count + 1))
-                    }
-                }
-                
-                result(persons, vehicles)
-                
-            } else {
-                print("Error! \(err)")
+            guard json != JSON.null else {
                 result([], [])
+                return
             }
+            
+            var persons = [Person]()
+            var vehicles = [Vehicle]()
+            
+            for obj in json.array ?? [] {
+                if obj["sex"].number != nil {
+                    persons.append(Person(json: obj, index: persons.count + 1))
+                } else {
+                    vehicles.append(Vehicle(json: obj, index: vehicles.count + 1))
+                }
+            }
+            
+            result(persons, vehicles)
+        }
+
+        // build request
+        let request = Alamofire.request(
+            url,
+            method: .get,
+            parameters: nil,
+            encoding: URLEncoding.`default`,
+            headers: nil
+        )
+        
+        // get value from response
+        request.responseJSON { responseValue in
+            
+            let json: JSON
+            
+            switch responseValue.result {
+            case .success:
+                if let value = responseValue.result.value {
+                    json = JSON(value)
+                } else {
+                    json = JSON.null
+                }
+            case .failure(let err):
+                print("Error! \(err)")
+                json = JSON.null
+            }
+            response(json)
+            
         }
         
-        
-        currentRequest = Alamofire.request(.GET, url, parameters: nil, encoding: .URL, headers: nil).responseSwiftyJSON(response)
-        
+        // keep ref
+        currentRequest = request
     }
     
-    func getAnnotations(edges: Edges, filter: Filter, anots: (markers: [MarkerAnnotation], totalCount: Int)->()) {
+    func getAnnotations(_ edges: Edges, filter: Filter, anots: @escaping (_ markers: [MarkerAnnotation], _ totalCount: Int)->()) {
         
         let ne_lat = edges.ne.latitude // 32.158091269627874
         let ne_lng = edges.ne.longitude // 34.88087036877948
@@ -95,7 +123,7 @@ class Network {
         
         print("Fetching with filter:\n\(filter.description)")
         
-        let params: [String : AnyObject] = [
+        let params: [String : Any] = [
             "show_markers" : 1, // should always be on to get markers...
             "show_discussions" : 0, // currently app doesn't support discussions...
             
@@ -147,58 +175,81 @@ class Network {
         
         cancelRequestIfNeeded()
         
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
-        let response = { (req: NSURLRequest, response: NSHTTPURLResponse?, json: JSON, err: NSError?) -> Void in
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        let response = { (json: JSON) in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             print("getAnnotations response from server ended")
             
-            if err == nil {
-                let markers = self.parseJson(json)
-                
-                //Sometimes multiple markers would have the exact same coordinate.
-                //This method would arrange the identical markers in a circle around the coordinate.
-                //AnnotationCoordinateUtility.mutateCoordinatesOfClashingAnnotations(markers)
-                print("markers:\(markers.count)")
-                let finalMarkers = self.groupMarkersWithColidingCoordinates(markers)
-                
-                anots(markers: finalMarkers, totalCount: markers.count)
+            guard json != JSON.null else {
+                anots([], 0)
+                return
+            }
+
+            let markers = self.parseJson(json)
+            
+            //Sometimes multiple markers would have the exact same coordinate.
+            //This method would arrange the identical markers in a circle around the coordinate.
+            //AnnotationCoordinateUtility.mutateCoordinatesOfClashingAnnotations(markers)
+            print("markers:\(markers.count)")
+            let finalMarkers = self.groupMarkersWithColidingCoordinates(markers)
+            
+            anots(finalMarkers, markers.count)
+        }
+        
+        let request = Alamofire.request(
+            "http://www.anyway.co.il/markers",
+            method: .get,
+            parameters: params,
+            encoding: URLEncoding.`default`,
+            headers: nil
+        )
+            
+            /* Raw response, for debug */
+        request.responseString { response in
+            if let error = response.result.error {
+                println("error: \(error)")
+                return
+            }
+            
+            if let encoded = response.data.flatMap({ String(data: $0, encoding: .utf8) }) {
+                println("response: \n###\n\(encoded)\n###") //solve hebrew string bug...
             } else {
-                print("Error! \(err)")
-                anots(markers: [], totalCount: 0)
+                println("response: \n###\n\(response.result.value ?? "no response value")\n###")
             }
         }
         
+        request.responseJSON { responseValue in
+            
+            let json: JSON
+            
+            switch responseValue.result {
+            case .success:
+                if let value = responseValue.result.value {
+                    json = JSON(value)
+                } else {
+                    json = JSON.null
+                }
+            case .failure(let err):
+                print("Error! \(err)")
+                json = JSON.null
+            }
+            response(json)
+            
+        }
         
-        currentRequest = Alamofire.request(.GET, "http://www.anyway.co.il/markers",
-                            parameters: params, encoding: .URL, headers: nil)
-            
-            /* Raw response, for debug */
-//            .responseString(completionHandler: { (response) -> Void in
-//                switch response.result {
-//                case .Success(let val):
-//                    if let encoded = response.data.map({ String(data: $0, encoding: NSUTF8StringEncoding) }) {
-//                        println("response: ###\(encoded)###") //solve hebrew string bug...
-//                    } else {
-//                        println("response: ###\(val)###")
-//                    }
-//                case .Failure(let err): println("error: \(err)")
-//                }
-//            })
-            
-            /* JSON+Alamofire */
-            .responseSwiftyJSON(response)
+        currentRequest = request
         
     }
     
     /*
         Checking for coliding Marker group and creating MarkerGroup for them
     */
-    private func groupMarkersWithColidingCoordinates(markers: [Marker]) -> [MarkerAnnotation] {
+    fileprivate func groupMarkersWithColidingCoordinates(_ markers: [Marker]) -> [MarkerAnnotation] {
         
         var markerAnnotations = [MarkerAnnotation]()
         
-        let annotsDict = AnnotationCoordinateUtility.groupAnnotationsByLocationValue(markers) as! [NSValue:[Marker]]
+        let annotsDict = AnnotationCoordinateUtility.groupAnnotations(byLocationValue: markers) as! [NSValue:[Marker]]
         for (_ /* coordVal */, annotsAtLocation) in annotsDict {
             if annotsAtLocation.count > 1 {
                 let group = MarkerGroup(markers: annotsAtLocation)!
@@ -215,7 +266,7 @@ class Network {
     /*
         Parsing server JSON response to [Marker], ignoring coliding markers
     */
-    private func parseJson(json: JSON) -> [Marker] {
+    fileprivate func parseJson(_ json: JSON) -> [Marker] {
 
         var annots = [Marker]()
         
@@ -231,14 +282,14 @@ class Network {
                 let content = marker["description"].string ?? ""
                 let title = marker["title"].string ?? ""
                 
-                let created: NSDate = {
-                    if let createdRaw = marker["created"].string {
-                        let form = NSDateFormatter()
-                        form.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-                        return form.dateFromString(createdRaw) ?? NSDate(timeIntervalSince1970: 0)
-                    }
-                    return NSDate(timeIntervalSince1970: 0)
-                }()
+                let created: Date
+                if let createdRaw = marker["created"].string {
+                    let form = DateFormatter()
+                    form.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+                    created = form.date(from: createdRaw) ?? Date(timeIntervalSince1970: 0)
+                } else {
+                    created = Date(timeIntervalSince1970: 0)
+                }
                 
                 let id = Int(marker["id"].string ?? "") ?? 0
                 let accuracy = marker["locationAccuracy"].number ?? 0
@@ -246,7 +297,7 @@ class Network {
                 let subtype = marker["subtype"].number ?? 0
                 let type = marker["type"].number ?? 0
                 
-                let mView = Marker(coord: coord, address: address, content: content, title: title, created: created, id: id, accuracy: accuracy.integerValue, severity: severity.integerValue, subtype: subtype.integerValue, type: type.integerValue)
+                let mView = Marker(coord: coord, address: address, content: content, title: title, created: created, id: id, accuracy: accuracy.intValue, severity: severity.intValue, subtype: subtype.intValue, type: type.intValue)
                 
                 mView.roadShape = marker["roadShape"].intValue
                 mView.cross_mode = marker["cross_mode"].intValue

@@ -12,15 +12,15 @@ class LanguageViewController: UIViewController {
 
     static let segueFromSplit = "choose language segue"
     
-    @IBAction func actionLanguage(sender: UIButton) {
+    @IBAction func actionLanguage(_ sender: UIButton) {
         defer{
-            presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+            presentingViewController?.dismiss(animated: true, completion: nil)
         }
         
         guard let title = sender.titleLabel?.text
             else {return}
         
-        switch title.lowercaseString {
+        switch title.lowercased() {
             case "עברית": ManualLocalizationWorker.currentLocal = AppLocal.Hebrew
             case "english": fallthrough
             default: ManualLocalizationWorker.currentLocal = AppLocal.English

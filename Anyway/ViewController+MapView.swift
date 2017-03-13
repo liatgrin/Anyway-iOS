@@ -22,7 +22,7 @@ extension ViewController: MKMapViewDelegate {
     func mapViewRegionDidChangeFromUserInteraction() -> Bool {
         if let view = map.subviews.first {
             for gesture in view.gestureRecognizers ?? [] {
-                if gesture.state == .Began || gesture.state == .Ended {
+                if gesture.state == .began || gesture.state == .ended {
                     return true
                 }
             }
@@ -34,10 +34,10 @@ extension ViewController: MKMapViewDelegate {
      The map's region was changed somehow - 
      wether due to user interaction ot not....
      */
-    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         map.clusteringEnabled = Int(mapView.edgesDistance()) > MIN_DIST_CLUSTER_DISABLE
-        
-        printFunc()
+
+        print("mapView:regionDidChangeAnimated")
         print("old region: \(lastRegion.center) | new: \(mapView.region.center)")
         
         let distance = CLLocation.distance(from: lastRegion.center, to: mapView.region.center)
@@ -52,11 +52,11 @@ extension ViewController: MKMapViewDelegate {
     /**
      The map region is about to change
      */
-    func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
         network.cancelRequestIfNeeded()
         
-        if hud.visible {
-            hud.dismissAnimated(false)
+        if hud.isVisible {
+            hud.dismiss(animated: false)
         }
         
         if mapViewRegionDidChangeFromUserInteraction() {
@@ -70,7 +70,7 @@ extension ViewController: MKMapViewDelegate {
      
      - returns: the view representing the marker
      */
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let cluster = annotation as? OCAnnotation {
             let pin = ClusterView(annotation: cluster, reuseIdentifier: clusterReuseIdentifierDefault)
             pin.label?.text = "\(cluster.annotationsInCluster().count)"
@@ -78,7 +78,7 @@ extension ViewController: MKMapViewDelegate {
         }
         if let marker = annotation as? Marker {
             
-            if let mView = mapView.dequeueReusableAnnotationViewWithIdentifier(markerReuseIdentifierDefault) as? MarkerView {
+            if let mView = mapView.dequeueReusableAnnotationView(withIdentifier: markerReuseIdentifierDefault) as? MarkerView {
                 mView.annotation = marker
                 mView.setupIcon(marker)
                 return mView
@@ -88,7 +88,7 @@ extension ViewController: MKMapViewDelegate {
         }
         if let markerGroup = annotation as? MarkerGroup {
             
-            if let mView = mapView.dequeueReusableAnnotationViewWithIdentifier(markerGroupReuseIdentifierDefault) as? MarkerGroupView {
+            if let mView = mapView.dequeueReusableAnnotationView(withIdentifier: markerGroupReuseIdentifierDefault) as? MarkerGroupView {
                 mView.annotation = markerGroup
                 mView.setupIcon(markerGroup)
                 return mView
@@ -104,21 +104,21 @@ extension ViewController: MKMapViewDelegate {
      "bubble" that pops).
      Opens the screen to show more details about the accident.
      */
-    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
 
         let sbID = DetailViewController.storyboardId
         
         guard let
             markerView = view as? MarkerView,
-            dest = storyboard?.instantiateViewControllerWithIdentifier(sbID) as? DetailViewController,
-            marker = markerView.annotation as? Marker
+            let dest = storyboard?.instantiateViewController(withIdentifier: sbID) as? DetailViewController,
+            let marker = markerView.annotation as? Marker
         else {return}
         
         dest.detailData = marker
         
         if let
             nav = splitViewController?.viewControllers.safeRetrieveElement(1) as? UINavigationController,
-            first = nav.viewControllers.first
+            let first = nav.viewControllers.first
         {
             nav.setViewControllers([first, dest], animated: true)
         } else {
@@ -136,7 +136,7 @@ extension ViewController: MKMapViewDelegate {
      For marker group: animates spreading the group
      into a circle of single markers.
      */
-    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         // handle a marker group
         if let groupView = view as? MarkerGroupView {
             
@@ -150,21 +150,21 @@ extension ViewController: MKMapViewDelegate {
             if map.annotationsToIgnore == nil {
                 map.annotationsToIgnore = NSMutableSet()
             }
-            map.annotationsToIgnore.addObjectsFromArray(markers)
+            map.annotationsToIgnore.addObjects(from: markers)
             
             let addMarkers = {
                 mapView.addAnnotations(markers)
             }
             
             // animate the new markers
-            UIView.animateWithDuration(0, animations:addMarkers) { _ in
-                UIView.animateWithDuration(0.25, animations: {
+            UIView.animate(withDuration: 0, animations:addMarkers, completion: { _ in
+                UIView.animate(withDuration: 0.25, animations: {
                     let cord = markerGroup.coordinate
                     let delta = mapView.edgesDistance()/100
                     AnnotationCoordinateUtility.repositionAnnotations(markers,
                         toAvoidClashAtCoordination: cord, circleDistanceDelta: delta)
                 })
-            }
+            }) 
             
         }
     }
@@ -177,7 +177,7 @@ extension ViewController: MKMapViewDelegate {
      has yet to move the map, we zoom the map
      to the user's location.
      */
-    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         if shouldJumpToStartLocation {
             shouldJumpToStartLocation = false
             map.moveAndZoom(to: map.userLocation.coordinate)
@@ -192,7 +192,7 @@ extension ViewController: MKMapViewDelegate {
      has yet to move the map, we zoom the map
      to the a default location.
      */
-    func mapView(mapView: MKMapView, didFailToLocateUserWithError error: NSError) {
+    func mapView(_ mapView: MKMapView, didFailToLocateUserWithError error: Error) {
         if shouldJumpToStartLocation {
             shouldJumpToStartLocation = false
             map.moveAndZoom(to: fallbackStartLocationCoordinate)

@@ -13,18 +13,18 @@ import Foundation
 */
 extension ViewController: RMDateSelectionViewControllerDelegate {
     
-    func dateSelectionViewController(vc: RMDateSelectionViewController!, didSelectDate aDate: NSDate!) {
-        if dateSelectionType == .Start {
+    func dateSelectionViewController(_ vc: RMDateSelectionViewController!, didSelect aDate: Date!) {
+        if dateSelectionType == .start {
             filter.startDate = aDate
         } else {
             filter.endDate = aDate
         }
         tableView?.reloadData()
-        openTableView(.Filter)
+        openTableView(.filter)
     }
     
-    func dateSelectionViewControllerDidCancel(vc: RMDateSelectionViewController!) {
-        openTableView(.Filter)
+    func dateSelectionViewControllerDidCancel(_ vc: RMDateSelectionViewController!) {
+        openTableView(.filter)
     }
     
 }

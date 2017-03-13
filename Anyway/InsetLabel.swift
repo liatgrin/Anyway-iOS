@@ -27,12 +27,12 @@ class InsetLabel: UILabel {
     var insets: UIEdgeInsets = UIEdgeInsetsMake(8, 8, 8, 8)
     
 
-    override func drawTextInRect(rect: CGRect) {
-        return super.drawTextInRect(UIEdgeInsetsInsetRect(rect, insets))
+    override func drawText(in rect: CGRect) {
+        return super.drawText(in: UIEdgeInsetsInsetRect(rect, insets))
     }
     
-    override func textRectForBounds(bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
-        var rect = super.textRectForBounds(UIEdgeInsetsInsetRect(bounds, insets), limitedToNumberOfLines: numberOfLines)
+    override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
+        var rect = super.textRect(forBounds: UIEdgeInsetsInsetRect(bounds, insets), limitedToNumberOfLines: numberOfLines)
         
         rect.origin.x -= insets.left
         rect.origin.y -= insets.top

@@ -29,15 +29,15 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var btnClose: UIButton!
     
     @IBAction func dismissAction() {
-        dismissViewControllerAnimated(true) { }
+        dismiss(animated: true) { }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        switch UIDevice.currentDevice().userInterfaceIdiom {
-        case .Pad:
-            btnClose.enabled = false
-            btnClose.hidden = true
+        switch UIDevice.current.userInterfaceIdiom {
+        case .pad:
+            btnClose.isEnabled = false
+            btnClose.isHidden = true
             tableTopEdgeConstraint.constant = 0
         default:
             break
@@ -58,21 +58,21 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     //MARK: - WebPresentationDelegate
-    func shouldPresent(address: String) {
+    func shouldPresent(_ address: String) {
         print(address)
         let webView = SVModalWebViewController(address: address)
-        presentViewController(webView, animated: true, completion: nil)
+        present(webView!, animated: true, completion: nil)
     }
     
     //MARK: - Table View
     
     var openSection: Int = 0
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 7
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section, openSection) {
             
             // top cell
@@ -82,8 +82,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case (1, 1): return 5
         case (2, 2): return (detailData?.roadConditionData.count ?? 0) + 1
         case (3, 3): return 4
-        case (4, 4): return persons.map({$0.info.count}).reduce(0, combine: +) + 1
-        case (5, 5): return vehicles.map({$0.info.count}).reduce(0, combine: +) + 1
+        case (4, 4): return persons.map({$0.info.count}).reduce(0, +) + 1
+        case (5, 5): return vehicles.map({$0.info.count}).reduce(0, +) + 1
         case (6, 6): return 3
             
             // collapsed...
@@ -96,7 +96,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Which cell to dequeue?
         let identifier: String
@@ -107,7 +107,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         // Get the recyced (dequeued) cell from the table view
-        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! DetailCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! DetailCell
         
         // Fill with data
         cell.indexPath = indexPath
@@ -128,7 +128,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if indexPath.section == openSection {
                 cell.contentView.backgroundColor = UIColor(red:0.858, green:0.858, blue:0.858, alpha:0.197)
             } else {
-                cell.contentView.backgroundColor = UIColor.whiteColor()
+                cell.contentView.backgroundColor = UIColor.white
             }
         }
         
@@ -137,7 +137,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // Ask the table to wait and listen to any update, than animate everythin in the end
         tableView.beginUpdates()
@@ -148,7 +148,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             // User selected the section that was open >> Simply collapse it
             
             openSection = 0
-            tableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Automatic)
+            tableView.reloadSections(IndexSet(integer: indexPath.section), with: .automatic)
             
         } else {
             
@@ -164,13 +164,13 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             // close the currently open section
             if openSection != 0 {
                 //collapse
-                tableView.reloadSections(NSIndexSet(index: openSection), withRowAnimation: .None)
+                tableView.reloadSections(IndexSet(integer: openSection), with: .none)
             }
             
             // open the selected section
             if indexPath.section != 0 {
                 openSection = indexPath.section
-                tableView.reloadSections(NSIndexSet(index: openSection), withRowAnimation: .Automatic)
+                tableView.reloadSections(IndexSet(integer: openSection), with: .automatic)
             }
             
         }
@@ -180,7 +180,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.endUpdates()
         
         // Deselect the row
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 

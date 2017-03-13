@@ -11,21 +11,21 @@ import SwiftyJSON
 
 extension Person: PairsData {
     
-    static func buildPersonDescriptionData(unparsedInfo: [(String, String)]) -> [(Title, Detail)] {
+    static func buildPersonDescriptionData(_ unparsedInfo: [(String, String)]) -> [(Title, Detail)] {
         return unparsedInfo.map{ (rawTitle, rawValue) in
             switch rawTitle {
-            case "SUG_MEORAV": return pair(forType: .SUG_MEORAV, value: Int(rawValue) ?? -1)
-            case "MIN": return pair(forType: .MIN, value: Int(rawValue) ?? -1)
-            case "SUG_REHEV_NASA_LMS": return pair(forType: .SUG_REHEV_LMS, value: Int(rawValue) ?? -1)
-            case "EMZAE_BETIHUT": return pair(forType: .EMZAE_BETIHUT, value: Int(rawValue) ?? -1)
-            case "HUMRAT_PGIA": return pair(forType: .HUMRAT_PGIA, value: Int(rawValue) ?? -1)
-            case "SUG_NIFGA_LMS": return pair(forType: .SUG_NIFGA_LMS, value: Int(rawValue) ?? -1)
-            case "PEULAT_NIFGA_LMS": return pair(forType: .PEULAT_NIFGA_LMS, value: Int(rawValue) ?? -1)
-            case "PAZUA_USHPAZ": return pair(forType: .PAZUA_USHPAZ, value: Int(rawValue) ?? -1)
-            case "MADAD_RAFUI": return pair(forType: .MADAD_RAFUI, value: Int(rawValue) ?? -1)
-            case "YAAD_SHIHRUR": return pair(forType: .YAAD_SHIHRUR, value: Int(rawValue) ?? -1)
-            case "SHIMUSH_BE_AVIZAREY_BETIHOT": return pair(forType: .SHIMUSH_BE_AVIZAREY_BETIHOT, value: Int(rawValue) ?? -1)
-            case "PTIRA_MEUHERET": return pair(forType: .PTIRA_MEUHERET, value: Int(rawValue) ?? -1)
+            case "SUG_MEORAV": return pair(forType: .sug_MEORAV, value: Int(rawValue) ?? -1)
+            case "MIN": return pair(forType: .min, value: Int(rawValue) ?? -1)
+            case "SUG_REHEV_NASA_LMS": return pair(forType: .sug_REHEV_LMS, value: Int(rawValue) ?? -1)
+            case "EMZAE_BETIHUT": return pair(forType: .emzae_BETIHUT, value: Int(rawValue) ?? -1)
+            case "HUMRAT_PGIA": return pair(forType: .humrat_PGIA, value: Int(rawValue) ?? -1)
+            case "SUG_NIFGA_LMS": return pair(forType: .sug_NIFGA_LMS, value: Int(rawValue) ?? -1)
+            case "PEULAT_NIFGA_LMS": return pair(forType: .peulat_NIFGA_LMS, value: Int(rawValue) ?? -1)
+            case "PAZUA_USHPAZ": return pair(forType: .pazua_USHPAZ, value: Int(rawValue) ?? -1)
+            case "MADAD_RAFUI": return pair(forType: .madad_RAFUI, value: Int(rawValue) ?? -1)
+            case "YAAD_SHIHRUR": return pair(forType: .yaad_SHIHRUR, value: Int(rawValue) ?? -1)
+            case "SHIMUSH_BE_AVIZAREY_BETIHOT": return pair(forType: .shimush_BE_AVIZAREY_BETIHOT, value: Int(rawValue) ?? -1)
+            case "PTIRA_MEUHERET": return pair(forType: .ptira_MEUHERET, value: Int(rawValue) ?? -1)
                 
             default: return (local(rawTitle), rawValue)
             }

@@ -1,35 +1,30 @@
 PODS:
-  - Alamofire (3.1.2)
-  - Eureka (1.5.0)
+  - Alamofire (4.4.0)
+  - Eureka (2.0.1)
   - SVWebViewController (1.0)
-  - SwiftyJSON (2.3.1)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.0)
-  - Eureka (from `https://github.com/xmartlabs/Eureka`)
+  - Alamofire
+  - Eureka (~> 2.0)
   - SVWebViewController (from `https://github.com/TransitApp/SVWebViewController`)
   - SwiftyJSON
 
 EXTERNAL SOURCES:
-  Eureka:
-    :git: https://github.com/xmartlabs/Eureka
   SVWebViewController:
     :git: https://github.com/TransitApp/SVWebViewController
 
 CHECKOUT OPTIONS:
-  Eureka:
-    :commit: 49e8d7215a08c82a57220ed5fbcbc69afc3cd470
-    :git: https://github.com/xmartlabs/Eureka
   SVWebViewController:
     :commit: 9abad6b852b6c2ad19bb3c28532cce53719e2a7f
     :git: https://github.com/TransitApp/SVWebViewController
 
 SPEC CHECKSUMS:
-  Alamofire: 7c16ca65f3c7e681fd925fd7f2dec7747ff96855
-  Eureka: 2fb37bb50569c62ee3284689d5b7aca694b040e0
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
   SVWebViewController: aa2e18a41ff5f45be7aeec8e92ca5bcc50b5ebb1
-  SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 6bfe91e6326d21e877fec23d1a65dd1c39804eae
+PODFILE CHECKSUM: 9888c61bb0f8ef4602d22744bf1a21a3c4bd3e33
 
-COCOAPODS: 1.0.0.beta.6
+COCOAPODS: 1.2.0.beta.1

@@ -17,7 +17,7 @@ class InfoViewController: UIViewController {
     }
     
     @IBAction func dismissAction() {
-        dismissViewControllerAnimated(true) { }
+        dismiss(animated: true) { }
     }
     
     @IBAction func moroInfoLinkAction() {

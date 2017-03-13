@@ -13,24 +13,24 @@ import UIKit
 */
 extension ViewController {
     
-    enum TableViewState { case Closed, Filter }
+    enum TableViewState { case closed, filter }
         
-    func openTableView(type: TableViewState) {
+    func openTableView(_ type: TableViewState) {
         tableViewState = type
         constraintTableViewBottom.constant = 0
-        view.bringSubviewToFront(tableViewContainer)
-        UIView.animateWithDuration(0.25) {
+        view.bringSubview(toFront: tableViewContainer)
+        UIView.animate(withDuration: 0.25, animations: {
             self.tableViewContainer.layoutIfNeeded()
-        }
+        }) 
     }
     
     func closeTableView() {
-        tableViewState = .Closed
+        tableViewState = .closed
         
         constraintTableViewBottom.constant = -constraintTableViewHeight.constant
-        UIView.animateWithDuration(0.25, animations:{
+        UIView.animate(withDuration: 0.25, animations:{
             self.tableViewContainer.layoutIfNeeded()
-        }) { _ in }
+        }, completion: { _ in }) 
     }
     
     func numberOfRowsForFilterTable(section s: Int) -> Int {
@@ -43,11 +43,11 @@ extension ViewController {
     }
     
     func totalRowsForFilterTable() -> Int {
-        return Array.init(count: numberOfSectionsInTableView(tableView), repeatedValue: 0)
-            .enumerate()
+        return Array.init(repeating: 0, count: numberOfSections(in: tableView))
+            .enumerated()
             .map{ i, _ in i }
             .map{ i in numberOfRowsForFilterTable(section: i)}
-            .reduce(0, combine: +)
+            .reduce(0, +)
     }
     
 }
@@ -69,15 +69,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         What to show? 
     */
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return numberOfRowsForFilterTable(section: section)
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let dateId = "dateFilterCellIdentifier"
         let switchId = "switchFilterCellIdentifier"
         var cell: FilterCellTableViewCell!
@@ -85,21 +85,21 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         switch (indexPath.row, indexPath.section) {
             //        case (0, 0): fallthrough //Pick start date
         case (_, 0):             //Pick end date
-            cell = tableView.dequeueReusableCellWithIdentifier(dateId) as! FilterCellTableViewCell
-            cell.selectionStyle = UITableViewCellSelectionStyle.Default
+            cell = tableView.dequeueReusableCell(withIdentifier: dateId) as! FilterCellTableViewCell
+            cell.selectionStyle = UITableViewCellSelectionStyle.default
         default:
-            cell = tableView.dequeueReusableCellWithIdentifier(switchId) as! FilterCellTableViewCell
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell = tableView.dequeueReusableCell(withIdentifier: switchId) as! FilterCellTableViewCell
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
         }
         
         switch (indexPath.row, indexPath.section) {
-        case (0, 0): cell.filterType = .StartDate
-        case (1, 0): cell.filterType = .EndDate
-        case (0, 1): cell.filterType = .ShowFatal
-        case (1, 1): cell.filterType = .ShowSevere
-        case (2, 1): cell.filterType = .ShowLight
-        case (0, 2): cell.filterType = .ShowAccurate
-        case (1, 2): cell.filterType = .ShowInaccurate
+        case (0, 0): cell.filterType = .startDate
+        case (1, 0): cell.filterType = .endDate
+        case (0, 1): cell.filterType = .showFatal
+        case (1, 1): cell.filterType = .showSevere
+        case (2, 1): cell.filterType = .showLight
+        case (0, 2): cell.filterType = .showAccurate
+        case (1, 2): cell.filterType = .showInaccurate
         default: break
         }
         
@@ -115,25 +115,25 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         - What to do on when X happens?
     */
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 22;
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.row, indexPath.section) {
         case (0, 0): //Pick start date
-            dateSelectionType = .Start
+            dateSelectionType = .start
             closeTableView()
             openDateSelectionController()
         case (1, 0): //Pick end date
-            dateSelectionType = .End
+            dateSelectionType = .end
             closeTableView()
             openDateSelectionController()
         default:
             break
         }
         
-        self.tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        self.tableView.deselectRow(at: indexPath, animated: false)
     }
     
     
@@ -144,16 +144,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         subclass...) moves/gets dragged?
     */
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == tableView {
             constraintTableViewBottom.constant += scrollView.contentOffset.y
             constraintTableViewBottom.constant = min(0, constraintTableViewBottom.constant)
-            scrollView.contentOffset = CGPointZero
+            scrollView.contentOffset = CGPoint.zero
             tableView.setNeedsLayout()
         }
     }
     
-    func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if scrollView == tableView {
             let delta = constraintTableViewHeight.constant / 3
             if abs(constraintTableViewBottom.constant) > delta || velocity.y < -1 {

@@ -27,8 +27,7 @@ extension PairsData {
         // trying to get the specific value for
         // the number of 'value'.
         guard let
-            result = type[value]
-            where result.isEmpty == false
+            result = type[value], result.isEmpty == false
             else { return nil }
         
         // tuple of the field title and it's value

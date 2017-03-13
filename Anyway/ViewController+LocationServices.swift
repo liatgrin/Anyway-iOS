@@ -15,7 +15,7 @@ extension ViewController {
     
     func isLocationMonitoringAuthorized() -> Bool {
         let status = CLLocationManager.authorizationStatus()
-        return status == .AuthorizedAlways || status == .AuthorizedWhenInUse
+        return status == .authorizedAlways || status == .authorizedWhenInUse
     }
     
     
@@ -25,22 +25,22 @@ extension ViewController {
         
         switch CLLocationManager.authorizationStatus() {
             
-        case .NotDetermined: //NEVER ASKED
+        case .notDetermined: //NEVER ASKED
             let sel = #selector(CLLocationManager.requestWhenInUseAuthorization)
-            if locationManager.respondsToSelector(sel) {
+            if locationManager.responds(to: sel) {
                 locationManager.requestWhenInUseAuthorization() //iOS 8+
             } else {
                 locationManager.startUpdatingLocation() //iOS 7
             }
             
-        case .AuthorizedAlways: fallthrough
-        case .AuthorizedWhenInUse: //GRANTED
+        case .authorizedAlways: fallthrough
+        case .authorizedWhenInUse: //GRANTED
             map.showsUserLocation = true
             
-        case .Restricted: //RESTRICTED
+        case .restricted: //RESTRICTED
             break
             
-        case .Denied: //DENIED
+        case .denied: //DENIED
             break
             
         }

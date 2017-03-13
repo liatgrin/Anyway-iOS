@@ -24,7 +24,7 @@ extension FilterViewController {
      Should be called from 'viewDidLoad()'
      to build the form.
      */
-    internal func setupForm(filter: Filter) {
+    internal func setupForm(_ filter: Filter) {
 
         form += [datesSection(), weekdaySection(), conditionsSection(),
             severitySection(), accuracySection(), roadTypeSection()]
@@ -32,7 +32,7 @@ extension FilterViewController {
     
     
     
-    private func datesSection() -> Section {
+    fileprivate func datesSection() -> Section {
             
         return Section(local("FILTER_SECTION_date_range"))
         
@@ -53,7 +53,7 @@ extension FilterViewController {
         }
     }
     
-    private func severitySection() -> Section {
+    fileprivate func severitySection() -> Section {
         
         return Section(local("FILTER_SECTION_severity"))
             
@@ -88,7 +88,7 @@ extension FilterViewController {
         }
     }
     
-    private func accuracySection() -> Section {
+    fileprivate func accuracySection() -> Section {
         
         return Section(local("FILTER_SECTION_anchoring"))
             
@@ -110,7 +110,7 @@ extension FilterViewController {
         
     }
     
-    private func roadTypeSection() -> Section {
+    fileprivate func roadTypeSection() -> Section {
         
         return Section(local("FILTER_SECTION_road_type"))
             
@@ -164,23 +164,23 @@ extension FilterViewController {
         
     }
     
-    private func weekdaySection() -> Section {
+    fileprivate func weekdaySection() -> Section {
         
         return Section(local("FILTER_SECTION_day"))
         
         <<< SwitchRow("weekday_all") {
             $0.title = local("FILTER_weekday_all")
-            $0.value = filter.weekday == .All
+            $0.value = filter.weekday == .all
         }.onChange{ [weak self] row in
             guard let v = row.value else {return}
-            self?.filter.weekday = v == true ? .All : WeekdayType.Sun
+            self?.filter.weekday = v == true ? .all : WeekdayType.sun
         }
             
         <<< SegmentedRow<WeekdayType>() {
-            $0.options = [.Sun, .Mon, .Tue, .Wed, .Thu, .Fri, .Sat]
-            $0.value = filter.weekday == .All ? .Sun : filter.weekday
+            $0.options = [.sun, .mon, .tue, .wed, .thu, .fri, .sat]
+            $0.value = filter.weekday == .all ? .sun : filter.weekday
             $0.hidden = "$weekday_all == true"
-            $0.displayValueFor = { v in return (v ?? WeekdayType.Sun).localized }
+            $0.displayValueFor = { v in return (v ?? WeekdayType.sun).localized }
         }.onChange{ [weak self] row in
             guard let v = row.value else {return}
             self?.filter.weekday = v
@@ -189,9 +189,9 @@ extension FilterViewController {
         
         <<< ActionSheetRow<HolidayType>() {
             $0.title = local("SUG_YOM")
-            $0.options = [.All, .Holiday, .HoliEve, .HoliWeekday, .Weekday]
+            $0.options = [.all, .holiday, .holiEve, .holiWeekday, .weekday]
             $0.value = filter.holiday
-            $0.displayValueFor = { v in return (v ?? HolidayType.All).localized }
+            $0.displayValueFor = { v in return (v ?? HolidayType.all).localized }
         }.onChange{ [weak self] row in
             guard let v = row.value else {return}
             self?.filter.holiday = v
@@ -200,9 +200,9 @@ extension FilterViewController {
         
         <<< ActionSheetRow<DayTimeType>() {
             $0.title = local("FILTER_ROW_day_time")
-            $0.options = [.All, .Light, .Dark, .Morning, .Noon, .Evening, .Night]
+            $0.options = [.all, .light, .dark, .morning, .noon, .evening, .night]
             $0.value = filter.dayTime
-            $0.displayValueFor = { v in return (v ?? DayTimeType.All).localized }
+            $0.displayValueFor = { v in return (v ?? DayTimeType.all).localized }
         }.onChange{ [weak self] row in
             guard let v = row.value else {return}
             self?.filter.dayTime = v
@@ -210,14 +210,14 @@ extension FilterViewController {
         
     }
     
-    private func conditionsSection() -> Section {
+    fileprivate func conditionsSection() -> Section {
         
         return Section(local("FILTER_SECTION_conditions"))
         
         <<< SegmentedRow<WeatherType>() {
-            $0.options = [.All, .Clear, .Rainy, .Torrid, .Cloudy, .Other]
+            $0.options = [.all, .clear, .rainy, .torrid, .cloudy, .other]
             $0.value = filter.weather
-            $0.displayValueFor = { v in return (v ?? WeatherType.All).symbol }
+            $0.displayValueFor = { v in return (v ?? WeatherType.all).symbol }
         }.onChange{ [weak self] row in
             guard let v = row.value else {return}
             self?.filter.weather = v

@@ -13,7 +13,7 @@ extension UIButton {
     @IBInspectable var borderWidth: CGFloat {
         get { return layer.borderWidth }
         set { layer.borderWidth = newValue
-            layer.borderColor = titleLabel?.textColor.CGColor ?? layer.borderColor
+            layer.borderColor = titleLabel?.textColor.cgColor ?? layer.borderColor
         }
     }
 }

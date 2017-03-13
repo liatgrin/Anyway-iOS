@@ -35,26 +35,26 @@ func *(l: CGRect, r: Int) -> CGRect {
 */
 class IconPinView: UIView {
 
-    private var iconImageView: UIImageView?
+    fileprivate var iconImageView: UIImageView?
     
     /**
      Should always be called after 'init'!
      
      - parameter alpha: the expected alpha for the view
      */
-    func setup(alpha: CGFloat = 1.0) {
+    func setup(_ alpha: CGFloat = 1.0) {
         guard let img = UIImage(named: "ic_loupe")
             else { assertionFailure("no img"); return }
         
         // main pin
         let back = UIImageView(image: img)
         self.frame = back.frame
-        back.transform = CGAffineTransformMakeRotation(CGFloat(45.0 * (M_PI/180)))
+        back.transform = CGAffineTransform(rotationAngle: CGFloat(45.0 * (M_PI/180)))
         
         // white back view
         let mainPinVisibleDiameter = CGFloat(35)
         let size = CGSize(squareSide: mainPinVisibleDiameter)
-        let v = UIView(frame: CGRect(origin: CGPointZero, size: size))
+        let v = UIView(frame: CGRect(origin: CGPoint.zero, size: size))
         setBackColor(with: alpha, forView: v)
         v.layer.cornerRadius = v.frame.width / 2 //make it circle
         v.layer.masksToBounds = true
@@ -67,13 +67,13 @@ class IconPinView: UIView {
         addSubview(back)
     }
     
-    func updateAlpha(alpha: CGFloat = 1.0) {
+    func updateAlpha(_ alpha: CGFloat = 1.0) {
         guard let v = viewWithTag("backview_tag".hash)
             else {return}
         setBackColor(with: alpha, forView: v)
     }
     
-    private func setBackColor(with alpha: CGFloat = 1.0, forView v: UIView) {
+    fileprivate func setBackColor(with alpha: CGFloat = 1.0, forView v: UIView) {
         v.backgroundColor = UIColor(white: 1, alpha: alpha * 1.5)
     }
     
@@ -84,7 +84,7 @@ class IconPinView: UIView {
      
      - parameter icon: the icon to add
      */
-    func insertIcon(icon: UIImage) {
+    func insertIcon(_ icon: UIImage) {
         
         if let iv = iconImageView {
             iv.image = icon
@@ -101,7 +101,7 @@ class IconPinView: UIView {
 
     
     /// Will be the icon and the pin tint color
-    var color: UIColor = UIApplication.sharedApplication().delegate?.window??.tintColor ?? UIColor.blackColor() {
+    var color: UIColor = UIApplication.shared.delegate?.window??.tintColor ?? UIColor.black {
         didSet {
             // whenever the color changes > change
             //  the tint for any subview
@@ -115,7 +115,7 @@ class IconPinView: UIView {
 
 extension MKAnnotationView {
     /// Setup Icon
-    func setupIcon(marker: VisualMarker) {
+    func setupIcon(_ marker: VisualMarker) {
         
         // get the color
         let color = marker.color
@@ -143,7 +143,7 @@ extension MKAnnotationView {
         // add the icon
         if let
             name = marker.iconName,
-            img = UIImage(named: name) {
+            let img = UIImage(named: name) {
                 iconPin.insertIcon(img)
         }
         
@@ -163,10 +163,10 @@ class MarkerView: MKAnnotationView {
     convenience init(marker: Marker, reuseIdentifier: String! = markerReuseIdentifierDefault) {
         self.init(annotation: marker, reuseIdentifier: reuseIdentifier)
         
-        enabled = true
+        isEnabled = true
         canShowCallout = true
         
-        rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
+        rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
         
         setupIcon(marker)
     }
@@ -182,7 +182,7 @@ class MarkerGroupView: MKAnnotationView {
     convenience init(markerGroup: MarkerGroup, reuseIdentifier: String! = markerGroupReuseIdentifierDefault) {
         self.init(annotation: markerGroup, reuseIdentifier: reuseIdentifier)
         
-        enabled = true
+        isEnabled = true
         canShowCallout = true
         
         setupIcon(markerGroup)
@@ -205,10 +205,11 @@ class ClusterView: MKAnnotationView {
         setup()
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
+    
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        setup()
+//    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -220,9 +221,9 @@ class ClusterView: MKAnnotationView {
         
         // the label for the number
         
-        let aLabel = UILabel(frame: CGRect(origin: CGPointZero, size: size))
-        aLabel.textAlignment = .Center
-        aLabel.font = UIFont.systemFontOfSize(14)
+        let aLabel = UILabel(frame: CGRect(origin: CGPoint.zero, size: size))
+        aLabel.textAlignment = .center
+        aLabel.font = UIFont.systemFont(ofSize: 14)
         
         // the background/border image
         let anImage = UIImageView(image: UIImage(named: "cluster_1")!)
@@ -250,7 +251,7 @@ class ClusterView: MKAnnotationView {
      
      - returns: an image for the cluster background
      */
-    func clusterImageForClusterCount(count: Int) -> UIImage {
+    func clusterImageForClusterCount(_ count: Int) -> UIImage {
         switch count {
         case let x where x < 10: return UIImage(named: "cluster_1")!
         case let x where x < 50: return UIImage(named: "cluster_2")!

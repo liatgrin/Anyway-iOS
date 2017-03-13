@@ -18,7 +18,7 @@ class Marker : NSObject, MarkerAnnotation {
     var address: String = ""
     var descriptionContent: String = ""
     var titleAccident: String = ""
-    var created: NSDate = NSDate(timeIntervalSince1970: 0)
+    var created: Date = Date(timeIntervalSince1970: 0)
     var followers: [AnyObject] = []
     var following: Bool = false
     var id: Int = 0
@@ -54,7 +54,7 @@ class Marker : NSObject, MarkerAnnotation {
     var road_surface: Int = -1
     var mainStreet: String = ""
     
-    convenience init(coord: Coordinate, address: String, content: String, title: String, created: NSDate, id: Int, accuracy: Int, severity: Int, subtype: Int, type: Int) {
+    convenience init(coord: Coordinate, address: String, content: String, title: String, created: Date, id: Int, accuracy: Int, severity: Int, subtype: Int, type: Int) {
         self.init(coordinate: coord)
         self.coordinate = coord
         self.address = address
@@ -80,16 +80,16 @@ extension Marker: PairsData {
     
     var roadConditionData: [(Title, Detail)] {
         return [
-            Marker.pair(forType: .SUG_DERECH, value: roadType),
-            Marker.pair(forType: .ZURAT_DEREH, value: roadShape),
-            Marker.pair(forType: .HAD_MASLUL, value: one_lane),
-            Marker.pair(forType: .MEHIRUT_MUTERET, value: speed_limit),
-            Marker.pair(forType: .TKINUT, value: intactness),
-            Marker.pair(forType: .ROHAV, value: road_width),
-            Marker.pair(forType: .SIMUN_TIMRUR, value: road_sign),
-            Marker.pair(forType: .TEURA, value: road_light),
-            Marker.pair(forType: .BAKARA, value: road_control),
-            Marker.pair(forType: .MEZEG_AVIR, value: weather)
+            Marker.pair(forType: .sug_DERECH, value: roadType),
+            Marker.pair(forType: .zurat_DEREH, value: roadShape),
+            Marker.pair(forType: .had_MASLUL, value: one_lane),
+            Marker.pair(forType: .mehirut_MUTERET, value: speed_limit),
+            Marker.pair(forType: .tkinut, value: intactness),
+            Marker.pair(forType: .rohav, value: road_width),
+            Marker.pair(forType: .simun_TIMRUR, value: road_sign),
+            Marker.pair(forType: .teura, value: road_light),
+            Marker.pair(forType: .bakara, value: road_control),
+            Marker.pair(forType: .mezeg_AVIR, value: weather)
             ].flatMap{ $0 }
     }
     
@@ -105,15 +105,15 @@ extension Marker: VisualMarker {
     //MARK: Localized Info
     
     var localizedSubtype: String {
-        return Localization.SUG_TEUNA[subtype] ?? ""
+        return Localization.sug_TEUNA[subtype] ?? ""
     }
     
     var localizedSeverity: String {
-        return Localization.HUMRAT_TEUNA[severity] ?? ""
+        return Localization.humrat_TEUNA[severity] ?? ""
     }
     
     var localizedAccuracy: String {
-        return Localization.STATUS_IGUN[locationAccuracy] ?? ""
+        return Localization.status_IGUN[locationAccuracy] ?? ""
     }
     
     var color: UIColor {
