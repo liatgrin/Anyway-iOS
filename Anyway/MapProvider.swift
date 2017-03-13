@@ -206,18 +206,18 @@ class Network {
         )
             
             /* Raw response, for debug */
-        request.responseString { response in
-            if let error = response.result.error {
-                println("error: \(error)")
-                return
-            }
-            
-            if let encoded = response.data.flatMap({ String(data: $0, encoding: .utf8) }) {
-                println("response: \n###\n\(encoded)\n###") //solve hebrew string bug...
-            } else {
-                println("response: \n###\n\(response.result.value ?? "no response value")\n###")
-            }
-        }
+//        request.responseString { response in
+//            if let error = response.result.error {
+//                println("error: \(error)")
+//                return
+//            }
+//            
+//            if let encoded = response.data.flatMap({ String(data: $0, encoding: .utf8) }) {
+//                println("response: \n###\n\(encoded)\n###") //solve hebrew string bug...
+//            } else {
+//                println("response: \n###\n\(response.result.value ?? "no response value")\n###")
+//            }
+//        }
         
         request.responseJSON { responseValue in
             
