@@ -22,6 +22,11 @@
  *
  */
 "main_presenting_count_label" =  "Showing %d accidents";
+"main_history_prompt_alert_title" = "Roads History";
+"main_history_prompt_alert_message" = "ANYWAY can remember where you traveled and give you a summary of places you might want to avoid goind through.\n\n - Tracking is done in a way that keeps battery consumption to minimum.";
+"main_history_prompt_alert_cancel" = "Cancel";
+"main_history_prompt_alert_confirm_request_location" = "Approve Location Services";
+"main_history_prompt_alert_confirm" = "Confirm";
 
 
 // ### Filter ###

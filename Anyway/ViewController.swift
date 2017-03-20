@@ -65,6 +65,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     /// flag for handling auto-moving the map when app launches
     var shouldJumpToStartLocation = true
     
+    var isTrackingHistory: Bool {
+        get{ return UserDefaults.standard.bool(forKey: "isTrackingHistory") }
+        set{ UserDefaults.standard.set(newValue, forKey: "isTrackingHistory") }
+    }
     
     //MARK: - Lifecycle
     
@@ -81,6 +85,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // Set the master (map) relative side
         splitViewController?.minimumPrimaryColumnWidth = view.frame.width * 0.6
         splitViewController?.maximumPrimaryColumnWidth = view.frame.width * 0.6
+        
+        if isTrackingHistory {
+            Location.shared.beginTrackingLocation(requestAuthorizationIfNeeded: false)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -189,6 +197,58 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    @IBAction func actionLocationHistory(_ sender: UIButton) {
+        
+        if isTrackingHistory {
+            //open location history
+            let storyboardId = HistoryViewController.storyboardId
+            let vc = storyboard!.instantiateViewController(withIdentifier: storyboardId)
+            present(vc, animated: true, completion: nil)
+            
+        } else {
+            
+            let title = NSLocalizedString("main_history_prompt_alert_title", comment: "")
+            let msg = NSLocalizedString("main_history_prompt_alert_message", comment: "")
+            let prompt = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+            
+            
+            let cancelText = NSLocalizedString("main_history_prompt_alert_cancel", comment: "")
+            let cancel = UIAlertAction(title: cancelText, style: .cancel, handler: nil)
+            
+            
+            let locationAllowed = Location.shared.isLocationMonitoringAuthorized
+            let confirmLocationText = NSLocalizedString("main_history_prompt_alert_confirm_request_location", comment: "")
+            let confirmText = NSLocalizedString("main_history_prompt_alert_confirm", comment: "")
+            let confirmTitle = locationAllowed ? confirmText : confirmLocationText
+            
+            let confirm = UIAlertAction(title: confirmTitle, style: .default) { [weak self] _ in
+                if Location.shared.didAskAuthorization == false || locationAllowed {
+                    // begin tracking
+                    Location.shared.beginTrackingLocation(requestAuthorizationIfNeeded: true)
+                    self?.isTrackingHistory = true
+                } else {
+                    // open app settings to change authorization
+                    let settingsUrl = URL(string: UIApplicationOpenSettingsURLString)!
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
+                    } else {
+                        UIApplication.shared.openURL(settingsUrl)
+                    }
+                }
+            }
+            
+            prompt.addAction(confirm)
+            prompt.addAction(cancel)
+            
+            prompt.popoverPresentationController?.sourceView = sender
+            prompt.popoverPresentationController?.sourceRect = sender.bounds
+            prompt.popoverPresentationController?.permittedArrowDirections = .any
+
+            present(prompt, animated: true, completion: nil)
+        }
+        
+        
+    }
     
     
     //MARK: - UI Logic

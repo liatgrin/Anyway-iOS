@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		301788FF1E804B6D00EA1C13 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301788FE1E804B6D00EA1C13 /* Location.swift */; };
+		301789011E805A7500EA1C13 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301789001E805A7500EA1C13 /* HistoryViewController.swift */; };
+		301789031E806AC100EA1C13 /* HistoryPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301789021E806AC100EA1C13 /* HistoryPosition.swift */; };
 		30367E9B1A9D006400B16DA1 /* OCAlgorithms.m in Sources */ = {isa = PBXBuildFile; fileRef = 30367E931A9D006400B16DA1 /* OCAlgorithms.m */; };
 		30367E9C1A9D006400B16DA1 /* OCAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 30367E951A9D006400B16DA1 /* OCAnnotation.m */; };
 		30367E9D1A9D006400B16DA1 /* OCDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = 30367E971A9D006400B16DA1 /* OCDistance.m */; };
@@ -65,6 +68,9 @@
 
 /* Begin PBXFileReference section */
 		143F5942D9E4E7907849857B /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		301788FE1E804B6D00EA1C13 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		301789001E805A7500EA1C13 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		301789021E806AC100EA1C13 /* HistoryPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryPosition.swift; sourceTree = "<group>"; };
 		30367E911A9D006400B16DA1 /* OCAlgorithmDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCAlgorithmDelegate.h; sourceTree = "<group>"; };
 		30367E921A9D006400B16DA1 /* OCAlgorithms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCAlgorithms.h; sourceTree = "<group>"; };
 		30367E931A9D006400B16DA1 /* OCAlgorithms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCAlgorithms.m; sourceTree = "<group>"; };
@@ -206,6 +212,7 @@
 				30367EA11A9D0ACC00B16DA1 /* Views */,
 				30673C6E1C1F5EE600CEB5FB /* Main Screen */,
 				30BB76811AEE938600CB1EBD /* InfoViewController.swift */,
+				301789001E805A7500EA1C13 /* HistoryViewController.swift */,
 				307751DD1C5FD1680071F6FA /* FilterViewController.swift */,
 				307751E01C5FDEE50071F6FA /* FilterViewController+Setup.swift */,
 				30B98D471C038EA700FBCA37 /* Detail */,
@@ -224,6 +231,7 @@
 				30568A961C0CDAFD00471D83 /* Model */,
 				30BE3E311B7918C90092CEAB /* Constants.swift */,
 				30CDE5161BFA690A00BBC183 /* Localization.swift */,
+				301788FE1E804B6D00EA1C13 /* Location.swift */,
 				30DAA0971AC1F95D001F67D2 /* Extensions.swift */,
 				309DD0451BFA464100AF80D1 /* Utilities.swift */,
 			);
@@ -246,6 +254,7 @@
 				30667BA91A92698900853125 /* Marker.swift */,
 				30568A8E1C0CDA5B00471D83 /* MarkerGroup.swift */,
 				3097F9B31B959CDA0037FFF6 /* MarkerViews.swift */,
+				301789021E806AC100EA1C13 /* HistoryPosition.swift */,
 			);
 			name = Marker;
 			sourceTree = "<group>";
@@ -576,6 +585,7 @@
 				30BEB4691A9D1A7A005F3205 /* JGProgressHUDIndicatorView.m in Sources */,
 				30BEB46A1A9D1A7A005F3205 /* JGProgressHUDPieIndicatorView.m in Sources */,
 				30673C771C1F623500CEB5FB /* Filter.swift in Sources */,
+				301788FF1E804B6D00EA1C13 /* Location.swift in Sources */,
 				307751E11C5FDEE50071F6FA /* FilterViewController+Setup.swift in Sources */,
 				30C9AB2A1C56A7A100E35928 /* LanguageViewController.swift in Sources */,
 				30667BAA1A92698900853125 /* Marker.swift in Sources */,
@@ -589,6 +599,7 @@
 				30BEB4671A9D1A7A005F3205 /* JGProgressHUDFadeZoomAnimation.m in Sources */,
 				30B98D491C038EBA00FBCA37 /* DetailCells.swift in Sources */,
 				305563E91C4D6E2800FAC3A2 /* PairsDataProtocol.swift in Sources */,
+				301789031E806AC100EA1C13 /* HistoryPosition.swift in Sources */,
 				30BB76821AEE938600CB1EBD /* InfoViewController.swift in Sources */,
 				307751DE1C5FD1680071F6FA /* FilterViewController.swift in Sources */,
 				30BEB4681A9D1A7A005F3205 /* JGProgressHUDIndeterminateIndicatorView.m in Sources */,
@@ -605,6 +616,7 @@
 				30CDE5171BFA690A00BBC183 /* Localization.swift in Sources */,
 				309DD0461BFA464100AF80D1 /* Utilities.swift in Sources */,
 				30D6E5B41A92639500337FDB /* ViewController.swift in Sources */,
+				301789011E805A7500EA1C13 /* HistoryViewController.swift in Sources */,
 				30BEB4651A9D1A7A005F3205 /* JGProgressHUDErrorIndicatorView.m in Sources */,
 				30367E9C1A9D006400B16DA1 /* OCAnnotation.m in Sources */,
 				30568A931C0CDAB500471D83 /* Marker+General.swift in Sources */,

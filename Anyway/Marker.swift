@@ -8,55 +8,63 @@
 
 import UIKit
 import MapKit
+import RealmSwift
 
-
-class Marker : NSObject, MarkerAnnotation {
+class Marker: Object, MarkerAnnotation {
     
-    var title: String? { return localizedSubtype }
-    var coordinate: CLLocationCoordinate2D
+    dynamic var coordinateLat: Double = 0
+    dynamic var coordinateLon: Double = 0
     
-    var address: String = ""
-    var descriptionContent: String = ""
-    var titleAccident: String = ""
-    var created: Date = Date(timeIntervalSince1970: 0)
+    dynamic var address: String = ""
+    dynamic var descriptionContent: String = ""
+    dynamic var titleAccident: String = ""
+    dynamic var created: Date = Date(timeIntervalSince1970: 0)
     var followers: [AnyObject] = []
-    var following: Bool = false
-    var id: Int = 0
-    var locationAccuracy: Int = 0
-    var severity: Int = 0
-    var subtype: Int = 0
-    var type: Int = 0
-    var user: String = ""
+    dynamic var following: Bool = false
+    dynamic var id: Int = 0
+    dynamic var locationAccuracy: Int = 0
+    dynamic var severity: Int = 0
+    dynamic var subtype: Int = 0
+    dynamic var type: Int = 0
+    dynamic var user: String = ""
     
-    //new
-    var roadShape: Int = -1
-    var cross_mode: Int = -1
-    var secondaryStreet: String = ""
-    var cross_location: Int = -1
-    var one_lane: Int = -1
-    var speed_limit: Int = -1
-    var weather: Int = -1
-    var provider_code: Int = -1
-    var road_object: Int = -1
-    var didnt_cross: Int = -1
-    var object_distance: Int = -1
-    var road_sign: Int = -1
-    var intactness: Int = -1
-    var junction: String = ""
-    var road_control: Int = -1
-    var road_light: Int = -1
-    var multi_lane: Int = -1
-    var dayType: Int = -1
-    var unit: Int = -1
-    var road_width: Int = -1
-    var cross_direction: Int = -1
-    var roadType: Int = -1
-    var road_surface: Int = -1
-    var mainStreet: String = ""
+    dynamic var roadShape: Int = -1
+    dynamic var cross_mode: Int = -1
+    dynamic var secondaryStreet: String = ""
+    dynamic var cross_location: Int = -1
+    dynamic var one_lane: Int = -1
+    dynamic var speed_limit: Int = -1
+    dynamic var weather: Int = -1
+    dynamic var provider_code: Int = -1
+    dynamic var road_object: Int = -1
+    dynamic var didnt_cross: Int = -1
+    dynamic var object_distance: Int = -1
+    dynamic var road_sign: Int = -1
+    dynamic var intactness: Int = -1
+    dynamic var junction: String = ""
+    dynamic var road_control: Int = -1
+    dynamic var road_light: Int = -1
+    dynamic var multi_lane: Int = -1
+    dynamic var dayType: Int = -1
+    dynamic var unit: Int = -1
+    dynamic var road_width: Int = -1
+    dynamic var cross_direction: Int = -1
+    dynamic var roadType: Int = -1
+    dynamic var road_surface: Int = -1
+    dynamic var mainStreet: String = ""
+    
+    
+    /// Properties ignored by Realm
+    override class func ignoredProperties() -> [String] {
+        return ["coordinate", "followers"]
+    }
+}
+
+/// Convenience inits
+extension Marker {
     
     convenience init(coord: Coordinate, address: String, content: String, title: String, created: Date, id: Int, accuracy: Int, severity: Int, subtype: Int, type: Int) {
         self.init(coordinate: coord)
-        self.coordinate = coord
         self.address = address
         self.descriptionContent = content
         self.titleAccident = title
@@ -68,10 +76,26 @@ class Marker : NSObject, MarkerAnnotation {
         self.type = type
     }
     
-    init(coordinate: CLLocationCoordinate2D) {
+    convenience init(coordinate: CLLocationCoordinate2D) {
+        self.init()
         self.coordinate = coordinate
     }
+}
+
+
+/// Computed vards
+extension Marker {
+    var title: String? { return localizedSubtype }
     
+    var coordinate: CLLocationCoordinate2D {
+        get{
+            return CLLocationCoordinate2D(latitude: coordinateLat, longitude: coordinateLon)
+        }
+        set{
+            coordinateLat = newValue.latitude
+            coordinateLon = newValue.longitude
+        }
+    }
 }
 
 /// Helper methods to determine which information

@@ -1,18 +1,26 @@
 PODS:
   - Alamofire (4.4.0)
   - Eureka (2.0.1)
+  - Realm (2.4.3):
+    - Realm/Headers (= 2.4.3)
+  - Realm/Headers (2.4.3)
+  - RealmSwift (2.4.3):
+    - Realm (= 2.4.3)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire
   - Eureka (~> 2.0)
+  - RealmSwift
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
+  Realm: e08d60b0048ccccd3949c8c28a92c4db5712d7e9
+  RealmSwift: 30d49739ccb3385d201242736ca4dda56aec9dfc
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 52ca4ff00e73f9590d809d28d167fb2925ea22d1
+PODFILE CHECKSUM: 8d33131f567d5e8d57a6d7d0d5ded13deac16030
 
 COCOAPODS: 1.2.0.beta.1

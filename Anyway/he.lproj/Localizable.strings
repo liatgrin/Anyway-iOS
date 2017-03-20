@@ -8,7 +8,11 @@
 
 //App UI (view controllers etc.)
 "main_presenting_count_label" =  "מציג %d תאונות";
-
+"main_history_prompt_alert_title" = "היסטוריה בדרכים";
+"main_history_prompt_alert_message" = "אם תרצו, נוכל לזכור איפה ביקרתם ולהציג לכם סיכום של מקומות שאולי כדאי להמנע מהם בעתיד.\n\n - המעקב נעשה באופן שאינו משפיע על צריכת הסוללה כמעט כלל";
+"main_history_prompt_alert_confirm_request_location" = "אישור שירותי מיקום";
+"main_history_prompt_alert_confirm" = "אישור";
+"main_history_prompt_alert_cancel" = "לא תודה";
 
 // ### Filter ###
 "FILTER_SECTION_day" = "יום";
