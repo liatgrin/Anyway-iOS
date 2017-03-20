@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SVWebViewController
+import SafariServices
 
 class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, WebPresentationDelegate {
 
@@ -60,8 +60,12 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK: - WebPresentationDelegate
     func shouldPresent(_ address: String) {
         print(address)
-        let webView = SVModalWebViewController(address: address)
-        present(webView!, animated: true, completion: nil)
+        guard let url = URL(string: address) else {
+            print("!! Invalid URL address: \(address)")
+            return
+        }
+        let webView = SFSafariViewController(url: url)
+        present(webView, animated: true, completion: nil)
     }
     
     //MARK: - Table View

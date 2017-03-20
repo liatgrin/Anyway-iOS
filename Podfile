@@ -5,6 +5,5 @@ use_frameworks!
 target 'Anyway' do
     pod 'Alamofire'
     pod 'SwiftyJSON'
-    pod 'SVWebViewController', :git => 'https://github.com/TransitApp/SVWebViewController'
     pod 'Eureka', '~> 2.0'
 end
