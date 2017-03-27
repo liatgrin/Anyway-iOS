@@ -151,6 +151,7 @@ public class Location: NSObject, CLLocationManagerDelegate {
         
         // get accidents in area, save event with accidents
         Network().getAnnotations(edges, filter: Filter()) { [weak self] annotations, totalCount in
+            guard totalCount > 0 else { return }
             do {
                 self?.realm = try Realm()
                 try self?.realm?.write {
