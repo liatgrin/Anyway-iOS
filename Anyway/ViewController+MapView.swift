@@ -200,11 +200,8 @@ extension ViewController: MKMapViewDelegate {
     }
 }
 
-/**
- This extension use is very specific for this screen
- behavior and is therefore declared as 'private'.
-*/
-private extension MKMapView {
+
+extension MKMapView {
     func moveAndZoom(to coord: CLLocationCoordinate2D) {
         let span = MKCoordinateSpan(latitudeDelta: appLaunchZoomRadius, longitudeDelta: appLaunchZoomRadius)
         let mapRegion = MKCoordinateRegion(center: coord, span: span)

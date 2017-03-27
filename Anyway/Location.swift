@@ -126,8 +126,8 @@ public class Location: NSObject, CLLocationManagerDelegate {
     func beginUpdateLocations() {
         print("🌎 Tracking location...")
         man.delegate = self
-        //man.startMonitoringSignificantLocationChanges()
-        man.startUpdatingLocation()
+        man.startMonitoringSignificantLocationChanges()
+        //man.startUpdatingLocation()
     }
     
     var realm: Realm?
@@ -156,7 +156,7 @@ public class Location: NSObject, CLLocationManagerDelegate {
         
         // get accidents in area, save event with accidents
         Network().getAnnotations(edges, filter: Filter()) { [weak self] annotations, totalCount in
-            //guard totalCount > 0 else { return }
+            guard totalCount > 0 else { return }
             
             CLGeocoder().reverseGeocodeLocation(loc, completionHandler: { placemark, error in
                 guard let place = placemark?.first else { return }
