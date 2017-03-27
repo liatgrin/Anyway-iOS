@@ -131,9 +131,25 @@ public class Location: NSObject, CLLocationManagerDelegate {
         print("🌎 updateHistory: \(loc)")
         log(loc)
         
+        // find edges for area to search accidents
+        let areaDiameter = 70 // in meters
+        
         let center = loc.coordinate
         
-        let edges = (ne: center, sw: center)
+        let d = Double(areaDiameter) / 2 // meters from center to each edge
+        let r_earth = 6378.0 * 1000.0 // earth eprox radius
+        let pi = Double.pi
+        let neY = center.latitude + (d / r_earth) * (180.0 / pi)
+        let neX = center.longitude + (d / r_earth) * (180.0 / pi) / cos(center.latitude * pi/180.0)
+        let ne = Coordinate(latitude: neY, longitude: neX)
+        
+        let swY = center.latitude - (d / r_earth) * (180.0 / pi)
+        let swX = center.longitude - (d / r_earth) * (180.0 / pi) / cos(center.latitude * pi/180.0)
+        let sw = Coordinate(latitude: swY, longitude: swX)
+        
+        let edges = (ne: ne, sw: sw)
+        
+        // get accidents in area, save event with accidents
         Network().getAnnotations(edges, filter: Filter()) { [weak self] annotations, totalCount in
             do {
                 self?.realm = try Realm()
