@@ -26,9 +26,13 @@ class HistoryViewController: UIViewController {
         super.viewWillAppear(animated)
         
         DispatchQueue.main.async { [weak self] in
-            self?.realm = try? Realm()
-            self?.data = self?.realm?.objects(HistoryPosition.self)
-            self?.tableView.reloadData()
+            do {
+                self?.realm = try Realm()
+                self?.data = self?.realm?.objects(HistoryPosition.self)
+                self?.tableView.reloadData()
+            } catch {
+                print(error)
+            }
         }
         
     }

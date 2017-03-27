@@ -121,31 +121,39 @@ public class Location: NSObject, CLLocationManagerDelegate {
     func beginUpdateLocations() {
         print("🌎 Tracking location...")
         man.delegate = self
-        man.startMonitoringSignificantLocationChanges()
-        //man.startUpdatingLocation()
+        //man.startMonitoringSignificantLocationChanges()
+        man.startUpdatingLocation()
     }
     
     var realm: Realm?
     
     func updateHistory(_ loc: CLLocation) {
+        print("🌎 updateHistory: \(loc)")
+        log(loc)
+        
         let center = loc.coordinate
         
         let edges = (ne: center, sw: center)
         Network().getAnnotations(edges, filter: Filter()) { [weak self] annotations, totalCount in
-            self?.realm = try? Realm()
-            try? self?.realm?.write {
-                let event = HistoryPosition()
-                for anot in annotations {
-                    if let group = anot as? MarkerGroup {
-                        event.markers.append(objectsIn: group.markers)
-                    } else if let marker = anot as? Marker {
-                        event.markers.append(marker)
+            do {
+                self?.realm = try Realm()
+                try self?.realm?.write {
+                    let event = HistoryPosition()
+                    for anot in annotations {
+                        if let group = anot as? MarkerGroup {
+                            event.markers.append(objectsIn: group.markers)
+                        } else if let marker = anot as? Marker {
+                            event.markers.append(marker)
+                        }
                     }
+                    event.locationData = loc.asData
+                    self?.realm?.add(event)
                 }
-                event.locationData = loc.asData
+            } catch {
+                print("Realm error: \(error)")
             }
         }
-        log(loc)
+        
         
     }
     
