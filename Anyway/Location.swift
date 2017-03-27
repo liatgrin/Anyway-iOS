@@ -36,6 +36,11 @@ public extension CLLocation {
     public class func from(_ data: Data) -> CLLocation? { return data.unarchived as? CLLocation ?? nil }
 }
 
+public extension CLPlacemark {
+    public var asData: Data { return NSKeyedArchiver.archivedData(withRootObject: self) }
+    public class func from(_ data: Data) -> CLPlacemark? { return data.unarchived as? CLPlacemark ?? nil }
+}
+
 public class Location: NSObject, CLLocationManagerDelegate {
     
     public static var shared = Location()
@@ -151,24 +156,33 @@ public class Location: NSObject, CLLocationManagerDelegate {
         
         // get accidents in area, save event with accidents
         Network().getAnnotations(edges, filter: Filter()) { [weak self] annotations, totalCount in
-            guard totalCount > 0 else { return }
-            do {
-                self?.realm = try Realm()
-                try self?.realm?.write {
-                    let event = HistoryPosition()
-                    for anot in annotations {
-                        if let group = anot as? MarkerGroup {
-                            event.markers.append(objectsIn: group.markers)
-                        } else if let marker = anot as? Marker {
-                            event.markers.append(marker)
+            //guard totalCount > 0 else { return }
+            
+            CLGeocoder().reverseGeocodeLocation(loc, completionHandler: { placemark, error in
+                guard let place = placemark?.first else { return }
+                
+                do {
+                    self?.realm = try Realm()
+                    try self?.realm?.write {
+                        let event = HistoryPosition()
+                        for anot in annotations {
+                            if let group = anot as? MarkerGroup {
+                                event.markers.append(objectsIn: group.markers)
+                            } else if let marker = anot as? Marker {
+                                event.markers.append(marker)
+                            }
                         }
+                        event.locationPLacemark = place.asData
+                        event.locationData = loc.asData
+                        self?.realm?.add(event)
                     }
-                    event.locationData = loc.asData
-                    self?.realm?.add(event)
+                } catch {
+                    print("Realm error: \(error)")
                 }
-            } catch {
-                print("Realm error: \(error)")
-            }
+                
+                
+            })
+            
         }
         
         

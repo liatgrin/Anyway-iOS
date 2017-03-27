@@ -12,6 +12,7 @@ import RealmSwift
 class HistoryPosition: Object {
     
     dynamic var locationData: Data?
+    dynamic var locationPLacemark: Data?
     var markers = List<Marker>()
     
 }

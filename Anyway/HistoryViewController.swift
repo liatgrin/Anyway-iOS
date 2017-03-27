@@ -54,10 +54,24 @@ extension HistoryViewController: UITableViewDataSource {
         
         let history = data?[indexPath.row]
         
-        cell.textLabel?.text = history?.locationData.flatMap(CLLocation.from)?.description
+        let place = history?.locationPLacemark.flatMap(CLPlacemark.from)
+        cell.textLabel?.text = String(placemark: place) ?? "Unknown Address"
+        
         cell.detailTextLabel?.text = (history?.markers.count).flatMap{ "\($0) accidents" }
         
         return cell
     }
     
 }
+
+extension String {
+    init?(placemark: CLPlacemark?) {
+        guard
+            let myAddressDictionary = placemark?.addressDictionary,
+            let myAddressLines = myAddressDictionary["FormattedAddressLines"] as? [String]
+            else { return nil }
+        
+        self.init(myAddressLines.joined(separator: " "))
+    }
+}
+
