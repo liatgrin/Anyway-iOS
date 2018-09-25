@@ -39,13 +39,14 @@ extension ViewController: MKMapViewDelegate {
         map.clusteringEnabled = Int(mapView.edgesDistance()) > MIN_DIST_CLUSTER_DISABLE
 
         print("mapView:regionDidChangeAnimated")
-        print("old region: \(lastRegion.center) | new: \(mapView.region.center)")
+        print("old region: \(lastRegion.center) | new region: \(mapView.region.center)")
         
         let distance = CLLocation.distance(from: lastRegion.center, to: mapView.region.center)
         print("distance: \(distance)")
         
-        //?? YIGAL what is this ?
-        if distance > 50 {
+        let isLastRegionUnIntitialized = lastRegion.center.latitude == -180.0 && lastRegion.center.longitude == -180 ;
+        
+        if distance > 50 || isLastRegionUnIntitialized {
             updateInfoIfPossible(mapView, filterChanged:false)
         }
         lastRegion = mapView.region
