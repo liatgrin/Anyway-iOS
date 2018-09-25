@@ -75,6 +75,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+         print("viewDidLoad")
+        
         map.delegate = self
         map.clusterSize = 0.1
         map.minimumAnnotationCountPerCluster = 4

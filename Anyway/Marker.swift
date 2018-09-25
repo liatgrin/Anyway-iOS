@@ -12,46 +12,47 @@ import RealmSwift
 
 class Marker: Object, MarkerAnnotation {
     
-    dynamic var coordinateLat: Double = 0
-    dynamic var coordinateLon: Double = 0
     
-    dynamic var address: String = ""
-    dynamic var descriptionContent: String = ""
-    dynamic var titleAccident: String = ""
-    dynamic var created: Date = Date(timeIntervalSince1970: 0)
+    @objc dynamic var coordinateLat: Double = 0
+    @objc dynamic var coordinateLon: Double = 0
+    
+    @objc dynamic var address: String = ""
+    @objc dynamic var descriptionContent: String = ""
+    @objc dynamic var titleAccident: String = ""
+    @objc dynamic var created: Date = Date(timeIntervalSince1970: 0)
     var followers: [AnyObject] = []
-    dynamic var following: Bool = false
-    dynamic var id: Int = 0
-    dynamic var locationAccuracy: Int = 0
-    dynamic var severity: Int = 0
-    dynamic var subtype: Int = 0
-    dynamic var type: Int = 0
-    dynamic var user: String = ""
+    @objc dynamic var following: Bool = false
+    @objc dynamic var id: Int = 0
+    @objc dynamic var locationAccuracy: Int = 0
+    @objc dynamic var severity: Int = 0
+    @objc dynamic var subtype: Int = 0
+    @objc dynamic var type: Int = 0
+    @objc dynamic var user: String = ""
     
-    dynamic var roadShape: Int = -1
-    dynamic var cross_mode: Int = -1
-    dynamic var secondaryStreet: String = ""
-    dynamic var cross_location: Int = -1
-    dynamic var one_lane: Int = -1
-    dynamic var speed_limit: Int = -1
-    dynamic var weather: Int = -1
-    dynamic var provider_code: Int = -1
-    dynamic var road_object: Int = -1
-    dynamic var didnt_cross: Int = -1
-    dynamic var object_distance: Int = -1
-    dynamic var road_sign: Int = -1
-    dynamic var intactness: Int = -1
-    dynamic var junction: String = ""
-    dynamic var road_control: Int = -1
-    dynamic var road_light: Int = -1
-    dynamic var multi_lane: Int = -1
-    dynamic var dayType: Int = -1
-    dynamic var unit: Int = -1
-    dynamic var road_width: Int = -1
-    dynamic var cross_direction: Int = -1
-    dynamic var roadType: Int = -1
-    dynamic var road_surface: Int = -1
-    dynamic var mainStreet: String = ""
+    @objc dynamic var roadShape: Int = -1
+    @objc dynamic var cross_mode: Int = -1
+    @objc dynamic var secondaryStreet: String = ""
+    @objc dynamic var cross_location: Int = -1
+    @objc dynamic var one_lane: Int = -1
+    @objc dynamic var speed_limit: Int = -1
+    @objc dynamic var weather: Int = -1
+    @objc dynamic var provider_code: Int = -1
+    @objc dynamic var road_object: Int = -1
+    @objc dynamic var didnt_cross: Int = -1
+    @objc dynamic var object_distance: Int = -1
+    @objc dynamic var road_sign: Int = -1
+    @objc dynamic var intactness: Int = -1
+    @objc dynamic var junction: String = ""
+    @objc dynamic var road_control: Int = -1
+    @objc dynamic var road_light: Int = -1
+    @objc dynamic var multi_lane: Int = -1
+    @objc dynamic var dayType: Int = -1
+    @objc dynamic var unit: Int = -1
+    @objc dynamic var road_width: Int = -1
+    @objc dynamic var cross_direction: Int = -1
+    @objc dynamic var roadType: Int = -1
+    @objc dynamic var road_surface: Int = -1
+    @objc dynamic var mainStreet: String = ""
     
     
     /// Properties ignored by Realm
@@ -104,16 +105,16 @@ extension Marker: PairsData {
     
     var roadConditionData: [(Title, Detail)] {
         return [
-            Marker.pair(forType: .sug_DERECH, value: roadType),
-            Marker.pair(forType: .zurat_DEREH, value: roadShape),
-            Marker.pair(forType: .had_MASLUL, value: one_lane),
-            Marker.pair(forType: .mehirut_MUTERET, value: speed_limit),
-            Marker.pair(forType: .tkinut, value: intactness),
-            Marker.pair(forType: .rohav, value: road_width),
-            Marker.pair(forType: .simun_TIMRUR, value: road_sign),
-            Marker.pair(forType: .teura, value: road_light),
-            Marker.pair(forType: .bakara, value: road_control),
-            Marker.pair(forType: .mezeg_AVIR, value: weather)
+            Marker.pair(forType: .SUG_DERECH, value: roadType),
+            Marker.pair(forType: .ZURAT_DEREH, value: roadShape),
+            Marker.pair(forType: .HAD_MASLUL, value: one_lane),
+            Marker.pair(forType: .MHIRUT_MUTERET, value: speed_limit),
+            Marker.pair(forType: .TKINUT, value: intactness),
+            Marker.pair(forType: .ROHAV, value: road_width),
+            Marker.pair(forType: .SIMUN_TIMRUR, value: road_sign),
+            Marker.pair(forType: .TEURA, value: road_light),
+            Marker.pair(forType: .BAKARA, value: road_control),
+            Marker.pair(forType: .MEZEG_AVIR, value: weather)
             ].flatMap{ $0 }
     }
     
@@ -129,15 +130,15 @@ extension Marker: VisualMarker {
     //MARK: Localized Info
     
     var localizedSubtype: String {
-        return Localization.sug_TEUNA[subtype] ?? ""
+        return Localization.SUG_TEUNA[subtype] ?? ""
     }
     
     var localizedSeverity: String {
-        return Localization.humrat_TEUNA[severity] ?? ""
+        return Localization.HUMRAT_TEUNA[severity] ?? ""
     }
     
     var localizedAccuracy: String {
-        return Localization.status_IGUN[locationAccuracy] ?? ""
+        return Localization.STATUS_IGUN[locationAccuracy] ?? ""
     }
     
     var color: UIColor {

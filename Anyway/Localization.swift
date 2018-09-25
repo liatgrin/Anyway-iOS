@@ -26,20 +26,47 @@ import Foundation
 enum Localization {
     
     // Road Conditions
-    case sug_DERECH, yehida, sug_YOM, humrat_TEUNA, sug_TEUNA,
-         zurat_DEREH, had_MASLUL, rav_MASLUL, mehirut_MUTERET,
-         tkinut, rohav, simun_TIMRUR, teura, bakara, mezeg_AVIR,
-         pne_KVISH, sug_EZEM, merhak_EZEM, lo_HAZA, ofen_HAZIYA,
-         mekom_HAZIYA, kivun_HAZIYA, status_IGUN
+    case    SUG_DERECH,
+            YEHIDA,
+            SUG_YOM,
+            HUMRAT_TEUNA,
+            SUG_TEUNA,
+            ZURAT_DEREH,
+            HAD_MASLUL,
+            RAV_MASLUL,
+            MHIRUT_MUTERET,
+            TKINUT,
+            ROHAV,
+            SIMUN_TIMRUR,
+            TEURA,
+            BAKARA,
+            MEZEG_AVIR,
+            PNE_KVISH,
+            SUG_EZEM,
+            MERHAK_EZEM,
+            LO_HAZA,
+            OFEN_HAZIYA,
+            MEKOM_HAZIYA,
+            KIVUN_HAZIYA,
+            STATUS_IGUN
     
     // Vehicle Description
-    case matzav_REHEV, shiyuh_REHEV_LMS, sug_REHEV_LMS
+    case    MATSAV_REHEV,
+            SHIYUH_REHEV_LMS,
+            SUG_REHEV_LMS
     
     // Involved Person Description
-    case sug_MEORAV, min, emzae_BETIHUT,
-         humrat_PGIA, sug_NIFGA_LMS, peulat_NIFGA_LMS,
-         pazua_USHPAZ, madad_RAFUI, yaad_SHIHRUR,
-         shimush_BE_AVIZAREY_BETIHOT, ptira_MEUHERET
+    case    SUG_MEORAV,
+            MIN,
+            EMZAE_BETIHUT,
+            HUMRAT_PGIA,
+            SUG_NIFGA_LMS,
+            PEULAT_NIFGA_LMS,
+            PAZUA_USHPAZ,
+            MADAD_RAFUI,
+            YAAD_SHIHRUR,
+            SHIMUSH_BE_AVIZAREY_BETIHOT,
+            PTIRA_MEUHERET
     
     
     subscript(val: Int) -> String? {

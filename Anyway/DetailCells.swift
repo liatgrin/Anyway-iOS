@@ -202,14 +202,14 @@ private struct StaticData {
         case (2, let i): return marker?.roadConditionData.safeRetrieveElement(i)?.1 ?? ""
             
         case (3, 1): return "\(data.created.longDate), \(data.created.shortTime)"
-        case (3, 2): return Localization.sug_YOM[data.dayType] ?? ""
+        case (3, 2): return Localization.SUG_YOM[data.dayType] ?? ""
         case (3, 3): return data.address
             
         case (4, let i): return fieldValue(i, rawInfos: persons)
         case (5, let i): return fieldValue(i, rawInfos: vehicles)
             
-        case (6, 1): return Localization.status_IGUN[data.intactness] ?? "" //TODO: is right param?
-        case (6, 2): return Localization.yehida[data.unit] ?? ""
+        case (6, 1): return Localization.STATUS_IGUN[data.intactness] ?? "" //TODO: is right param?
+        case (6, 2): return Localization.YEHIDA[data.unit] ?? ""
 
         default: return ""
         }

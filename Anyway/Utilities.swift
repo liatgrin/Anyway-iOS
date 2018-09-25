@@ -318,10 +318,10 @@ extension UIImage {
         context?.setFillColor(backColor.cgColor)
         context?.fill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
         
-        let dict = [NSFontAttributeName: font, NSForegroundColorAttributeName: textColor]
+        let dict = [kCTFontAttributeName: font, kCTForegroundColorAttributeName: textColor]
         let nsInitials = initials as NSString
-        let textSize = nsInitials.size(attributes: dict)
-        nsInitials.draw(in: CGRect(x: r - textSize.width / 2, y: r - font.lineHeight / 2, width: size.width, height: size.height), withAttributes: dict)
+        let textSize = nsInitials.size(withAttributes: dict as [NSAttributedStringKey : Any])
+        nsInitials.draw(in: CGRect(x: r - textSize.width / 2, y: r - font.lineHeight / 2, width: size.width, height: size.height), withAttributes: dict as [NSAttributedStringKey : Any])
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -403,11 +403,11 @@ extension String {
         
         return numOfMatches > 0
     }
-    
-    func attributedStringFromHTMLString(_ overrideFont: Bool = false, color: UIColor = UIColor.white) -> NSAttributedString {
+
+   /* func attributedStringFromHTMLString(_ overrideFont: Bool = false, color: UIColor = UIColor.white) -> NSAttributedString {
         let options = [
-            NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
-            NSCharacterEncodingDocumentAttribute: String.Encoding.utf8
+            //NSDocumentTypeDocumentOption: NSHTMLTextDocumentType,
+            NSAttributedString.DocumentReadingOptionKey.characterEncoding.rawValue: String.Encoding.utf8
         ] as [String : Any]
         
         var atStr: NSMutableAttributedString?
@@ -418,12 +418,12 @@ extension String {
             {
                 let range = NSMakeRange(0, NSString(string: str.string).length)
                 
-                str.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
-                
+                str.addAttribute(kCTForegroundColorAttributeName as NSAttributedStringKey, value: color, range: range)
+     
                 if overrideFont {
                     str.addAttribute(NSFontAttributeName, value: UIFont.preferredFont(forTextStyle: UIFontTextStyle.body), range:range)
                 }
-                
+     
                 atStr = str
             }
             
@@ -439,7 +439,8 @@ extension String {
         }
         
         return NSMutableAttributedString(string: "")
-    }
+    }*/
+ 
     
     func stringByTrimmingHTMLTags() -> String {
         return self.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
@@ -511,7 +512,7 @@ extension String {
 extension NSMutableAttributedString {
     public func addAttribute(_ name: String, value: AnyObject, ranges: [NSRange]) {
         for r in ranges {
-            addAttribute(name, value: value, range: r)
+            addAttribute(NSAttributedStringKey(rawValue: name), value: value, range: r)
         }
     }
 }

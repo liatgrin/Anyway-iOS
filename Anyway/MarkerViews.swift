@@ -105,7 +105,7 @@ class IconPinView: UIView {
         didSet {
             // whenever the color changes > change
             //  the tint for any subview
-            for i in subviews.flatMap({ $0 as? UIImageView }) {
+            for i in subviews.compactMap({ $0 as? UIImageView }) {
                 i.tintColor = color
             }
         }
@@ -164,9 +164,13 @@ class MarkerView: MKAnnotationView {
         self.init(annotation: marker, reuseIdentifier: reuseIdentifier)
         
         isEnabled = true
+        //rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+        
+        rightCalloutAccessoryView = UIButton.init(type: UIButtonType.detailDisclosure)
+
         canShowCallout = true
         
-        rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+        isUserInteractionEnabled = true
         
         setupIcon(marker)
     }
