@@ -451,3 +451,6 @@
 "ACC_ID" = "Serial Number";
 "PROVIDER_CODE" = "Provider Type";
 
+"TOO_BIG_AREA_MESSAGE" = "Area is too big, zoom in" ;
+"TOO_BIG_AREA_MESSAGE_TITLE" = "Accidents";
+

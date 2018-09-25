@@ -124,9 +124,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func setAreaCanFetchDataUI(_ canFetch: Bool) {
         if !canFetch {
-            self.detailLabel.text = "איזור גדול מדי, נסה להתקרב"
+            self.detailLabel.text = local("TOO_BIG_AREA_MESSAGE")
             self.detailLabel.isHidden = false
-            self.btnAccidents.title = "תאונות"
+            self.btnAccidents.title = local("TOO_BIG_AREA_MESSAGE_TITLE")
         }
         btnFilter.isEnabled = canFetch
         btnAccidents.isEnabled = canFetch
