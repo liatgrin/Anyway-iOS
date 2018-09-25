@@ -164,7 +164,6 @@ class MarkerView: MKAnnotationView {
         self.init(annotation: marker, reuseIdentifier: reuseIdentifier)
         
         isEnabled = true
-        //rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
         
         rightCalloutAccessoryView = UIButton.init(type: UIButtonType.detailDisclosure)
 

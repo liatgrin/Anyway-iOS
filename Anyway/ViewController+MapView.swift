@@ -15,7 +15,6 @@ import Foundation
 */
 extension ViewController: MKMapViewDelegate {
     
-    
     /**
      Figure out wether the map was moved due
      to user interaction or not.
@@ -87,7 +86,7 @@ extension ViewController: MKMapViewDelegate {
                 return mView
             }
             return MarkerView(marker: marker)
-         }
+        }
         if let markerGroup = annotation as? MarkerGroup {
             
             if let mView = mapView.dequeueReusableAnnotationView(withIdentifier: markerGroupReuseIdentifierDefault) as? MarkerGroupView {
@@ -108,7 +107,6 @@ extension ViewController: MKMapViewDelegate {
      */
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
-
         let sbID = DetailViewController.storyboardId
         
         guard let
@@ -129,7 +127,6 @@ extension ViewController: MKMapViewDelegate {
         }
     }
     
-    
     /**
      Handles the event of user selecting an annotation.
      
@@ -142,7 +139,6 @@ extension ViewController: MKMapViewDelegate {
      */
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         // handle a marker group
-        print("mapView:didSelect")
         if let groupView = view as? MarkerGroupView {
             
             // remove the center, "fake", annotation

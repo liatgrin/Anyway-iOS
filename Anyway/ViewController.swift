@@ -29,6 +29,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var btnInfo: UIButton!
     
     
+    @IBOutlet weak var centerMyLocationButton: UIButton!
+    
     @IBOutlet weak var detailLabel: UILabel! {
         didSet{
             detailLabel?.backgroundColor = UIColor.white
@@ -75,8 +77,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         print("viewDidLoad")
-        
         map.delegate = self
         map.clusterSize = 0.1
         map.minimumAnnotationCountPerCluster = 4
@@ -91,6 +91,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         if isTrackingHistory {
             Location.shared.beginTrackingLocation(requestAuthorizationIfNeeded: false)
         }
+    }
+
+    @IBAction func centerMyLocationButtonClicked(_ sender: Any) {
+        map.setUserTrackingMode(MKUserTrackingMode.follow, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -111,7 +115,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             dest.delegate = self
         }
     }
-    
     
     //MARK: - Logic
     

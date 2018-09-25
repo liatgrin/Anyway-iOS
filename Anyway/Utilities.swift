@@ -403,44 +403,6 @@ extension String {
         
         return numOfMatches > 0
     }
-
-   /* func attributedStringFromHTMLString(_ overrideFont: Bool = false, color: UIColor = UIColor.white) -> NSAttributedString {
-        let options = [
-            //NSDocumentTypeDocumentOption: NSHTMLTextDocumentType,
-            NSAttributedString.DocumentReadingOptionKey.characterEncoding.rawValue: String.Encoding.utf8
-        ] as [String : Any]
-        
-        var atStr: NSMutableAttributedString?
-        do {
-
-            atStr = try NSMutableAttributedString(data: self.data(using: String.Encoding.utf8)!, options: options as [String : AnyObject], documentAttributes: nil)
-            if let str = atStr
-            {
-                let range = NSMakeRange(0, NSString(string: str.string).length)
-                
-                str.addAttribute(kCTForegroundColorAttributeName as NSAttributedStringKey, value: color, range: range)
-     
-                if overrideFont {
-                    str.addAttribute(NSFontAttributeName, value: UIFont.preferredFont(forTextStyle: UIFontTextStyle.body), range:range)
-                }
-     
-                atStr = str
-            }
-            
-        }
-        catch let error as NSError
-        {
-            prettyPrint(error)
-        }
-        
-        if let s = atStr
-        {
-            return s
-        }
-        
-        return NSMutableAttributedString(string: "")
-    }*/
- 
     
     func stringByTrimmingHTMLTags() -> String {
         return self.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
