@@ -93,10 +93,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
 
-    @IBAction func centerMyLocationButtonClicked(_ sender: Any) {
-        map.setUserTrackingMode(MKUserTrackingMode.follow, animated: true)
-    }
-    
+
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -117,6 +115,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     //MARK: - Logic
+    
+    @IBAction func centerMyLocationButtonClicked(_ sender: Any) {
+        if isLocationMonitoringAuthorized() {
+            map.moveAndZoom(to: map.userLocation.coordinate)
+        }
+    }
     
     var isMapCloseEnoughToFetchData: Bool {
         return btnFilter.isEnabled
