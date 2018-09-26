@@ -223,7 +223,6 @@ class ClusterView: MKAnnotationView {
         let size = CGSize(squareSide: 30)
         
         // the label for the number
-        
         let aLabel = UILabel(frame: CGRect(origin: CGPoint.zero, size: size))
         aLabel.textAlignment = .center
         aLabel.font = UIFont.systemFont(ofSize: 14)
@@ -233,6 +232,12 @@ class ClusterView: MKAnnotationView {
         if let cluster = annotation as? OCAnnotation {
             let numOfAccidents = cluster.annotationsInCluster().count
             anImage.image = clusterImageForClusterCount(numOfAccidents)
+            if (numOfAccidents >= 100){
+                aLabel.font = UIFont.systemFont(ofSize: 7)
+            }
+            else if (numOfAccidents >= 10){
+                aLabel.font = UIFont.systemFont(ofSize: 10)
+            }
         }
         anImage.frame.size = size
         
