@@ -49,9 +49,9 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func handleMarkerChanged() {
         guard let marker = detailData else {return}
         
-        network.getMarkerDetails(markerId: marker.id) { [weak self] in
-            self?.persons = $0.0
-            self?.vehicles = $0.1
+        network.getMarkerDetails(markerId: marker.id) { [weak self] personList,vehicleList in
+            self?.persons = personList ;//$0.0
+            self?.vehicles = vehicleList ;//$0.1
             self?.tableView.reloadData()
         }
         

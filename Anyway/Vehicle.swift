@@ -23,9 +23,9 @@ extension Vehicle: PairsData {
     static func buildVehicleDescriptionData(_ unparsedInfo: [(String, String)]) -> [(Title, Detail)] {
         return unparsedInfo.map{ (rawTitle, rawValue) in
             switch rawTitle {
-            case "MATZAV_REHEV": return pair(forType: .matzav_REHEV, value: Int(rawValue) ?? -1)
-            case "SHIYUH_REHEV_LMS": return pair(forType: .shiyuh_REHEV_LMS, value: Int(rawValue) ?? -1)
-            case "SUG_REHEV_LMS": return pair(forType: .sug_REHEV_LMS, value: Int(rawValue) ?? -1)
+            case "MATZAV_REHEV": return pair(forType: .MATSAV_REHEV, value: Int(rawValue) ?? -1)
+            case "SHIYUH_REHEV_LMS": return pair(forType: .SHIYUH_REHEV_LMS, value: Int(rawValue) ?? -1)
+            case "SUG_REHEV_LMS": return pair(forType: .SUG_REHEV_LMS, value: Int(rawValue) ?? -1)
             default: return (local(rawTitle), rawValue)
             }
         }.flatMap{ $0 }

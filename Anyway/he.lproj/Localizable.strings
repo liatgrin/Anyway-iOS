@@ -436,3 +436,7 @@
 "ACC_ID" = "מספר סידורי";
 "PROVIDER_CODE" = "סוג תיק";
 
+"TOO_BIG_AREA_MESSAGE" = "איזור גדול מדי, נסה להתקרב" ;
+"TOO_BIG_AREA_MESSAGE_TITLE" = "תאונות" ;
+
+

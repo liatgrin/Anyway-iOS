@@ -29,6 +29,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var btnInfo: UIButton!
     
     
+    @IBOutlet weak var centerMyLocationButton: UIButton!
+    
     @IBOutlet weak var detailLabel: UILabel! {
         didSet{
             detailLabel?.backgroundColor = UIColor.white
@@ -90,7 +92,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             Location.shared.beginTrackingLocation(requestAuthorizationIfNeeded: false)
         }
     }
-    
+
+
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -110,8 +114,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    
     //MARK: - Logic
+    
+    @IBAction func centerMyLocationButtonClicked(_ sender: Any) {
+        if isLocationMonitoringAuthorized() {
+            map.moveAndZoom(to: map.userLocation.coordinate)
+        }
+    }
     
     var isMapCloseEnoughToFetchData: Bool {
         return btnFilter.isEnabled
@@ -119,9 +128,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func setAreaCanFetchDataUI(_ canFetch: Bool) {
         if !canFetch {
-            self.detailLabel.text = "איזור גדול מדי, נסה להתקרב"
+            self.detailLabel.text = local("TOO_BIG_AREA_MESSAGE")
             self.detailLabel.isHidden = false
-            self.btnAccidents.title = "תאונות"
+            self.btnAccidents.title = local("TOO_BIG_AREA_MESSAGE_TITLE")
         }
         btnFilter.isEnabled = canFetch
         btnAccidents.isEnabled = canFetch

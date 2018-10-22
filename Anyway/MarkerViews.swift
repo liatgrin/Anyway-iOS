@@ -105,7 +105,7 @@ class IconPinView: UIView {
         didSet {
             // whenever the color changes > change
             //  the tint for any subview
-            for i in subviews.flatMap({ $0 as? UIImageView }) {
+            for i in subviews.compactMap({ $0 as? UIImageView }) {
                 i.tintColor = color
             }
         }
@@ -164,9 +164,12 @@ class MarkerView: MKAnnotationView {
         self.init(annotation: marker, reuseIdentifier: reuseIdentifier)
         
         isEnabled = true
+        
+        rightCalloutAccessoryView = UIButton.init(type: UIButtonType.detailDisclosure)
+
         canShowCallout = true
         
-        rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+        isUserInteractionEnabled = true
         
         setupIcon(marker)
     }
@@ -220,7 +223,6 @@ class ClusterView: MKAnnotationView {
         let size = CGSize(squareSide: 30)
         
         // the label for the number
-        
         let aLabel = UILabel(frame: CGRect(origin: CGPoint.zero, size: size))
         aLabel.textAlignment = .center
         aLabel.font = UIFont.systemFont(ofSize: 14)
@@ -230,6 +232,12 @@ class ClusterView: MKAnnotationView {
         if let cluster = annotation as? OCAnnotation {
             let numOfAccidents = cluster.annotationsInCluster().count
             anImage.image = clusterImageForClusterCount(numOfAccidents)
+            if (numOfAccidents >= 100){
+                aLabel.font = UIFont.systemFont(ofSize: 7)
+            }
+            else if (numOfAccidents >= 10){
+                aLabel.font = UIFont.systemFont(ofSize: 10)
+            }
         }
         anImage.frame.size = size
         

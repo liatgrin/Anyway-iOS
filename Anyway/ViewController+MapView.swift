@@ -38,12 +38,14 @@ extension ViewController: MKMapViewDelegate {
         map.clusteringEnabled = Int(mapView.edgesDistance()) > MIN_DIST_CLUSTER_DISABLE
 
         print("mapView:regionDidChangeAnimated")
-        print("old region: \(lastRegion.center) | new: \(mapView.region.center)")
+        print("old region: \(lastRegion.center) | new region: \(mapView.region.center)")
         
         let distance = CLLocation.distance(from: lastRegion.center, to: mapView.region.center)
         print("distance: \(distance)")
         
-        if distance > 50 {
+        let isLastRegionUnIntitialized = lastRegion.center.latitude == -180.0 && lastRegion.center.longitude == -180 ;
+        
+        if distance > 50 || isLastRegionUnIntitialized {
             updateInfoIfPossible(mapView, filterChanged:false)
         }
         lastRegion = mapView.region
@@ -84,7 +86,6 @@ extension ViewController: MKMapViewDelegate {
                 return mView
             }
             return MarkerView(marker: marker)
-            
         }
         if let markerGroup = annotation as? MarkerGroup {
             
@@ -105,7 +106,7 @@ extension ViewController: MKMapViewDelegate {
      Opens the screen to show more details about the accident.
      */
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-
+        
         let sbID = DetailViewController.storyboardId
         
         guard let

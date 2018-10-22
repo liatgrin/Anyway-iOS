@@ -5,6 +5,6 @@ use_frameworks!
 target 'Anyway' do
     pod 'Alamofire'
     pod 'SwiftyJSON'
-    pod 'Eureka', '~> 2.0'
+    pod 'Eureka', '~> 4.2.0'
     pod 'RealmSwift'
 end
