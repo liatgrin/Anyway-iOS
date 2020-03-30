@@ -16,11 +16,11 @@ import UIKit
 *           Will set placeholderImage only if imageView.image is nil
 */
 infix operator ?=
-func ?=<T>(lhs: inout T!, rhs: T) {
-    if lhs == nil {
-        lhs = rhs
-    }
-}
+//func ?=<T>(lhs: inout T!, rhs: T) {
+//    if lhs == nil {
+//        lhs = rhs
+//    }
+//}
 func ?=<T>(lhs: inout T?, rhs: T) {
     if lhs == nil {
         lhs = rhs
@@ -320,8 +320,8 @@ extension UIImage {
         
         let dict = [kCTFontAttributeName: font, kCTForegroundColorAttributeName: textColor]
         let nsInitials = initials as NSString
-        let textSize = nsInitials.size(withAttributes: dict as [NSAttributedStringKey : Any])
-        nsInitials.draw(in: CGRect(x: r - textSize.width / 2, y: r - font.lineHeight / 2, width: size.width, height: size.height), withAttributes: dict as [NSAttributedStringKey : Any])
+        let textSize = nsInitials.size(withAttributes: dict as [NSAttributedString.Key : Any])
+        nsInitials.draw(in: CGRect(x: r - textSize.width / 2, y: r - font.lineHeight / 2, width: size.width, height: size.height), withAttributes: dict as [NSAttributedString.Key : Any])
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -352,7 +352,7 @@ extension UITableView {
         cell.bounds.size = CGSize(width: frame.width, height: cell.bounds.height)
         cell.setNeedsLayout()
         cell.layoutIfNeeded()
-        let size = cell.contentView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+        let size = cell.contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         return size.height + 1
     }
     
@@ -415,17 +415,19 @@ extension String {
     func lastWord() -> String? {
         return self.components(separatedBy: " ").last
     }
-    
-    var firstChar: String? { return empty ? nil : String(self[0]) }
-    var lastChar:  String? { return String(self[characters.index(before: endIndex)]) }
+
+    // TODO: replace with builtin methods
+    var firstChar: String? { return empty ? nil : String(first!) }
+    var lastChar:  String? { return empty ? nil : String(last!) }
 
     func firstCharAsLetterOrDigit() -> String? {
         if let f = firstChar, f.passRegex(.LetterOrDigit) { return f }
         return nil
     }
     
+    // TODO: replace with builtin methods
     var empty: Bool {
-        return self.characters.count == 0
+        return self.isEmpty
     }
     
     /// Either empty or only whitespace and/or new lines
@@ -457,24 +459,24 @@ extension String {
         return range(of: substring, options: options) != nil
     }
     
-    subscript (i: Int) -> Character {
-        return self[self.characters.index(self.startIndex, offsetBy: i)]
-    }
-    
-    subscript (i: Int) -> String {
-        return String(self[i] as Character)
-    }
-    
-    subscript (r: Range<Int>) -> String {
-        return substring(with: characters.index(startIndex, offsetBy: r.lowerBound)..<characters.index(startIndex, offsetBy: r.upperBound))
-    }
+//    subscript (i: Int) -> Character {
+//        return self[self.characters.index(self.startIndex, offsetBy: i)]
+//    }
+//    
+//    subscript (i: Int) -> String {
+//        return String(self[i] as Character)
+//    }
+//    
+//    subscript (r: Range<Int>) -> String {
+//        return substring(with: characters.index(startIndex, offsetBy: r.lowerBound)..<characters.index(startIndex, offsetBy: r.upperBound))
+//    }
 
 }
 
 extension NSMutableAttributedString {
     public func addAttribute(_ name: String, value: AnyObject, ranges: [NSRange]) {
         for r in ranges {
-            addAttribute(NSAttributedStringKey(rawValue: name), value: value, range: r)
+            addAttribute(NSAttributedString.Key(rawValue: name), value: value, range: r)
         }
     }
 }
@@ -539,11 +541,11 @@ extension UIView {
     }
     
     func blowView() {
-        UIView.animate(withDuration: 0.1, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
+        UIView.animate(withDuration: 0.1, delay: 0, options: UIView.AnimationOptions.curveEaseIn, animations: { () -> Void in
             self.transform = CGAffineTransform(scaleX: 1.06, y: 1.05)
         }) { _ in
                 
-                UIView.animate(withDuration: 0.06, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: { () -> Void in
+            UIView.animate(withDuration: 0.06, delay: 0, options: UIView.AnimationOptions.curveEaseOut, animations: { () -> Void in
                     self.transform = CGAffineTransform.identity
                 }) { _ in }
             
@@ -565,7 +567,7 @@ extension NotificationCenter {
         `default`.post(name: Notification.Name(rawValue: name), object: nil)
     }
     
-    class func observe(_ name: String, usingBlock block: @escaping (Notification!) -> Void) -> NSObjectProtocol {
+    class func observe(_ name: String, usingBlock block: @escaping (Notification?) -> Void) -> NSObjectProtocol {
         return `default`.addObserver(forName: NSNotification.Name(rawValue: name), object: nil, queue: nil, using:block)
     }
     
@@ -658,7 +660,7 @@ extension Date {
 extension UIApplication {
     
     static var isAppInForeground: Bool {
-        return shared.applicationState == UIApplicationState.active
+        return shared.applicationState == UIApplication.State.active
     }
     
     func registerForPushNotifications() {
@@ -676,13 +678,13 @@ extension FileManager
 {
     class func documentsDir() -> String
     {
-        var paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) 
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) 
         return paths[0]
     }
     
     class func cachesDir() -> String
     {
-        var paths = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true) 
+        let paths = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true) 
         return paths[0]
     }
     

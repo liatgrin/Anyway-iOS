@@ -22,7 +22,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView! {
         didSet{
             tableView.estimatedRowHeight =  150
-            tableView.rowHeight = UITableViewAutomaticDimension
+            tableView.rowHeight = UITableView.automaticDimension
         }
     }
     @IBOutlet weak var tableTopEdgeConstraint: NSLayoutConstraint!

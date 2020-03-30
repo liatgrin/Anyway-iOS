@@ -51,7 +51,7 @@ class DetailCellTop: DetailCell {
         // If marker is nil all labels will be nil -> clears any former label from cell dequeue...
         
         // Provider init can fail > button title will simply be nil...
-        buttonSource.setTitle(Provider(marker?.provider_code ?? -1)?.name, for: UIControlState())
+        buttonSource.setTitle(Provider(marker?.provider_code ?? -1)?.name, for: UIControl.State())
         
         labelFooter.text = marker.map{"\($0.created.longDate), \($0.created.shortTime)"} ?? ""
         

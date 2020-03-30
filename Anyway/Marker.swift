@@ -115,7 +115,7 @@ extension Marker: PairsData {
             Marker.pair(forType: .TEURA, value: road_light),
             Marker.pair(forType: .BAKARA, value: road_control),
             Marker.pair(forType: .MEZEG_AVIR, value: weather)
-            ].flatMap{ $0 }
+            ].compactMap{ $0 }
     }
     
 }

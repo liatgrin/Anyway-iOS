@@ -47,7 +47,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var filter = Filter()
     
     /// Last area shown on the map
-    var lastRegion = MKCoordinateRegionForMapRect(MKMapRectNull)
+    var lastRegion = MKCoordinateRegion(MKMapRect.null)
     
     /// Location Services
     let locationManager = CLLocationManager()
@@ -82,7 +82,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         map.minimumAnnotationCountPerCluster = 4
         
         // Always present master and detail side-by-side
-        splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.allVisible
+        splitViewController?.preferredDisplayMode = UISplitViewController.DisplayMode.allVisible
         
         // Set the master (map) relative side
         splitViewController?.minimumPrimaryColumnWidth = view.frame.width * 0.6
@@ -237,7 +237,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     self?.isTrackingHistory = true
                 } else {
                     // open app settings to change authorization
-                    let settingsUrl = URL(string: UIApplicationOpenSettingsURLString)!
+                    let settingsUrl = URL(string: UIApplication.openSettingsURLString)!
                     if #available(iOS 10.0, *) {
                         UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
                     } else {

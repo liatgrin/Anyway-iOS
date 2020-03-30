@@ -80,7 +80,7 @@ class Network {
         }
 
         // build request
-        let request = Alamofire.request(
+        let request = AF.request(
             url,
             method: .get,
             parameters: nil,
@@ -95,7 +95,8 @@ class Network {
             
             switch responseValue.result {
             case .success:
-                if let value = responseValue.result.value {
+                // TODO: is this right ???
+                if let value = try? responseValue.result.get() {
                     json = JSON(value)
                 } else {
                     json = JSON.null
@@ -197,7 +198,7 @@ class Network {
             anots(finalMarkers, markers.count)
         }
         
-        let request = Alamofire.request(
+        let request = AF.request(
             "http://www.anyway.co.il/markers",
             method: .get,
             parameters: params,
@@ -225,7 +226,7 @@ class Network {
             
             switch responseValue.result {
             case .success:
-                if let value = responseValue.result.value {
+                if let value = try? responseValue.result.get() {
                     json = JSON(value)
                 } else {
                     json = JSON.null

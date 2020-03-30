@@ -42,6 +42,7 @@ extension MKMapView {
 
 extension CGSize {
     init(squareSide side: CGFloat) {
+        self.init()
         width = side
         height = side
     }

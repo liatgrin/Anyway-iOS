@@ -130,7 +130,7 @@ extension MKAnnotationView {
         // (when dequeing reausable marker from map)
         let iconPin: IconPinView
         let newPin: Bool // if it's new, we add it as subview later
-        if let pin = subviews.flatMap({$0 as? IconPinView}).first {
+        if let pin = subviews.compactMap({$0 as? IconPinView}).first {
             iconPin = pin
             iconPin.updateAlpha(alpha) // update for marker color
             newPin = false
@@ -165,7 +165,7 @@ class MarkerView: MKAnnotationView {
         
         isEnabled = true
         
-        rightCalloutAccessoryView = UIButton.init(type: UIButtonType.detailDisclosure)
+        rightCalloutAccessoryView = UIButton.init(type: UIButton.ButtonType.detailDisclosure)
 
         canShowCallout = true
         
