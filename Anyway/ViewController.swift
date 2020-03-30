@@ -264,7 +264,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func populate(accidentsViewController dest: AccidentsViewController) {
         // get map annotations as MarkerAnnotation
-        let annots = map.annotations.flatMap{ ($0 as? MarkerAnnotation) ?? nil }
+        let annots = map.annotations.compactMap{ ($0 as? MarkerAnnotation) ?? nil }
         
         // break any MarkerGroup and create Marker array
         var markers = [Marker]()

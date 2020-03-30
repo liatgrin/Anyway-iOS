@@ -14,7 +14,7 @@ typealias Coordinate = CLLocationCoordinate2D
 
 //MARK: - Protocols
 
-@objc protocol MarkerAnnotation: class, NSObjectProtocol, MKAnnotation {}
+@objc protocol MarkerAnnotation: class, MKAnnotation {}
 
 protocol VisualMarker: MarkerAnnotation {
     var iconName: String? { get }

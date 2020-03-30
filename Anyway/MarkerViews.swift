@@ -49,7 +49,7 @@ class IconPinView: UIView {
         // main pin
         let back = UIImageView(image: img)
         self.frame = back.frame
-        back.transform = CGAffineTransform(rotationAngle: CGFloat(45.0 * (M_PI/180)))
+        back.transform = CGAffineTransform(rotationAngle: CGFloat(45.0 * (.pi/180)))
         
         // white back view
         let mainPinVisibleDiameter = CGFloat(35)
