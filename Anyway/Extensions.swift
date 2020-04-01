@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import SwiftyUserDefaults
 
 extension UIButton {
     @IBInspectable var borderWidth: CGFloat {
@@ -46,4 +46,13 @@ extension CGSize {
         width = side
         height = side
     }
+}
+
+
+extension DefaultsKeys {
+    var locations: DefaultsKey<String?> { .init("locations") }
+    var isTrackingHistory: DefaultsKey<Bool> { .init("isTrackingHistory", defaultValue: false) }
+    var lastKnownLocation: DefaultsKey<Data?> { .init("lastKnownLocation") }
+    var appLocal: DefaultsKey<String?> { .init("com.hasadna.anyway.AppLocal") }
+    var appleLanguages: DefaultsKey<[String]?> { .init("AppleLanguages")}
 }

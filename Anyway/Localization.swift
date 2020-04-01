@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyUserDefaults
 
 /**
  Builds and gets a localized string for an enum
@@ -107,25 +108,17 @@ struct ManualLocalizationWorker {
     
     /// Default for fresh install, or when there isn't any value
     fileprivate static var defaultLocal: AppLocal {
-        let phoneVar = (defaults.object(forKey: "AppleLanguages") as? [String])?
-            .compactMap{ AppLocal(rawValue: $0) }.first
+        let phoneVar = (Defaults.appleLanguages)?.compactMap{ AppLocal(rawValue: $0) }.first
         return phoneVar ?? AppLocal.English
     }
     
     /// The user preferenced local (saved in NSUserDefaults)
-    fileprivate static let defaultsKey = "com.hasadna.anyway.AppLocal"
-    static var defaults: UserDefaults { return UserDefaults.standard }
     static var currentLocal: AppLocal {
-        get{
-            guard let
-                rawVal = defaults.string(forKey: defaultsKey),
-                let local = AppLocal(rawValue: rawVal)
-            else { return defaultLocal }
-            return local
+        get {
+            return AppLocal(rawValue: Defaults.appLocal ?? "") ?? defaultLocal
         }
-        set{
-            defaults.set(newValue.rawValue, forKey: defaultsKey)
-            defaults.synchronize()
+        set {
+            Defaults.appLocal = newValue.rawValue
         }
     }
     
@@ -134,8 +127,7 @@ struct ManualLocalizationWorker {
      */
     static func overrideCurrentLocal() {
         let local = [currentLocal.rawValue]
-        defaults.set(local, forKey: "AppleLanguages")
-        defaults.synchronize()
+        Defaults.appleLanguages = local
     }
     
 }

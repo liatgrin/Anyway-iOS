@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 import RealmSwift
+import SwiftyUserDefaults
 
 //struct Coordinate {
 //    var lat: String
@@ -48,14 +49,13 @@ public class Location: NSObject, CLLocationManagerDelegate {
     let maxDeltaForLastLocation: Seconds = 5
     
     var lastKnownLocation: CLLocation? {
-        set{
+        set {
             guard let location = newValue else { return }
-            UserDefaults.standard.set(location.asData, forKey: "lastKnownLocation")
+            Defaults.lastKnownLocation = location.asData
             NotificationCenter.default.post(name: .knownLocationChanged, object: nil)
         }
-        get{
-            return man.location ??
-                UserDefaults.standard.data(forKey: "lastKnownLocation").flatMap(CLLocation.from)
+        get {
+            return man.location ?? Defaults.lastKnownLocation.flatMap(CLLocation.from)
         }
     }
     
@@ -230,10 +230,10 @@ public class Location: NSObject, CLLocationManagerDelegate {
     }
     
     func logString(_ str: String) {
-        if let locs = Defaults["locations"].string {
-            Defaults["locations"] = "\(locs)\n\(str)"
+        if let locs = Defaults.locations {
+            Defaults.locations = "\(locs)\n\(str)"
         } else {
-            Defaults["locations"] = str
+            Defaults.locations = str
         }
     }
 }

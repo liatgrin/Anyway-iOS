@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 // MARK: Operators/Typealiases
 
@@ -191,11 +192,11 @@ extension UIAlertController {
     }
 }
 
-extension UIAlertView {
-    class func show(_ title: String?, message: String?, closeTitle: String?) {
-        UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: closeTitle).show()
-    }
-}
+//extension UIAlertView {
+//    class func show(_ title: String?, message: String?, closeTitle: String?) {
+//        UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: closeTitle).show()
+//    }
+//}
 
 extension UIImageView {
     func setImage(_ url: String, placeHolder: UIImage? = nil, animated: Bool = true) {
@@ -663,14 +664,17 @@ extension UIApplication {
         return shared.applicationState == UIApplication.State.active
     }
     
-    func registerForPushNotifications() {
-
-        let types: UIUserNotificationType = ([.alert, .badge, .sound])
-        let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: types, categories: nil)
-        
-        registerUserNotificationSettings(settings)
-        registerForRemoteNotifications()
-    }
+//    func registerForPushNotifications() {
+//
+//        let types: UNAuthorizationOptions = [.alert, .badge, .sound]
+//
+//        let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: types, categories: nil)
+//        let settings: UNNotificationSetting = UIUserNotificationSettings(types: types, categories: nil)
+//
+//        UNUserNotificationCenter.current().requestAuthorization(options: types, completionHandler: <#T##(Bool, Error?) -> Void#>)
+//        registerUserNotificationSettings(settings)
+//        registerForRemoteNotifications()
+//    }
     
 }
 

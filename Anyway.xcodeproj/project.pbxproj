@@ -60,16 +60,15 @@
 		30D6E5D21A92642000337FDB /* MapProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E5D11A92642000337FDB /* MapProvider.swift */; };
 		30D6E5D61A92647300337FDB /* PrintlnMagic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D6E5D31A92647300337FDB /* PrintlnMagic.swift */; };
 		30DAA0981AC1F95D001F67D2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DAA0971AC1F95D001F67D2 /* Extensions.swift */; };
-		30ECD1821ADC19D800A62052 /* SwiftyUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ECD1811ADC19D800A62052 /* SwiftyUserDefaults.swift */; };
 		C144A8D824307D790032FDCA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C144A8D724307D790032FDCA /* Alamofire */; };
 		C144A8DB24307E050032FDCA /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = C144A8DA24307E050032FDCA /* SwiftyJSON */; };
 		C144A8DE243080F30032FDCA /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = C144A8DD243080F30032FDCA /* Realm */; };
 		C144A8E0243080F30032FDCA /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C144A8DF243080F30032FDCA /* RealmSwift */; };
 		C144A8E3243081B50032FDCA /* Eureka in Frameworks */ = {isa = PBXBuildFile; productRef = C144A8E2243081B50032FDCA /* Eureka */; };
+		C1D25EBF24327F77004E80F0 /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = C1D25EBE24327F77004E80F0 /* SwiftyUserDefaults */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		143F5942D9E4E7907849857B /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		301788FE1E804B6D00EA1C13 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		301789001E805A7500EA1C13 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		301789021E806AC100EA1C13 /* HistoryPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryPosition.swift; sourceTree = "<group>"; };
@@ -155,7 +154,6 @@
 		30D6E5D11A92642000337FDB /* MapProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapProvider.swift; sourceTree = "<group>"; };
 		30D6E5D31A92647300337FDB /* PrintlnMagic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintlnMagic.swift; sourceTree = "<group>"; };
 		30DAA0971AC1F95D001F67D2 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		30ECD1811ADC19D800A62052 /* SwiftyUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyUserDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C144A8DE243080F30032FDCA /* Realm in Frameworks */,
+				C1D25EBF24327F77004E80F0 /* SwiftyUserDefaults in Frameworks */,
 				C144A8E0243080F30032FDCA /* RealmSwift in Frameworks */,
 				C144A8E3243081B50032FDCA /* Eureka in Frameworks */,
 				C144A8D824307D790032FDCA /* Alamofire in Frameworks */,
@@ -183,7 +182,6 @@
 				30BA64A41BFA505900700C72 /* Alamofire.framework */,
 				305E9AF11BFA4E0C003858F3 /* SwiftyJSON.framework */,
 				305E9AEF1BFA4E08003858F3 /* Alamofire.framework */,
-				143F5942D9E4E7907849857B /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -402,7 +400,6 @@
 			children = (
 				30CDE5141BFA555500BBC183 /* Alamofire-SwiftyJSON.swift */,
 				30D6E5D31A92647300337FDB /* PrintlnMagic.swift */,
-				30ECD1811ADC19D800A62052 /* SwiftyUserDefaults.swift */,
 			);
 			name = "Swift Libraries";
 			sourceTree = "<group>";
@@ -431,6 +428,7 @@
 				C144A8DD243080F30032FDCA /* Realm */,
 				C144A8DF243080F30032FDCA /* RealmSwift */,
 				C144A8E2243081B50032FDCA /* Eureka */,
+				C1D25EBE24327F77004E80F0 /* SwiftyUserDefaults */,
 			);
 			productName = Anyway;
 			productReference = 30D6E5AC1A92639500337FDB /* Anyway.app */;
@@ -471,6 +469,7 @@
 				C144A8D924307E050032FDCA /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				C144A8DC243080F30032FDCA /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				C144A8E1243081B50032FDCA /* XCRemoteSwiftPackageReference "Eureka" */,
+				C1D25EBD24327F77004E80F0 /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */,
 			);
 			productRefGroup = 30D6E5AD1A92639500337FDB /* Products */;
 			projectDirPath = "";
@@ -550,7 +549,6 @@
 				309CCBDF1C569FAA00C829E5 /* main.swift in Sources */,
 				30568A951C0CDAF200471D83 /* Person.swift in Sources */,
 				30CCFDF31AC9E4F90000FCA2 /* FilterCellTableViewCell.swift in Sources */,
-				30ECD1821ADC19D800A62052 /* SwiftyUserDefaults.swift in Sources */,
 				30BB76841AEE9FBD00CB1EBD /* DetailViewController.swift in Sources */,
 				30BEB4671A9D1A7A005F3205 /* JGProgressHUDFadeZoomAnimation.m in Sources */,
 				30B98D491C038EBA00FBCA37 /* DetailCells.swift in Sources */,
@@ -664,6 +662,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -734,6 +733,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -816,6 +816,14 @@
 				minimumVersion = 5.2.1;
 			};
 		};
+		C1D25EBD24327F77004E80F0 /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sunshinejr/SwiftyUserDefaults.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -843,6 +851,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C144A8E1243081B50032FDCA /* XCRemoteSwiftPackageReference "Eureka" */;
 			productName = Eureka;
+		};
+		C1D25EBE24327F77004E80F0 /* SwiftyUserDefaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1D25EBD24327F77004E80F0 /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */;
+			productName = SwiftyUserDefaults;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

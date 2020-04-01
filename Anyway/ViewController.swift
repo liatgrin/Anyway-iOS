@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 private func newHud() -> JGProgressHUD {
     let hud = JGProgressHUD(style: .light)
@@ -68,8 +69,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var shouldJumpToStartLocation = true
     
     var isTrackingHistory: Bool {
-        get{ return UserDefaults.standard.bool(forKey: "isTrackingHistory") }
-        set{ UserDefaults.standard.set(newValue, forKey: "isTrackingHistory") }
+        get { return Defaults.isTrackingHistory }
+        set { Defaults.isTrackingHistory = newValue }
+//        get{ return UserDefaults.standard.bool(forKey: "isTrackingHistory") }
+//        set{ UserDefaults.standard.set(newValue, forKey: "isTrackingHistory") }
     }
     
     //MARK: - Lifecycle
@@ -155,7 +158,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         
         gettingInfo = true
-        hud.show(in: view)
+//        hud.show(in: view)
         print("Getting some...")
         
         
@@ -180,7 +183,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 detail.refreshUI()
             }
             
-            s.hud.dismiss() // hide progress hud
+//            s.hud.dismiss() // hide progress hud
         }
 
     }
