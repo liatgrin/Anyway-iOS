@@ -69,25 +69,25 @@ extension HistoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         defer { tableView.deselectRow(at: indexPath, animated: true) }
         
-        // get info
-        guard
-            let history = data?[indexPath.row],
-            let loc = history.locationData.flatMap(CLLocation.from)
-            else { return }
-        print("showing: \(history)")
-        
-        // get map view
-        guard
-            let nav = navigationController,
-            let splitVc = nav.presentingViewController as? UISplitViewController,
-            let vc = splitVc.viewControllers.first as? ViewController,
-            let mapView = vc.map
-            else { return }
-        
-        
-        nav.dismiss(animated: true) { [weak mapView] in
-            mapView?.moveAndZoom(to: loc.coordinate)
-        }
+        // TODO: get info
+//        guard
+//            let history = data?[indexPath.row],
+//            let loc = history.locationData.flatMap(CLLocation.from)
+//            else { return }
+//        print("showing: \(history)")
+//
+//        // get map view
+//        guard
+//            let nav = navigationController,
+//            let splitVc = nav.presentingViewController as? UISplitViewController,
+//            let vc = splitVc.viewControllers.first as? ViewController,
+//            let mapView = vc.map
+//            else { return }
+//
+//
+//        nav.dismiss(animated: true) { [weak mapView] in
+//            mapView?.moveAndZoom(to: loc.coordinate)
+//        }
         
     }
     

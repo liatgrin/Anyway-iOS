@@ -10,12 +10,13 @@ import UIKit
 import MapKit
 import RealmSwift
 
+
 class Marker: Object, MarkerAnnotation {
-    
-    
+
+
     @objc dynamic var coordinateLat: Double = 0
     @objc dynamic var coordinateLon: Double = 0
-    
+
     @objc dynamic var address: String = ""
     @objc dynamic var descriptionContent: String = ""
     @objc dynamic var titleAccident: String = ""
@@ -28,7 +29,7 @@ class Marker: Object, MarkerAnnotation {
     @objc dynamic var subtype: Int = 0
     @objc dynamic var type: Int = 0
     @objc dynamic var user: String = ""
-    
+
     @objc dynamic var roadShape: Int = -1
     @objc dynamic var cross_mode: Int = -1
     @objc dynamic var secondaryStreet: String = ""

@@ -22,9 +22,9 @@ struct Color {
     static var blue = UIColor(red:0, green:0.526, blue:0.808, alpha:1)
 }
 
-enum Severity: Int {
-    case fatal = 1, severe, light, various
-}
+//enum Severity: Int {
+//    case fatal = 1, severe, light, various
+//}
 
 enum AccidentType: Int {
     case carToCar = -1

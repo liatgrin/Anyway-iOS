@@ -52,7 +52,39 @@ extension CGSize {
 extension DefaultsKeys {
     var locations: DefaultsKey<String?> { .init("locations") }
     var isTrackingHistory: DefaultsKey<Bool> { .init("isTrackingHistory", defaultValue: false) }
-    var lastKnownLocation: DefaultsKey<Data?> { .init("lastKnownLocation") }
+    var lastKnownLocation: DefaultsKey<Location?> { .init("lastKnownLocation") }
     var appLocal: DefaultsKey<String?> { .init("com.hasadna.anyway.AppLocal") }
     var appleLanguages: DefaultsKey<[String]?> { .init("AppleLanguages")}
+}
+
+extension Formatter {
+    static let iso8601Local: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        formatter.timeZone = TimeZone.current
+        formatter.locale = Locale.current
+        return formatter
+    }()
+}
+
+extension JSONDecoder.DateDecodingStrategy {
+    static let iso8601Local = custom {
+        let container = try $0.singleValueContainer()
+        let string = try container.decode(String.self)
+        if let date = Formatter.iso8601Local.date(from: string) {
+            return date
+        }
+        throw DecodingError.dataCorruptedError(in: container, debugDescription: "Invalid date: \(string)")
+    }
+}
+
+extension Dictionary {
+    mutating func appendOrInsert(to key: Key, element: Array<Element>) {
+        if let _ = self[key] {
+            self[key]!.append(element)
+        }
+        else {
+            self[key] = [element]
+        }
+    }
 }

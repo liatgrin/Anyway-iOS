@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		301788FF1E804B6D00EA1C13 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301788FE1E804B6D00EA1C13 /* Location.swift */; };
+		301788FF1E804B6D00EA1C13 /* LocationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301788FE1E804B6D00EA1C13 /* LocationStorage.swift */; };
 		301789011E805A7500EA1C13 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301789001E805A7500EA1C13 /* HistoryViewController.swift */; };
 		301789031E806AC100EA1C13 /* HistoryPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301789021E806AC100EA1C13 /* HistoryPosition.swift */; };
 		30367E9B1A9D006400B16DA1 /* OCAlgorithms.m in Sources */ = {isa = PBXBuildFile; fileRef = 30367E931A9D006400B16DA1 /* OCAlgorithms.m */; };
@@ -65,11 +65,17 @@
 		C144A8DE243080F30032FDCA /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = C144A8DD243080F30032FDCA /* Realm */; };
 		C144A8E0243080F30032FDCA /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C144A8DF243080F30032FDCA /* RealmSwift */; };
 		C144A8E3243081B50032FDCA /* Eureka in Frameworks */ = {isa = PBXBuildFile; productRef = C144A8E2243081B50032FDCA /* Eureka */; };
+		C18A34752437A20D00681DFD /* AccidentsMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18A34742437A20D00681DFD /* AccidentsMapView.swift */; };
+		C18A347824387D2600681DFD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18A347724387D2600681DFD /* MainView.swift */; };
+		C18A347A2438A88C00681DFD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18A34792438A88C00681DFD /* SceneDelegate.swift */; };
+		C18A347C2438DE8800681DFD /* AccidentFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18A347B2438DE8800681DFD /* AccidentFilter.swift */; };
+		C1B97954243676620023EA30 /* SwiftLocation in Frameworks */ = {isa = PBXBuildFile; productRef = C1B97953243676620023EA30 /* SwiftLocation */; };
+		C1B9795624373BD20023EA30 /* AccidentMarkersClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B9795524373BD20023EA30 /* AccidentMarkersClient.swift */; };
 		C1D25EBF24327F77004E80F0 /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = C1D25EBE24327F77004E80F0 /* SwiftyUserDefaults */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		301788FE1E804B6D00EA1C13 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		301788FE1E804B6D00EA1C13 /* LocationStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationStorage.swift; sourceTree = "<group>"; };
 		301789001E805A7500EA1C13 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		301789021E806AC100EA1C13 /* HistoryPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryPosition.swift; sourceTree = "<group>"; };
 		30367E911A9D006400B16DA1 /* OCAlgorithmDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCAlgorithmDelegate.h; sourceTree = "<group>"; };
@@ -154,6 +160,11 @@
 		30D6E5D11A92642000337FDB /* MapProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapProvider.swift; sourceTree = "<group>"; };
 		30D6E5D31A92647300337FDB /* PrintlnMagic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintlnMagic.swift; sourceTree = "<group>"; };
 		30DAA0971AC1F95D001F67D2 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C18A34742437A20D00681DFD /* AccidentsMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentsMapView.swift; sourceTree = "<group>"; };
+		C18A347724387D2600681DFD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		C18A34792438A88C00681DFD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C18A347B2438DE8800681DFD /* AccidentFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentFilter.swift; sourceTree = "<group>"; };
+		C1B9795524373BD20023EA30 /* AccidentMarkersClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentMarkersClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +177,7 @@
 				C144A8E0243080F30032FDCA /* RealmSwift in Frameworks */,
 				C144A8E3243081B50032FDCA /* Eureka in Frameworks */,
 				C144A8D824307D790032FDCA /* Alamofire in Frameworks */,
+				C1B97954243676620023EA30 /* SwiftLocation in Frameworks */,
 				C144A8DB24307E050032FDCA /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,6 +218,7 @@
 		30367E9F1A9D0AA300B16DA1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C18A347624387D0900681DFD /* SwiftUI */,
 				30D6E5B51A92639500337FDB /* Main.storyboard */,
 				30367EA11A9D0ACC00B16DA1 /* Views */,
 				30673C6E1C1F5EE600CEB5FB /* Main Screen */,
@@ -229,9 +242,10 @@
 				30568A961C0CDAFD00471D83 /* Model */,
 				30BE3E311B7918C90092CEAB /* Constants.swift */,
 				30CDE5161BFA690A00BBC183 /* Localization.swift */,
-				301788FE1E804B6D00EA1C13 /* Location.swift */,
+				301788FE1E804B6D00EA1C13 /* LocationStorage.swift */,
 				30DAA0971AC1F95D001F67D2 /* Extensions.swift */,
 				309DD0451BFA464100AF80D1 /* Utilities.swift */,
+				C1B9795524373BD20023EA30 /* AccidentMarkersClient.swift */,
 			);
 			name = Business;
 			sourceTree = "<group>";
@@ -263,6 +277,7 @@
 				30568A911C0CDAA700471D83 /* Marker */,
 				30673C751C1F622B00CEB5FB /* Data */,
 				30673C761C1F623500CEB5FB /* Filter.swift */,
+				C18A347B2438DE8800681DFD /* AccidentFilter.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -404,6 +419,16 @@
 			name = "Swift Libraries";
 			sourceTree = "<group>";
 		};
+		C18A347624387D0900681DFD /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				C18A34792438A88C00681DFD /* SceneDelegate.swift */,
+				C18A34742437A20D00681DFD /* AccidentsMapView.swift */,
+				C18A347724387D2600681DFD /* MainView.swift */,
+			);
+			name = SwiftUI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -429,6 +454,7 @@
 				C144A8DF243080F30032FDCA /* RealmSwift */,
 				C144A8E2243081B50032FDCA /* Eureka */,
 				C1D25EBE24327F77004E80F0 /* SwiftyUserDefaults */,
+				C1B97953243676620023EA30 /* SwiftLocation */,
 			);
 			productName = Anyway;
 			productReference = 30D6E5AC1A92639500337FDB /* Anyway.app */;
@@ -470,6 +496,7 @@
 				C144A8DC243080F30032FDCA /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				C144A8E1243081B50032FDCA /* XCRemoteSwiftPackageReference "Eureka" */,
 				C1D25EBD24327F77004E80F0 /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */,
+				C1B97952243676620023EA30 /* XCRemoteSwiftPackageReference "SwiftLocation" */,
 			);
 			productRefGroup = 30D6E5AD1A92639500337FDB /* Products */;
 			projectDirPath = "";
@@ -540,7 +567,7 @@
 				30BEB4691A9D1A7A005F3205 /* JGProgressHUDIndicatorView.m in Sources */,
 				30BEB46A1A9D1A7A005F3205 /* JGProgressHUDPieIndicatorView.m in Sources */,
 				30673C771C1F623500CEB5FB /* Filter.swift in Sources */,
-				301788FF1E804B6D00EA1C13 /* Location.swift in Sources */,
+				301788FF1E804B6D00EA1C13 /* LocationStorage.swift in Sources */,
 				307751E11C5FDEE50071F6FA /* FilterViewController+Setup.swift in Sources */,
 				30C9AB2A1C56A7A100E35928 /* LanguageViewController.swift in Sources */,
 				30667BAA1A92698900853125 /* Marker.swift in Sources */,
@@ -559,6 +586,7 @@
 				30BEB4681A9D1A7A005F3205 /* JGProgressHUDIndeterminateIndicatorView.m in Sources */,
 				30367EA31A9D0AEB00B16DA1 /* InsetLabel.swift in Sources */,
 				30D6E5D61A92647300337FDB /* PrintlnMagic.swift in Sources */,
+				C18A347824387D2600681DFD /* MainView.swift in Sources */,
 				30CC256F1B4B11A800BE8FE9 /* AccidentsViewController.swift in Sources */,
 				30CDE5151BFA555500BBC183 /* Alamofire-SwiftyJSON.swift in Sources */,
 				30568A981C0CDF4C00471D83 /* Vehicle.swift in Sources */,
@@ -567,6 +595,7 @@
 				30BEB4641A9D1A7A005F3205 /* JGProgressHUDAnimation.m in Sources */,
 				3063AFDA1C3B0B77003B995D /* ViewController+LocationServices.swift in Sources */,
 				30AF036D1A9BC663008B7889 /* AnnotationCoordinateUtility.m in Sources */,
+				C1B9795624373BD20023EA30 /* AccidentMarkersClient.swift in Sources */,
 				30CDE5171BFA690A00BBC183 /* Localization.swift in Sources */,
 				309DD0461BFA464100AF80D1 /* Utilities.swift in Sources */,
 				30D6E5B41A92639500337FDB /* ViewController.swift in Sources */,
@@ -574,11 +603,14 @@
 				30BEB4651A9D1A7A005F3205 /* JGProgressHUDErrorIndicatorView.m in Sources */,
 				30367E9C1A9D006400B16DA1 /* OCAnnotation.m in Sources */,
 				30568A931C0CDAB500471D83 /* Marker+General.swift in Sources */,
+				C18A34752437A20D00681DFD /* AccidentsMapView.swift in Sources */,
 				30DAA0981AC1F95D001F67D2 /* Extensions.swift in Sources */,
+				C18A347A2438A88C00681DFD /* SceneDelegate.swift in Sources */,
 				30BEB46B1A9D1A7A005F3205 /* JGProgressHUDRingIndicatorView.m in Sources */,
 				30BEB46C1A9D1A7A005F3205 /* JGProgressHUDSuccessIndicatorView.m in Sources */,
 				3097F9B41B959CDA0037FFF6 /* MarkerViews.swift in Sources */,
 				30D6E5B21A92639500337FDB /* AppDelegate.swift in Sources */,
+				C18A347C2438DE8800681DFD /* AccidentFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,7 +689,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -678,7 +710,7 @@
 				DEVELOPMENT_TEAM = S3QXV6NHS9;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Anyway/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "il.org.hasadna.Anyway-liatgr";
@@ -729,7 +761,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -749,7 +781,7 @@
 				DEVELOPMENT_TEAM = S3QXV6NHS9;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Anyway/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "il.org.hasadna.Anyway-liatgr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -816,6 +848,14 @@
 				minimumVersion = 5.2.1;
 			};
 		};
+		C1B97952243676620023EA30 /* XCRemoteSwiftPackageReference "SwiftLocation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftLocation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
 		C1D25EBD24327F77004E80F0 /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sunshinejr/SwiftyUserDefaults.git";
@@ -851,6 +891,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C144A8E1243081B50032FDCA /* XCRemoteSwiftPackageReference "Eureka" */;
 			productName = Eureka;
+		};
+		C1B97953243676620023EA30 /* SwiftLocation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1B97952243676620023EA30 /* XCRemoteSwiftPackageReference "SwiftLocation" */;
+			productName = SwiftLocation;
 		};
 		C1D25EBE24327F77004E80F0 /* SwiftyUserDefaults */ = {
 			isa = XCSwiftPackageProductDependency;

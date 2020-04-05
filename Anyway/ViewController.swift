@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyUserDefaults
+import SwiftLocation
 
 private func newHud() -> JGProgressHUD {
     let hud = JGProgressHUD(style: .light)
@@ -71,8 +72,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var isTrackingHistory: Bool {
         get { return Defaults.isTrackingHistory }
         set { Defaults.isTrackingHistory = newValue }
-//        get{ return UserDefaults.standard.bool(forKey: "isTrackingHistory") }
-//        set{ UserDefaults.standard.set(newValue, forKey: "isTrackingHistory") }
     }
     
     //MARK: - Lifecycle
@@ -90,9 +89,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // Set the master (map) relative side
         splitViewController?.minimumPrimaryColumnWidth = view.frame.width * 0.6
         splitViewController?.maximumPrimaryColumnWidth = view.frame.width * 0.6
-        
+
+//        isTrackingHistory = true
         if isTrackingHistory {
-            Location.shared.beginTrackingLocation(requestAuthorizationIfNeeded: false)
+            LocationStorage.shared.beginTrackingLocation(requestAuthorizationIfNeeded: false)
         }
     }
 
@@ -160,6 +160,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         gettingInfo = true
 //        hud.show(in: view)
         print("Getting some...")
+
+//        AccidentMarkersClient.shared.getMarkers(edges: map.edgePoints(), filter: filter)
         
         
         network.getAnnotations(map.edgePoints(), filter: filter) { [weak self] marks, count in
@@ -228,28 +230,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             let cancel = UIAlertAction(title: cancelText, style: .cancel, handler: nil)
             
             
-            let locationAllowed = Location.shared.isLocationMonitoringAuthorized
-            let confirmLocationText = NSLocalizedString("main_history_prompt_alert_confirm_request_location", comment: "")
-            let confirmText = NSLocalizedString("main_history_prompt_alert_confirm", comment: "")
-            let confirmTitle = locationAllowed ? confirmText : confirmLocationText
-            
-            let confirm = UIAlertAction(title: confirmTitle, style: .default) { [weak self] _ in
-                if Location.shared.didAskAuthorization == false || locationAllowed {
-                    // begin tracking
-                    Location.shared.beginTrackingLocation(requestAuthorizationIfNeeded: true)
-                    self?.isTrackingHistory = true
-                } else {
-                    // open app settings to change authorization
-                    let settingsUrl = URL(string: UIApplication.openSettingsURLString)!
-                    if #available(iOS 10.0, *) {
-                        UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
-                    } else {
-                        UIApplication.shared.openURL(settingsUrl)
-                    }
-                }
-            }
-            
-            prompt.addAction(confirm)
+//            let locationAllowed = LocationStorage.shared.isLocationMonitoringAuthorized
+//            let confirmLocationText = NSLocalizedString("main_history_prompt_alert_confirm_request_location", comment: "")
+//            let confirmText = NSLocalizedString("main_history_prompt_alert_confirm", comment: "")
+//            let confirmTitle = locationAllowed ? confirmText : confirmLocationText
+//            
+//            let confirm = UIAlertAction(title: confirmTitle, style: .default) { [weak self] _ in
+//                if LocationStorage.shared.didAskAuthorization == false || locationAllowed {
+//                    // begin tracking
+//                    LocationStorage.shared.beginTrackingLocation(requestAuthorizationIfNeeded: true)
+//                    self?.isTrackingHistory = true
+//                } else {
+//                    // open app settings to change authorization
+//                    let settingsUrl = URL(string: UIApplication.openSettingsURLString)!
+//                    if #available(iOS 10.0, *) {
+//                        UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
+//                    } else {
+//                        UIApplication.shared.openURL(settingsUrl)
+//                    }
+//                }
+//            }
+//            
+//            prompt.addAction(confirm)
             prompt.addAction(cancel)
             
             prompt.popoverPresentationController?.sourceView = sender

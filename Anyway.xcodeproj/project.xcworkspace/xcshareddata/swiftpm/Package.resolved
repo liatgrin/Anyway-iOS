@@ -38,6 +38,15 @@
         }
       },
       {
+        "package": "SwiftLocation",
+        "repositoryURL": "https://github.com/malcommac/SwiftLocation.git",
+        "state": {
+          "branch": null,
+          "revision": "0738a53d828ac3bede72b718af18a915ff1ed27d",
+          "version": "4.2.0"
+        }
+      },
+      {
         "package": "SwiftyJSON",
         "repositoryURL": "https://github.com/SwiftyJSON/SwiftyJSON.git",
         "state": {
