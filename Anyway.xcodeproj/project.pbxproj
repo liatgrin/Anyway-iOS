@@ -69,6 +69,8 @@
 		C18A347824387D2600681DFD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18A347724387D2600681DFD /* MainView.swift */; };
 		C18A347A2438A88C00681DFD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18A34792438A88C00681DFD /* SceneDelegate.swift */; };
 		C18A347C2438DE8800681DFD /* AccidentFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18A347B2438DE8800681DFD /* AccidentFilter.swift */; };
+		C18A347E243A5E0C00681DFD /* Annotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18A347D243A5E0B00681DFD /* Annotations.swift */; };
+		C1B43FBA243F2BA800A5AC7C /* AccidentMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B43FB9243F2BA800A5AC7C /* AccidentMarkerView.swift */; };
 		C1B97954243676620023EA30 /* SwiftLocation in Frameworks */ = {isa = PBXBuildFile; productRef = C1B97953243676620023EA30 /* SwiftLocation */; };
 		C1B9795624373BD20023EA30 /* AccidentMarkersClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B9795524373BD20023EA30 /* AccidentMarkersClient.swift */; };
 		C1D25EBF24327F77004E80F0 /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = C1D25EBE24327F77004E80F0 /* SwiftyUserDefaults */; };
@@ -164,6 +166,8 @@
 		C18A347724387D2600681DFD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C18A34792438A88C00681DFD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C18A347B2438DE8800681DFD /* AccidentFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentFilter.swift; sourceTree = "<group>"; };
+		C18A347D243A5E0B00681DFD /* Annotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotations.swift; sourceTree = "<group>"; };
+		C1B43FB9243F2BA800A5AC7C /* AccidentMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentMarkerView.swift; sourceTree = "<group>"; };
 		C1B9795524373BD20023EA30 /* AccidentMarkersClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentMarkersClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -278,6 +282,7 @@
 				30673C751C1F622B00CEB5FB /* Data */,
 				30673C761C1F623500CEB5FB /* Filter.swift */,
 				C18A347B2438DE8800681DFD /* AccidentFilter.swift */,
+				C18A347D243A5E0B00681DFD /* Annotations.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -425,6 +430,7 @@
 				C18A34792438A88C00681DFD /* SceneDelegate.swift */,
 				C18A34742437A20D00681DFD /* AccidentsMapView.swift */,
 				C18A347724387D2600681DFD /* MainView.swift */,
+				C1B43FB9243F2BA800A5AC7C /* AccidentMarkerView.swift */,
 			);
 			name = SwiftUI;
 			sourceTree = "<group>";
@@ -565,7 +571,9 @@
 				307751E31C5FDFC60071F6FA /* ViewController+FilterScreen.swift in Sources */,
 				30673C701C1F5F1600CEB5FB /* ViewController+MapView.swift in Sources */,
 				30BEB4691A9D1A7A005F3205 /* JGProgressHUDIndicatorView.m in Sources */,
+				C1B43FBA243F2BA800A5AC7C /* AccidentMarkerView.swift in Sources */,
 				30BEB46A1A9D1A7A005F3205 /* JGProgressHUDPieIndicatorView.m in Sources */,
+				C18A347E243A5E0C00681DFD /* Annotations.swift in Sources */,
 				30673C771C1F623500CEB5FB /* Filter.swift in Sources */,
 				301788FF1E804B6D00EA1C13 /* LocationStorage.swift in Sources */,
 				307751E11C5FDEE50071F6FA /* FilterViewController+Setup.swift in Sources */,

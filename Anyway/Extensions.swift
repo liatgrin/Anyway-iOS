@@ -78,8 +78,8 @@ extension JSONDecoder.DateDecodingStrategy {
     }
 }
 
-extension Dictionary {
-    mutating func appendOrInsert(to key: Key, element: Array<Element>) {
+extension Dictionary where Value == Array<Any> {
+    mutating func appendOrInsert(to key: Key, element: Any) {
         if let _ = self[key] {
             self[key]!.append(element)
         }

@@ -24,8 +24,8 @@ enum Occasion: Int {
     case all, holiday, holidayEve, intermediate, weekday
 }
 
-enum Severity {
-    case light, severe, fatal, all
+enum Severity: Int {
+    case fatal = 1, severe, light, all
 }
 
 enum StreetDirection {

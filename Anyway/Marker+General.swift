@@ -9,7 +9,7 @@
 import Foundation
 
 
-typealias Coordinate = CLLocationCoordinate2D
+//typealias Coordinate = CLLocationCoordinate2D
 
 
 //MARK: - Protocols

@@ -11,11 +11,11 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 
-protocol NewMarker {
-    var coordinate: Coordinate { get }
-}
+//protocol NewMarker {
+//    var coordinate: Coordinate { get }
+//}
 
-class AccidentMarker: Decodable, NewMarker {
+class AccidentMarker: NSObject, Decodable {
 
     let id: String
     let created: Date
@@ -27,12 +27,6 @@ class AccidentMarker: Decodable, NewMarker {
 
     let accidentSeverity: Int
     let accidentYear: Int
-
-    var coordinate: Coordinate {
-        get {
-            return Coordinate(latitude: latitude, longitude: longitude)
-        }
-    }
 
     private enum CodingKeys: String, CodingKey {
         case providerCode = "provider_code"
@@ -116,12 +110,12 @@ class AccidentDetails: Decodable {
     }
 }
 
-struct AccidentMarkerGroup: NewMarker {
-
-    let coordinate: Coordinate
-    let markers: [AccidentMarker]
-
-}
+//struct AccidentMarkerGroup: NewMarker {
+//
+//    let coordinate: Coordinate
+//    let markers: [AccidentMarker]
+//
+//}
 
 fileprivate struct MarkerParams: Encodable {
 
@@ -208,42 +202,36 @@ class AccidentMarkersClient {
 
     private init() {}
 
-    func getAccidentMarkers(around center: Coordinate, filter: Filter, completion: @escaping ([NewMarker]?) -> Void) {
+    func getAccidentMarkers(around center: Coordinate, filter: Filter, completion: @escaping ([AccidentMarker]?) -> Void) {
         guard self.lock.try() else { return }
 
         let params = self.buildMarkerParams(center, filter)
         AF.request(markersUrl, parameters: params.toJSON()).responseJSON { responseValue in
 
-            let groupedMarkers: [NewMarker]?
+            let markers: [AccidentMarker]?
 
             switch responseValue.result {
             case .failure(let err):
                 print("Error! \(err)")
-                groupedMarkers = nil
+                markers = nil
             case .success(let value):
                 let jsonMarkers = JSON(value)["markers"].array ?? []
-                let markers = jsonMarkers.compactMap { AccidentMarker.from(json: $0) }
-                let mapping: [NSValue:[AccidentMarker]] = markers.reduce(into: [:]) { (result, marker) in
-                    let key = NSValue(mkCoordinate: marker.coordinate)
-                    result.appendOrInsert(to: key, element: marker)
-                    if let _ = result[key] {
-                        result[key]!.append(marker)
-                    }
-                    else {
-                        result[key] = [marker]
-                    }
-                }
-                groupedMarkers = mapping.map { key, value in
-                    if value.count == 1 {
-                        return value.first!
-                    }
-                    else {
-                        return AccidentMarkerGroup(coordinate: key.mkCoordinateValue, markers: value)
-                    }
-                }
+                markers = jsonMarkers.compactMap { AccidentMarker.from(json: $0) }
+//                let mapping: [NSValue:[Any]] = markers.reduce(into: [:]) { (result, marker) in
+//                    let key = NSValue(mkCoordinate: marker.coordinate)
+//                    result.appendOrInsert(to: key, element: marker)
+//                }
+//                groupedMarkers = mapping.map { key, value in
+//                    if value.count == 1 {
+//                        return value.first! as! NewMarker
+//                    }
+//                    else {
+//                        return AccidentMarkerGroup(coordinate: key.mkCoordinateValue, markers: value as! [AccidentMarker])
+//                    }
+//                }
             }
 
-            completion(groupedMarkers)
+            completion(markers)
             self.lock.unlock()
         }
     }
@@ -292,7 +280,7 @@ class AccidentMarkersClient {
 
     private func getSearchBoundary(_ center: Coordinate) -> Edges {
         // find the edges of the search area
-        let areaDiameter = 70.0 // in meters
+        let areaDiameter = 500.0 // in meters
 
         let searchRadius = areaDiameter / 2
         let earthRadius = 6378.0 * 1000.0
